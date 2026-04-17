@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- White background circle for contrast against any bg -->
+  <circle cx="50" cy="50" r="48" fill="white" fill-opacity="0.95" />
+  
+  <!-- Stylized V shape - Thicker and Darker Teal -->
+  <path d="M30 35 L50 75 L70 35" stroke="#0E7490" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Leaf accent - Brighter Teal/Cyan -->
+  <path d="M70 35 Q80 20 65 25 Q70 35 70 35" fill="#06B6D4" stroke="white" stroke-width="2" />
+  
+  <!-- Tooth hint - Subtle but visible -->
+  <path d="M40 45 Q50 35 60 45" stroke="#0E7490" stroke-width="5" stroke-linecap="round" opacity="0.3" />
+</svg>

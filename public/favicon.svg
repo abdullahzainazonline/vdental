@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Solid teal background for visibility on tabs -->
+  <rect width="100" height="100" rx="20" fill="#0E7490" />
+  
+  <!-- White V -->
+  <path d="M30 35 L50 75 L70 35" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Accent leaf -->
+  <path d="M70 35 Q80 20 65 25 Q70 35 70 35" fill="#2DD4BF" />
+</svg>

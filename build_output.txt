@@ -1,0 +1,45 @@
+﻿   Γû▓ Next.js 15.3.3
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully in 55s
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+node.exe : [Error 
+[PageNotFoundError]: 
+Cannot find module 
+for page: 
+/favicon.ico] {
+At C:\Program 
+Files\npx.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: ([Error    
+ [PageNot.../favi    
+con.ico] {:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+  code: 'ENOENT'
+}
+[Error 
+[PageNotFoundError]: 
+Cannot find module 
+for page: /about] {
+  code: 'ENOENT'
+}
+
+> Build error 
+occurred
+[Error: Failed to 
+collect page data 
+for /favicon.ico] { 
+type: 'Error' }
