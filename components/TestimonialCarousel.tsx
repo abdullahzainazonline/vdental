@@ -6,6 +6,7 @@ import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { TESTIMONIALS } from "@/lib/constants";
 
 const AUTO_INTERVAL = 6000; // 6 seconds between slides
+const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function TestimonialCarousel() {
   const [current, setCurrent] = useState(0);
@@ -51,13 +52,13 @@ export default function TestimonialCarousel() {
       x: 0,
       opacity: 1,
       filter: "blur(0px)",
-      transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.65, ease: EASE_SMOOTH },
     },
     exit: (dir: number) => ({
       x: dir > 0 ? -60 : 60,
       opacity: 0,
       filter: "blur(4px)",
-      transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.45, ease: EASE_SMOOTH },
     }),
   };
 

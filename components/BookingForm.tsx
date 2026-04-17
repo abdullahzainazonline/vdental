@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { Send, Calendar, User, Phone, MessageSquare, Clipboard } from "lucide-react";
 import { SERVICES } from "@/lib/constants";
 
+const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 interface BookingFormData {
   name: string;
   phone: string;
@@ -42,7 +44,7 @@ export default function BookingForm({ compact = false }: { compact?: boolean }) 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.6, ease: EASE_SMOOTH }}
       onSubmit={handleSubmit(onSubmit)}
       className={`space-y-5 ${compact ? "" : "rounded-3xl bg-white p-7 shadow-xl shadow-neutral-900/5 md:p-9 border border-primary/30"}`}
     >

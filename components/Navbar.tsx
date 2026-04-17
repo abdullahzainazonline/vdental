@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Calendar, ChevronRight } from "lucide-react";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 
+const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 /** Returns { isOpen, label } based on current Malaysia time vs clinic hours */
 function useClinicStatus() {
   const getStatus = () => {
@@ -81,7 +83,7 @@ export default function Navbar() {
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, ease: EASE_SMOOTH }}
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 border-b ${scrolled
           ? "bg-white/90 shadow-lg shadow-primary/5 backdrop-blur-xl border-primary/10"
           : "bg-transparent border-transparent"
@@ -244,7 +246,7 @@ export default function Navbar() {
                         key={link.href}
                         initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{ delay: i * 0.06, ease: EASE_SMOOTH }}
                       >
                         <Link
                           href={link.href}

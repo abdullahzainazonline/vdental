@@ -3,6 +3,8 @@
 import { motion, useInView, useScroll, useTransform, type Variants } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 
+const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 /* ─── ScrollReveal ─── */
 interface ScrollRevealProps {
   children: ReactNode;
@@ -43,7 +45,7 @@ export function ScrollReveal({
       variants={getVariants(direction)}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration, delay, ease: EASE_SMOOTH }}
       className={className}
     >
       {children}
@@ -73,7 +75,7 @@ export function BlurReveal({
           ? { opacity: 1, filter: "blur(0px)", scale: 1 }
           : { opacity: 0, filter: "blur(20px)", scale: 0.95 }
       }
-      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.8, delay, ease: EASE_SMOOTH }}
       className={className}
     >
       {children}
@@ -103,7 +105,7 @@ export function ScaleReveal({
           ? { opacity: 1, scale: 1, filter: "blur(0px)" }
           : { opacity: 0, scale: 0.85, filter: "blur(6px)" }
       }
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.6, delay, ease: EASE_SMOOTH }}
       className={className}
     >
       {children}
@@ -152,7 +154,7 @@ export function StaggerItem({
           opacity: 1,
           y: 0,
           filter: "blur(0px)",
-          transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+          transition: { duration: 0.6, ease: EASE_SMOOTH },
         },
       }}
       className={className}

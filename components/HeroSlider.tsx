@@ -14,6 +14,8 @@ import { getWhatsAppUrl } from "@/lib/utils";
 import Link from "next/link";
 import MagneticButton from "./MagneticButton";
 
+const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 /* ──────────────────────────────────────────────
    Slide transition variants (horizontal)
    ────────────────────────────────────────────── */
@@ -25,18 +27,18 @@ const slideVariants = {
   center: {
     x: 0,
     opacity: 1,
-    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.75, ease: EASE_SMOOTH },
   },
   exit: (direction: number) => ({
     x: direction > 0 ? "-100%" : "100%",
     opacity: 0,
-    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.75, ease: EASE_SMOOTH },
   }),
 };
 
 const textVariants = {
   enter: { opacity: 0, y: 24 },
-  center: { opacity: 1, y: 0, transition: { duration: 0.65, delay: 0.15, ease: [0.22, 1, 0.36, 1] } },
+  center: { opacity: 1, y: 0, transition: { duration: 0.65, delay: 0.15, ease: EASE_SMOOTH } },
   exit: { opacity: 0, y: -16, transition: { duration: 0.4 } },
 };
 
@@ -225,7 +227,7 @@ export default function HeroSlider() {
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ delay: 0.35, duration: 0.7, ease: EASE_SMOOTH }}
                   className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white sm:mb-8 sm:text-6xl md:text-7xl lg:text-8xl lg:leading-[1.1] drop-shadow-2xl"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >

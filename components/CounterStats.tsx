@@ -5,6 +5,8 @@ import { useRef } from "react";
 import { STATS } from "@/lib/constants";
 import { AnimatedCounter, FloatingElement } from "./ScrollAnimations";
 
+const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 export default function CounterStats() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
@@ -30,7 +32,7 @@ export default function CounterStats() {
               key={stat.label}
               initial={{ opacity: 0, y: 40, scale: 0.9 }}
               animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.7, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7, delay: i * 0.15, ease: EASE_SMOOTH }}
               className="group text-center"
             >
               <div className="mx-auto mb-3 inline-flex min-h-[4rem] w-auto items-center justify-center rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/20 group-hover:scale-105 border border-white/20 group-hover:border-white/40">
