@@ -3,12 +3,13 @@
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
-import { Send, Calendar, User, Phone, MessageSquare, Clipboard } from "lucide-react";
+import { Send, Calendar, User, Phone, Mail, MessageSquare, Clipboard } from "lucide-react";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 interface BookingFormData {
   name: string;
+  email: string;
   phone: string;
   service: string;
   date: string;
@@ -99,6 +100,24 @@ export default function BookingForm({ compact = false }: { compact?: boolean }) 
             className={inputClass}
           />
           {errors.phone && <p className={errorClass}>{errors.phone.message}</p>}
+        </div>
+
+        {/* Email */}
+        <div className="relative group">
+          <Mail className="absolute left-4 top-4 h-4 w-4 text-neutral-400 transition-colors group-focus-within:text-primary" />
+          <input
+            type="email"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+                message: "Invalid email address",
+              },
+            })}
+            placeholder="Email (e.g. name@example.com)"
+            className={inputClass}
+          />
+          {errors.email && <p className={errorClass}>{errors.email.message}</p>}
         </div>
 
         {/* Service */}

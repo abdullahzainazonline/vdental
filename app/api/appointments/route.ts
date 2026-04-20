@@ -3,6 +3,7 @@ import { Resend } from "resend";
 
 interface AppointmentRequest {
   name?: string;
+  email?: string;
   phone?: string;
   service?: string;
   date?: string;
@@ -14,6 +15,10 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 function isValidPhone(value: string) {
   return /^[0-9+\-\s()]{8,15}$/.test(value);
+}
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
 }
 
 function escapeHtml(value: string) {
@@ -37,14 +42,22 @@ export async function POST(request: Request) {
     const body = (await request.json()) as AppointmentRequest;
 
     const name = (body.name || "").trim();
+    const email = (body.email || "").trim();
     const phone = (body.phone || "").trim();
     const service = (body.service || "").trim();
     const date = (body.date || "").trim();
     const message = (body.message || "").trim();
 
-    if (!name || !phone || !service || !date) {
+    if (!name || !email || !phone || !service || !date) {
       return NextResponse.json(
         { error: "Please complete all required fields." },
+        { status: 400 }
+      );
+    }
+
+    if (!isValidEmail(email)) {
+      return NextResponse.json(
+        { error: "Please enter a valid email address." },
         { status: 400 }
       );
     }
@@ -67,6 +80,7 @@ export async function POST(request: Request) {
     });
 
     const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
     const safePhone = escapeHtml(phone);
     const safeService = escapeHtml(service);
     const safeDate = escapeHtml(formattedDate);
@@ -76,12 +90,13 @@ export async function POST(request: Request) {
       from,
       to,
       subject: `New Appointment Request - ${name}`,
-      replyTo: to,
+      replyTo: email,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111827;">
           <h2 style="margin: 0 0 16px;">New Appointment Request</h2>
           <table style="border-collapse: collapse; width: 100%; max-width: 560px;">
             <tr><td style="padding: 8px; font-weight: 700; width: 150px;">Name</td><td style="padding: 8px;">${safeName}</td></tr>
+            <tr><td style="padding: 8px; font-weight: 700;">Email</td><td style="padding: 8px;">${safeEmail}</td></tr>
             <tr><td style="padding: 8px; font-weight: 700;">Phone</td><td style="padding: 8px;">${safePhone}</td></tr>
             <tr><td style="padding: 8px; font-weight: 700;">Service</td><td style="padding: 8px;">${safeService}</td></tr>
             <tr><td style="padding: 8px; font-weight: 700;">Preferred Date</td><td style="padding: 8px;">${safeDate}</td></tr>
@@ -92,6 +107,7 @@ export async function POST(request: Request) {
       text: [
         "New Appointment Request",
         `Name: ${name}`,
+        `Email: ${email}`,
         `Phone: ${phone}`,
         `Service: ${service}`,
         `Preferred Date: ${formattedDate}`,
