@@ -155,7 +155,7 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="flex flex-wrap gap-3">
-                    <Link href="/contact" className="btn-shine inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary-light px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                    <Link href="/contact#appointment-form" className="btn-shine inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary-light px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-xl">
                       Book This Service
                       <ArrowRight className="h-4 w-4" />
                     </Link>
@@ -220,7 +220,7 @@ export default function ServicesPage() {
                   Our friendly dentists will assess your needs and recommend the best treatment plan. <em>Pricing may vary — subject to clinic's rates at time of visit.</em>
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <Link href="/contact" className="btn-shine rounded-full bg-white px-9 py-4 font-bold text-primary shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                  <Link href="/contact#appointment-form" className="btn-shine rounded-full bg-white px-9 py-4 font-bold text-primary shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                     Book a Consultation
                   </Link>
                   <a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}`} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-white/30 px-9 py-4 font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:scale-105">

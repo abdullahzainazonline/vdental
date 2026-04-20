@@ -106,7 +106,7 @@ export default function DentistsPage() {
                       </div>
                     </div>
 
-                    <Link href="/contact" className="btn-shine inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105 hover:bg-primary-light hover:shadow-xl">
+                    <Link href="/contact#appointment-form" className="btn-shine inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105 hover:bg-primary-light hover:shadow-xl">
                       Book with {doc.name.split(" ")[0]} {doc.name.split(" ")[1]}
                       <ArrowRight className="h-4 w-4" />
                     </Link>
@@ -165,7 +165,7 @@ export default function DentistsPage() {
                   Schedule your appointment today and experience the V Dental difference.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <Link href="/contact" className="btn-shine rounded-full bg-white px-9 py-4 font-bold text-primary shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                  <Link href="/contact#appointment-form" className="btn-shine rounded-full bg-white px-9 py-4 font-bold text-primary shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                     Book Appointment
                   </Link>
                   <a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}`} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-white/30 px-9 py-4 font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:scale-105">

@@ -253,7 +253,7 @@ export default function HeroSlider() {
                 >
                   <MagneticButton>
                     <Link
-                      href="/contact"
+                      href="/contact#appointment-form"
                       className="btn-shine group inline-flex items-center justify-center gap-2.5 rounded-full bg-accent px-8 py-4 text-white font-bold text-neutral-900 shadow-xl shadow-accent/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent/40"
                     >
                       <Phone className="h-5 w-5 transition-transform group-hover:rotate-12" />

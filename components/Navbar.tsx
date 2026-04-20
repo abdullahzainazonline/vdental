@@ -183,7 +183,7 @@ export default function Navbar() {
           {/* CTA + mobile toggle */}
           <div className="flex items-center gap-3">
             <Link
-              href="/contact"
+              href="/contact#appointment-form"
               className={`hidden items-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold transition-all duration-300 sm:inline-flex ${scrolled
                 ? "bg-accent text-neutral-900 shadow-md shadow-accent/20 hover:shadow-lg hover:shadow-accent/30 hover:scale-105"
                 : "bg-accent/90 text-neutral-900 backdrop-blur-sm hover:bg-accent hover:scale-105"
@@ -270,7 +270,7 @@ export default function Navbar() {
                   className="mt-8 space-y-3"
                 >
                   <Link
-                    href="/contact"
+                    href="/contact#appointment-form"
                     className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-base font-bold text-neutral-900 shadow-md shadow-accent/20 transition-all hover:bg-accent-light"
                   >
                     <Calendar className="h-5 w-5" />

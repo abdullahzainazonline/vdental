@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { Send, Calendar, User, Phone, MessageSquare, Clipboard } from "lucide-react";
-import { SERVICES } from "@/lib/constants";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -25,14 +24,32 @@ export default function BookingForm({ compact = false }: { compact?: boolean }) 
   } = useForm<BookingFormData>();
 
   const onSubmit = async (data: BookingFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Booking submitted:", data);
-    toast.success("Appointment request sent! We'll contact you within 24 hours.", {
-      duration: 5000,
-      style: { background: "#10B981", color: "#fff", fontWeight: "600", borderRadius: "16px" },
-      iconTheme: { primary: "#fff", secondary: "#10B981" },
-    });
-    reset();
+    try {
+      const response = await fetch("/api/appointments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(result.error || "Unable to submit appointment request.");
+      }
+
+      toast.success("Appointment request sent! We'll contact you within 24 hours.", {
+        duration: 5000,
+        style: { background: "#10B981", color: "#fff", fontWeight: "600", borderRadius: "16px" },
+        iconTheme: { primary: "#fff", secondary: "#10B981" },
+      });
+      reset();
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unable to submit appointment request.";
+      toast.error(message, {
+        duration: 5000,
+        style: { background: "#EF4444", color: "#fff", fontWeight: "600", borderRadius: "16px" },
+      });
+    }
   };
 
   const inputClass =

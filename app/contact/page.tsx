@@ -113,7 +113,7 @@ export default function ContactPage() {
       </section>
 
       {/* Booking Form & Map */}
-      <section className="relative bg-neutral-50 py-20 md:py-32 overflow-hidden section-divider">
+      <section id="appointment-form" className="relative bg-neutral-50 py-20 md:py-32 overflow-hidden section-divider scroll-mt-28">
         <div className="absolute top-0 right-0 h-72 w-72 translate-x-1/3 -translate-y-1/3 rounded-full bg-primary/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading badge="Book Now" title="Schedule Your Visit" subtitle="Fill in the form below and we'll confirm your appointment within 24 hours." />

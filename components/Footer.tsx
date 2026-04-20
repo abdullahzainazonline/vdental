@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/contact"
+              href="/contact#appointment-form"
               className="btn-shine inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-3.5 font-bold text-neutral-900 transition-all hover:scale-105 hover:bg-accent-light hover:shadow-xl"
             >
               Book Appointment

@@ -229,7 +229,7 @@ export default function GalleryPage() {
                   Join thousands of happy patients who have transformed their smiles at V Dental Clinic.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <Link href="/contact" className="btn-shine rounded-full bg-white px-9 py-4 font-bold text-primary shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                  <Link href="/contact#appointment-form" className="btn-shine rounded-full bg-white px-9 py-4 font-bold text-primary shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                     Book Appointment
                   </Link>
                   <a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}`} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-white/30 px-9 py-4 font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:scale-105">
