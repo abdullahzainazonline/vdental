@@ -89,8 +89,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Why V Dental"
-            title="Why Families Trust V Dental"
-            subtitle="We combine modern technology with personalized care to deliver exceptional dental experiences."
+            title="Why Choose us?"
+            subtitle="V stands for our Visions, to deliver exceptional service, personalised attention and outstanding results to every patient."
           />
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-8">
             <ScrollReveal direction="right" duration={0.8}>

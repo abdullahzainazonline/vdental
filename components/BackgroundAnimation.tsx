@@ -135,7 +135,7 @@ export default function BackgroundAnimation() {
 
     const initParticles = () => {
       particles = [];
-      const particleCount = Math.floor((canvas.width * canvas.height) / 10000); // Balanced density
+      const particleCount = Math.min(25, Math.floor((canvas.width * canvas.height) / 40000)); // Cap at 25 for flawless mobile performance
       for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
       }

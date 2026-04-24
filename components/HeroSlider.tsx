@@ -228,7 +228,7 @@ export default function HeroSlider() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35, duration: 0.7, ease: EASE_SMOOTH }}
-                  className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white sm:mb-8 sm:text-6xl md:text-7xl lg:text-8xl lg:leading-[1.1] drop-shadow-2xl"
+                  className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white sm:mb-8 sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[5rem] lg:leading-[1.15] drop-shadow-2xl"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
                   {slide.title}

@@ -56,7 +56,7 @@ export default function AboutPage() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="max-w-xl text-lg text-white/70 leading-relaxed"
           >
-            For over 15 years, V Dental Clinic has been the trusted dental care provider for families in SS2, Petaling Jaya and the Klang Valley.
+            For over 10 years, V Dental Clinic has been the trusted dental care provider for families in SS2, Petaling Jaya and the Klang Valley.
           </motion.p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
@@ -66,11 +66,11 @@ export default function AboutPage() {
       <section className="relative py-20 md:py-32 overflow-hidden section-divider">
         <div className="absolute top-0 right-0 h-72 w-72 translate-x-1/3 -translate-y-1/3 rounded-full bg-primary/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-14 lg:grid-cols-2">
+          <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
             <ScrollReveal direction="left">
               <div className="relative">
-                <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30">
-                  <img src="https://images.unsplash.com/photo-1629909615957-be38d6d07f08?w=800&q=80" alt="V Dental Clinic interior" className="h-[420px] w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
+                <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30 h-full">
+                  <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" alt="V Dental Clinic interior" className="h-[500px] w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
                 </div>
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
@@ -79,7 +79,7 @@ export default function AboutPage() {
                   transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
                   className="absolute -bottom-6 -right-4 md:-right-6 rounded-3xl bg-gradient-to-br from-primary to-primary-dark p-6 text-white shadow-xl shadow-primary/30"
                 >
-                  <div className="text-4xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>15+</div>
+                  <div className="text-4xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>10+</div>
                   <div className="text-sm text-white/70">Years of Excellence</div>
                 </motion.div>
               </div>
@@ -94,11 +94,20 @@ export default function AboutPage() {
                 <h2 className="mb-5 text-3xl font-bold text-neutral-900 md:text-4xl lg:text-5xl" style={{ fontFamily: "var(--font-heading)" }}>
                   A Legacy of <span className="gradient-text">Healthy Smiles</span>
                 </h2>
-                <p className="mb-4 leading-relaxed text-neutral-600">
-                  V Dental Clinic was established with a simple yet powerful vision: to provide world-class dental care in a warm, comfortable environment that families can trust. Located in the heart of SS2, Petaling Jaya, our clinic has grown from a small practice into one of the area&apos;s most respected dental centres.
+                <p className="mb-4 text-sm leading-relaxed text-neutral-600">
+                  Welcome to V Dental Clinic PJ - ss2 dentist, where our passion is your perfect smile. Located in the vibrant heart of SS2, Petaling Jaya, our clinic is more than just a place for dental treatments—it's a sanctuary for your dental health and well-being. At V Dental Clinic PJ - ss2 dentist, we pride ourselves on delivering exceptional service, personalized attention, and outstanding results that exceed your expectations.
                 </p>
-                <p className="mb-7 leading-relaxed text-neutral-600">
-                  Our team of experienced dentists combines clinical expertise with genuine compassion, ensuring every patient receives personalised care tailored to their unique needs.
+                <p className="mb-4 text-sm leading-relaxed text-neutral-600">
+                  Led by the esteemed Dr. Veron Koh, a seasoned expert in braces and implantology, our team is dedicated to transforming your smile with precision and care. Dr. Veron's extensive background includes 2.5 years in the Oral and Maxillofacial Surgery (OMFS) department at Sungai Buloh Hospital, where she meticulously honed her surgical skills. Additionally, she was a pioneer dentist at Lau Dental Clinic in Sri Petaling, bringing 6 years of private sector experience to our practice.
+                </p>
+                <p className="mb-4 text-sm leading-relaxed text-neutral-600">
+                  With over a decade of experience and a proven track record, Dr. Veron has successfully completed more than 500 braces cases and placed over 100 dental implants, including extensive work in wisdom tooth surgical extraction. Her drive and dedication ensure you receive top-notch care, utilizing the latest technology and innovative techniques.
+                </p>
+                <p className="mb-4 text-sm leading-relaxed text-neutral-600">
+                  Our clinic offers a warm and welcoming atmosphere designed to make your visit as pleasant and stress-free as possible. Whether it's your first check-up or a comprehensive smile makeover, we treat you like family. Our wide range of services includes orthodontics, implants, crowns and bridges, dentures, minor oral surgery, veneers, general dentistry, teeth whitening, and advanced X-rays, ensuring all your dental needs are covered.
+                </p>
+                <p className="mb-7 text-sm leading-relaxed text-neutral-600">
+                  At V Dental Clinic PJ - ss2 dentist, your smile is our top priority. Experience the difference with exceptional dental care in Petaling Jaya, cutting-edge technology, and a team that genuinely cares about your health and happiness. Join our family of satisfied patients and let us help you achieve the beautiful, confident smile you deserve.
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   {["Gentle & Patient-Focused", "Latest Technology", "Affordable Care", "Multilingual Team"].map((item, i) => (
@@ -130,15 +139,15 @@ export default function AboutPage() {
           <SectionHeading badge="Our Values" title="What We Stand For" subtitle="The principles that guide every interaction, treatment, and decision at V Dental Clinic." />
           <StaggerContainer className="grid gap-8 md:grid-cols-3" staggerDelay={0.15}>
             {VALUES.map((value) => (
-              <StaggerItem key={value.title}>
-                <div className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-lg shadow-neutral-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 tilt-card border border-primary/30">
+              <StaggerItem key={value.title} className="h-full">
+                <div className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-lg shadow-neutral-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 tilt-card border border-primary/30 h-full flex flex-col">
                   <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-primary/5 transition-all duration-700 group-hover:scale-[3] group-hover:bg-primary/8" />
                   <div className="relative">
                     <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 text-primary transition-all duration-500 group-hover:from-primary group-hover:to-secondary group-hover:text-white group-hover:shadow-lg group-hover:scale-110">
                       {iconMap[value.icon]}
                     </div>
-                    <h3 className="mb-3 text-xl font-bold text-neutral-900" style={{ fontFamily: "var(--font-heading)" }}>{value.title}</h3>
-                    <p className="text-sm leading-relaxed text-neutral-500">{value.description}</p>
+                    <h3 className="mb-3 text-xl font-bold text-neutral-900 shrink-0" style={{ fontFamily: "var(--font-heading)" }}>{value.title}</h3>
+                    <p className="text-sm leading-relaxed text-neutral-500 flex-1">{value.description}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -196,19 +205,19 @@ export default function AboutPage() {
             <ScrollReveal direction="right" delay={0.2}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="overflow-hidden rounded-3xl shadow-lg border border-primary/30">
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80" alt="Modern dental equipment" className="h-48 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
+                  <div className="overflow-hidden rounded-3xl shadow-lg border border-primary/30 bg-white flex items-center justify-center p-8">
+                    <img src="https://vdental.com.my/wp-content/uploads/2024/04/V-dental-logo-1000x1000-Transparent-1.png" alt="Modern dental equipment" className="h-32 w-auto object-contain transition-transform duration-700 hover:scale-110" loading="lazy" />
                   </div>
                   <div className="overflow-hidden rounded-3xl shadow-lg border border-primary/30">
-                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80" alt="Dental treatment room" className="h-64 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
+                    <img src="https://vdental.com.my/wp-content/uploads/2024/03/front-edited-Large.jpeg" alt="Dental treatment room" className="h-64 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
                   </div>
                 </div>
                 <div className="space-y-4 pt-10">
                   <div className="overflow-hidden rounded-3xl shadow-lg border border-primary/30">
-                    <img src="https://images.unsplash.com/photo-1629909615957-be38d6d07f08?w=600&q=80" alt="Dental clinic interior" className="h-64 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
+                    <img src="https://vdental.com.my/wp-content/uploads/2024/03/room-inner-Large.jpeg" alt="Dental clinic interior" className="h-64 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
                   </div>
                   <div className="overflow-hidden rounded-3xl shadow-lg border border-primary/30">
-                    <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80" alt="Patient consultation" className="h-48 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80" alt="Patient consultation" className="h-48 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -221,11 +230,11 @@ export default function AboutPage() {
       <section className="relative bg-neutral-50 py-20 md:py-32 overflow-hidden section-divider">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading badge="Our Team" title="Meet Our Dental Experts" subtitle="Experienced, caring professionals dedicated to your oral health." />
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
             {DENTISTS.map((doc, i) => (
-              <ScrollReveal key={doc.id} delay={i * 0.15}>
-                <div className="group overflow-hidden rounded-3xl bg-white shadow-lg shadow-neutral-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 tilt-card border border-primary/30">
-                  <div className="relative h-72 overflow-hidden">
+              <ScrollReveal key={doc.id} delay={i * 0.15} className="h-full">
+                <div className="group overflow-hidden rounded-3xl bg-white shadow-lg shadow-neutral-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 tilt-card border border-primary/30 h-full flex flex-col">
+                  <div className="relative h-72 shrink-0 overflow-hidden">
                     <img src={doc.image} alt={doc.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/20 to-transparent" />
                     <div className="absolute bottom-5 left-5 text-white">
@@ -233,9 +242,9 @@ export default function AboutPage() {
                       <p className="text-sm text-secondary-light">{doc.title}</p>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <p className="mb-3 text-xs text-neutral-500">{doc.qualifications}</p>
-                    <div className="flex flex-wrap gap-1.5">
+                  <div className="p-6 flex-1 flex flex-col">
+                    <p className="mb-3 text-xs text-neutral-500 shrink-0">{doc.qualifications}</p>
+                    <div className="flex flex-wrap gap-1.5 shrink-0">
                       {doc.specialties.map((s) => (
                         <span key={s} className="rounded-full bg-primary/5 px-3 py-1 text-xs font-medium text-primary">{s}</span>
                       ))}
@@ -272,7 +281,7 @@ export default function AboutPage() {
                 <div className="space-y-3 text-sm text-neutral-600">
                   <p>📍 {SITE_CONFIG.address}</p>
                   <p>📞 {SITE_CONFIG.phone}</p>
-                  <p>🕐 Open 7 days a week for your convenience</p>
+                  <p>🕐 Mon–Fri: 10AM–9PM &nbsp;|&nbsp; Sat–Sun: 9AM–6PM</p>
                 </div>
                 <div className="mt-7">
                   <Link href="/contact" className="btn-shine inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-light px-9 py-4 font-bold text-neutral-900 shadow-lg shadow-accent/20 transition-all duration-300 hover:scale-105 hover:shadow-xl">

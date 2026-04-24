@@ -58,7 +58,7 @@ export default function ServicesPage() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="max-w-xl text-lg text-white/70 leading-relaxed"
           >
-            From routine check-ups to advanced cosmetic and surgical treatments — everything your smile needs, under one roof.
+            At our state-of-the-art facility, we take pride in providing comprehensive dental care, specialising in both cosmetic dentistry and a full range of general dental services, ensuring that your oral health is in expert hands.
           </motion.p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
@@ -177,18 +177,18 @@ export default function ServicesPage() {
           <SectionHeading badge="Quick Overview" title="All Services at a Glance" subtitle="Click any service card above to view full details." />
           <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
             {SERVICES.map((s, i) => (
-              <StaggerItem key={s.id}>
+              <StaggerItem key={s.id} className="h-full">
                 <motion.button
                   onClick={() => { setActiveService(i); window.scrollTo({ top: 600, behavior: "smooth" }); }}
-                  className="group w-full text-left overflow-hidden rounded-3xl bg-white p-7 shadow-lg shadow-neutral-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 tilt-card border border-primary/30"
+                  className="group w-full text-left overflow-hidden rounded-3xl bg-white p-7 shadow-lg shadow-neutral-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 tilt-card border border-primary/30 h-full flex flex-col"
                   whileHover={{ y: -4 }}
                 >
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 text-primary transition-all duration-500 group-hover:from-primary group-hover:to-secondary group-hover:text-white group-hover:scale-110">
+                  <div className="mb-4 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 text-primary transition-all duration-500 group-hover:from-primary group-hover:to-secondary group-hover:text-white group-hover:scale-110">
                     {iconMap[s.icon]}
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-neutral-900" style={{ fontFamily: "var(--font-heading)" }}>{s.title}</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-neutral-500">{s.shortDesc}</p>
-                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                  <h3 className="mb-2 text-lg font-bold text-neutral-900 shrink-0" style={{ fontFamily: "var(--font-heading)" }}>{s.title}</h3>
+                  <p className="mb-4 text-sm flex-1 leading-relaxed text-neutral-500">{s.shortDesc}</p>
+                  <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary shrink-0">
                     Learn More
                     <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>

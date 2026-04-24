@@ -147,6 +147,9 @@ export default function GalleryPage() {
                   <div className="p-5">
                     <span className="mb-1 text-xs font-semibold text-primary">{item.category}</span>
                     <h3 className="text-sm font-bold text-neutral-900" style={{ fontFamily: "var(--font-heading)" }}>{item.title}</h3>
+                    {(item as any).description && (
+                      <p className="mt-1 text-xs text-neutral-500 leading-relaxed">{(item as any).description}</p>
+                    )}
                   </div>
                 </motion.div>
               ))}
@@ -209,6 +212,9 @@ export default function GalleryPage() {
                 <div className="p-6">
                   <span className="text-xs font-semibold text-primary">{item.category}</span>
                   <h3 className="text-lg font-bold text-neutral-900" style={{ fontFamily: "var(--font-heading)" }}>{item.title}</h3>
+                  {(item as any).description && (
+                    <p className="mt-1 text-sm text-neutral-500">{(item as any).description}</p>
+                  )}
                 </div>
               </motion.div>
             </motion.div>

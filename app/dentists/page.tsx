@@ -61,11 +61,11 @@ export default function DentistsPage() {
           <div className="space-y-20 md:space-y-28">
             {DENTISTS.map((doc, i) => (
               <ScrollReveal key={doc.id} delay={0.1}>
-                <div className={`grid items-center gap-10 lg:grid-cols-2 ${i % 2 === 1 ? "lg:[direction:rtl]" : ""}`}>
+                <div className={`grid lg:items-start gap-10 lg:gap-16 lg:grid-cols-2 ${i % 2 === 1 ? "lg:[direction:rtl]" : ""}`}>
                   {/* Image */}
-                  <div className={`relative ${i % 2 === 1 ? "lg:[direction:ltr]" : ""}`}>
+                  <div className={`relative mb-12 lg:mb-0 lg:sticky lg:top-32 ${i % 2 === 1 ? "lg:[direction:ltr]" : ""}`}>
                     <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30">
-                      <img src={doc.image} alt={doc.name} className="h-[420px] w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
+                      <img src={doc.image} alt={doc.name} className="h-[500px] w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
                     </div>
                     {/* Experience Badge */}
                     <motion.div
@@ -105,6 +105,20 @@ export default function DentistsPage() {
                         ))}
                       </div>
                     </div>
+
+                    {(doc as any).qualificationsList && (
+                      <div className="mb-6">
+                        <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-neutral-400">Qualifications & Memberships</h4>
+                        <ul className="space-y-1.5">
+                          {(doc as any).qualificationsList.map((q: string) => (
+                            <li key={q} className="flex items-start gap-2 text-sm text-neutral-600">
+                              <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                              {q}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
 
                     <Link href="/contact#appointment-form" className="btn-shine inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105 hover:bg-primary-light hover:shadow-xl">
                       Book with {doc.name.split(" ")[0]} {doc.name.split(" ")[1]}

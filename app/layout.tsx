@@ -139,7 +139,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${poppins.variable} ${playfair.variable} ${greatVibes.variable} antialiased`}
+        className={`${inter.variable} ${poppins.variable} ${playfair.variable} ${greatVibes.variable} antialiased overflow-x-hidden`}
       >
         <BackgroundAnimation />
         <Toaster position="top-right" />
