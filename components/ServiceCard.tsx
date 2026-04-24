@@ -1,7 +1,7 @@
 "use client";
 
 
-import { Stethoscope, SmilePlus, Sparkles, Crosshair, HeartPulse, ArrowRight } from "lucide-react";
+import { Stethoscope, SmilePlus, Sparkles, Crosshair, HeartPulse, ArrowRight, Shield } from "lucide-react";
 import Link from "next/link";
 import { type ReactNode } from "react";
 
@@ -11,6 +11,7 @@ const iconMap: Record<string, ReactNode> = {
   Sparkles: <Sparkles className="h-6 w-6" />,
   Crosshair: <Crosshair className="h-6 w-6" />,
   HeartPulse: <HeartPulse className="h-6 w-6" />,
+  Shield: <Shield className="h-6 w-6" />,
 };
 
 interface ServiceCardProps {

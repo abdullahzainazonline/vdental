@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BlurReveal, FloatingElement, StaggerContainer, StaggerItem } from "@/components/ScrollAnimations";
 import SectionHeading from "@/components/SectionHeading";
 import { SERVICES, SITE_CONFIG } from "@/lib/constants";
-import { Stethoscope, SmilePlus, Sparkles, Crosshair, HeartPulse, CheckCircle, ArrowRight, Phone } from "lucide-react";
+import { Stethoscope, SmilePlus, Sparkles, Crosshair, HeartPulse, CheckCircle, ArrowRight, Phone, Shield } from "lucide-react";
 import Link from "next/link";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -14,6 +14,7 @@ const iconMap: Record<string, React.ReactNode> = {
   Sparkles: <Sparkles className="h-7 w-7" />,
   Crosshair: <Crosshair className="h-7 w-7" />,
   HeartPulse: <HeartPulse className="h-7 w-7" />,
+  Shield: <Shield className="h-7 w-7" />,
 };
 
 export default function ServicesPage() {
