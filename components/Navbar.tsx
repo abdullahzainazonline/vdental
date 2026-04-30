@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Calendar, ChevronRight } from "lucide-react";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
+import LanguageTranslator from "./LanguageTranslator";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -84,14 +85,14 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: EASE_SMOOTH }}
-        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 border-b ${scrolled
+        className={`fixed left-0 right-0 top-0 z-[100] transition-all duration-500 border-b ${scrolled
           ? "bg-white/90 shadow-lg shadow-primary/5 backdrop-blur-xl border-primary/10"
           : "bg-transparent border-transparent"
           }`}
       >
         {/* Top bar */}
         <div
-          className={`hidden border-b border-white/10 text-sm transition-all duration-500 md:block ${scrolled ? "h-0 overflow-hidden opacity-0" : "bg-transparent py-2 text-white backdrop-blur-md"
+          className={`relative z-[110] hidden border-b border-white/10 text-sm transition-all duration-500 md:block ${scrolled ? "h-0 overflow-hidden opacity-0" : "bg-transparent py-2 text-white backdrop-blur-md"
             }`}
         >
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -119,6 +120,8 @@ export default function Navbar() {
               </a>
               <span className="text-white/30">|</span>
               <span className="text-white/60">📍 SS2, Petaling Jaya</span>
+              <span className="text-white/30">|</span>
+              <LanguageTranslator scrolled={scrolled} />
             </div>
           </div>
         </div>

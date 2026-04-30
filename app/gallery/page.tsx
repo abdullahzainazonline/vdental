@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BlurReveal, FloatingElement } from "@/components/ScrollAnimations";
 import SectionHeading from "@/components/SectionHeading";
 import { GALLERY_ITEMS, GALLERY_CATEGORIES, SITE_CONFIG } from "@/lib/constants";
-import { X, ZoomIn, ArrowLeftRight, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ZoomIn, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -28,15 +29,6 @@ export default function GalleryPage() {
     if (currentIndex === -1) return;
     const nextIndex = (currentIndex + 1) % filtered.length;
     setLightbox(filtered[nextIndex].id);
-  };
-
-  const handleDragEnd = (_e: any, { offset, velocity }: any) => {
-    const swipe = Math.abs(offset.x) * velocity.x;
-    if (swipe < -5000 || offset.x < -100) {
-      handleNext();
-    } else if (swipe > 5000 || offset.x > 100) {
-      handlePrev();
-    }
   };
 
   return (
@@ -123,26 +115,19 @@ export default function GalleryPage() {
                   initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
                   animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                   transition={{ delay: i * 0.08 }}
-                  className="group relative overflow-hidden rounded-3xl bg-white shadow-lg shadow-neutral-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 cursor-pointer tilt-card border border-primary/30"
-                  onClick={() => setLightbox(item.id)}
+                  className="group relative overflow-hidden rounded-3xl bg-white shadow-lg shadow-neutral-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 tilt-card border border-primary/30"
                 >
                   {/* Before / After Side by Side */}
                   <div className="relative flex h-56 overflow-hidden">
-                    <div className="relative w-1/2">
-                      <img src={item.before} alt={`${item.title} - Before`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                      <span className="absolute bottom-2 left-2 rounded-full bg-neutral-900/70 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md">Before</span>
-                    </div>
-                    <div className="absolute left-1/2 top-1/2 z-10 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg">
-                      <ArrowLeftRight className="h-3.5 w-3.5 text-primary" />
-                    </div>
-                    <div className="relative w-1/2">
-                      <img src={item.after} alt={`${item.title} - After`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                      <span className="absolute bottom-2 right-2 rounded-full bg-primary/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md">After</span>
-                    </div>
-                    {/* Zoom icon on hover */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-primary/0 opacity-0 transition-all duration-300 group-hover:bg-primary/10 group-hover:opacity-100">
-                      <ZoomIn className="h-8 w-8 text-white drop-shadow-lg" />
-                    </div>
+                    <BeforeAfterSlider beforeImage={item.before} afterImage={item.after} alt={item.title} />
+                    {/* Zoom icon on top right corner so it isn't blocked by the slider */}
+                    <button 
+                      onClick={() => setLightbox(item.id)}
+                      className="absolute top-2 right-2 flex items-center justify-center p-2 rounded-full bg-black/30 opacity-0 transition-all duration-300 group-hover:opacity-100 backdrop-blur-sm hover:bg-black/50 hover:scale-110 active:scale-95 cursor-pointer z-10 shadow-lg border border-white/20"
+                      aria-label="View Fullscreen"
+                    >
+                      <ZoomIn className="h-5 w-5 text-white drop-shadow-md" />
+                    </button>
                   </div>
                   <div className="p-5">
                     <span className="mb-1 text-xs font-semibold text-primary">{item.category}</span>
@@ -177,21 +162,17 @@ export default function GalleryPage() {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.85, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.2}
-                onDragEnd={handleDragEnd}
                 className="relative w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl border border-primary/30"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="absolute inset-y-0 left-0 z-20 flex items-center px-2 sm:px-4 pointer-events-none w-full justify-between">
+                <div className="absolute inset-y-0 left-0 z-20 flex items-center px-2 sm:px-4 pointer-events-none w-full justify-between mix-blend-difference">
                   {filtered.length > 1 && (
-                    <button onClick={handlePrev} className="pointer-events-auto flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/80 text-primary shadow-lg backdrop-blur-md transition-all hover:bg-white hover:scale-110 active:scale-95">
+                    <button onClick={handlePrev} className="pointer-events-auto flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/80 text-primary shadow-lg backdrop-blur-md transition-all hover:bg-white hover:scale-110 active:scale-95 mix-blend-normal">
                       <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
                     </button>
                   )}
                   {filtered.length > 1 && (
-                    <button onClick={handleNext} className="pointer-events-auto flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/80 text-primary shadow-lg backdrop-blur-md transition-all hover:bg-white hover:scale-110 active:scale-95">
+                    <button onClick={handleNext} className="pointer-events-auto flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/80 text-primary shadow-lg backdrop-blur-md transition-all hover:bg-white hover:scale-110 active:scale-95 mix-blend-normal">
                       <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
                     </button>
                   )}
@@ -199,15 +180,9 @@ export default function GalleryPage() {
                 <button onClick={() => setLightbox(null)} className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900/60 text-white backdrop-blur-md transition-colors hover:bg-neutral-900/80">
                   <X className="h-5 w-5" />
                 </button>
-                <div className="grid md:grid-cols-2">
-                  <div className="relative pointer-events-none select-none">
-                    <img src={item.before} alt="Before" className="h-64 w-full object-cover md:h-96 pointer-events-none" draggable={false} />
-                    <span className="absolute bottom-4 left-4 rounded-full bg-neutral-900/70 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md">Before</span>
-                  </div>
-                  <div className="relative pointer-events-none select-none">
-                    <img src={item.after} alt="After" className="h-64 w-full object-cover md:h-96 pointer-events-none" draggable={false} />
-                    <span className="absolute bottom-4 right-4 rounded-full bg-primary px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white">After</span>
-                  </div>
+
+                <div className="h-[60vh] w-full">
+                  <BeforeAfterSlider beforeImage={item.before} afterImage={item.after} alt={item.title} />
                 </div>
                 <div className="p-6">
                   <span className="text-xs font-semibold text-primary">{item.category}</span>

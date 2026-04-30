@@ -373,3 +373,21 @@ h6 {
     font-size: clamp(1.5rem, 5vw, 2.25rem) !important;
   }
 }
+/* --- Google Translate Overrides --- */
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+.goog-tooltip {
+  display: none !important;
+}
+.goog-tooltip:hover {
+  display: none !important;
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important; 
+  box-shadow: none !important;
+}

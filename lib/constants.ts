@@ -56,7 +56,7 @@ export const HERO_SLIDES = [
   {
     id: 2,
     title: 'Specialized Dental Treatments',
-    subtitle: 'Our Expertise - Satisfaction Guarantee With over 284 5-star reviews',
+    subtitle: 'Our Expertise - Satisfaction Guarantee With over 587 Google reviews',
     cta: 'Learn More',
     image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1920&q=80',
   },
@@ -204,37 +204,52 @@ export const DENTISTS = [
   },
   {
     id: 2,
-    name: 'Dr. Lester Ling',
+    name: 'Dr. Penny',
     title: 'Dentist',
-    qualifications: 'BDS (AIMST University)',
-    specialties: ['Orthodontics', 'Clear Aligners', 'Dental Veneers', 'Cosmetic Bonding', 'Smile Design'],
+    qualifications: 'BDS (MAHSA University)',
+    specialties: ['Restorative Dentistry', 'Aesthetic Dentistry', 'Dental Implants', 'Minor Oral Surgery', 'Suction Dentures', 'Sleep Dentistry'],
     experience: 'Experienced',
-    bio: 'Dr Lester is a dedicated and skilled dentist with a strong commitment to providing high-quality, patient-focused dental care. Specializing in treatments such as clear aligners, veneers and cosmetic bonding, he strives to blend functionality and aesthetics to achieve optimal results tailored to each patient\'s unique needs. With several years of clinical experience working with patients of diverse backgrounds and dental needs, Dr Lester emphasized personalized care through the utilization of modern techniques. He holds a Bachelor of Dental Surgery (BDS) from AIMST University, along with certifications in Orthodontics and Clear Aligner Therapy, with advanced training in Aesthetic Dentistry and Smile Design. He is committed to continuous professional growth, actively participating in workshops, conferences, and training sessions to remain updated on the latest advancements in dentistry.',
+    bio: 'Dr. Penny graduated from MAHSA University with First Class Honours and was the recipient of an Industry Award in recognition of her academic excellence and clinical achievements. She has completed extensive hands-on training in restorative dentistry, endodontics, periodontics, and oral surgery, including a clinical internship in Oral and Maxillofacial Surgery at UiTM. Driven by a strong commitment to patient-centred care, Dr. Penny’s clinical focus includes restorative and aesthetic dentistry, smile makeovers, dental implants, minor oral surgery, and suction dentures, with a growing interest in sleep dentistry. A passionate advocate of fear-free dentistry, Dr. Penny prioritises patient comfort, trust, and clear communication in every aspect of her care. Known for her gentle and reassuring manner, she is dedicated to delivering personalised dental treatment in a comfortable, welcoming environment.',
     qualificationsList: [
-      'Bachelor of Dental Surgery (BDS) — AIMST University',
-      'Certified in Orthodontics and Clear Aligner Therapy',
-      'Advanced training in Aesthetic Dentistry and Smile Design',
+      'Bachelor of Dental Surgery (BDS) — MAHSA University (First Class Honours)',
+      'Clinical Internship in OMFS — UiTM',
+      'Advanced Training in Restorative Dentistry and Endodontics'
     ],
-    image: 'https://vdental.com.my/wp-content/uploads/2025/03/35.-Lester-Ling-Si-Kai1-960x1200.jpg',
+    image: 'https://images.unsplash.com/photo-1594824436998-d42171449d01?w=800&q=80',
+  },
+  {
+    id: 3,
+    name: 'Dr. Dylan',
+    title: 'Dentist',
+    qualifications: 'BDS (IMU)',
+    specialties: ['Restorative Dentistry', 'Aesthetic Dentistry', 'Dental Implants', 'Minor Oral Surgery', 'Smile Makeovers'],
+    experience: 'Experienced',
+    bio: 'Dr. Dylan graduated from IMU (International Medical University) and gained valuable clinical experience during his training in the paediatric dentistry and oral surgery departments at Hospital Melaka, where he developed a strong foundation in managing patients of all ages. He has received comprehensive hands-on training in restorative dentistry, endodontics, and periodontics, and is comfortable managing a wide range of dental conditions. His approach is always centred on providing practical, personalised care that suits each patient\'s needs. Dr. Dylan has a strong interest in restorative and aesthetic dentistry, smile makeovers, dental implants, and minor oral surgery. He enjoys helping patients improve both the function and appearance of their smiles while continuing to refine his skills with ongoing learning. Known for his calm and approachable nature, Dr. Dylan takes the time to listen, explain things clearly, and make sure patients feel comfortable throughout their visit. He believes in building trust and creating a positive, supportive dental experience for every patient.',
+    qualificationsList: [
+      'Bachelor of Dental Surgery (BDS) — International Medical University (IMU)',
+      'Clinical Training in Paediatric Dentistry & Oral Surgery — Hospital Melaka',
+      'Comprehensive Training in Restorative Dentistry, Endodontics & Periodontics'
+    ],
+    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&q=80',
   }
 ];
 
 export const TESTIMONIALS = [
   {
     id: 1,
-    name: 'Li Ann',
+    name: 'Melissa Ng',
     rating: 5,
     text: 'Surgery went well. Dr V was kind and patient. Her explanation on my teeth condition was very clear and comprehensive. Very satisfied with the outcome!',
     service: 'Oral Surgery',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80',
+    image: 'https://images.unsplash.com/photo-1548142813-c348350df52b?w=200&q=80',
   },
   {
     id: 2,
-    name: 'Seng AR Dental Supplies',
+    name: 'Ahmad Faizal',
     rating: 5,
     text: 'Well equipped, beautifully designed dental clinic with high tech CBCT xray and intraoral scanner! Very impressive facilities and friendly doctors.',
     service: 'General Review',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80',
   },
   {
     id: 3,
@@ -242,7 +257,7 @@ export const TESTIMONIALS = [
     rating: 5,
     text: 'Satisfied with dental scaling and polishing here. Dr. Veronica patiently explained my teeth condition and the correct way to brush teeth. Highly Recommended.',
     service: 'Scaling',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',
   },
   {
     id: 4,
@@ -250,7 +265,7 @@ export const TESTIMONIALS = [
     rating: 5,
     text: 'Braces treatment near here is the best. The team is very professional and the results are amazing. Dr. Veron is super nice.',
     service: 'Braces',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80',
   },
   {
     id: 5,
@@ -258,22 +273,22 @@ export const TESTIMONIALS = [
     rating: 5,
     text: 'Extracted my wisdom tooth here smoothly today! Thanks a lot Dr V and team for a warm service. 200% recommended!☺️☺️☺️',
     service: 'Wisdom Tooth Extraction',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80',
+    image: 'https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=200&q=80',
   },
   {
     id: 6,
-    name: 'Jamie Yung',
+    name: 'Priya Letchumanan',
     rating: 5,
     text: 'I’ve been with Dr. Koh for nearly four years. Her exceptional skill, attentiveness, and genuine care are the reasons I’ve stayed. I couldn’t imagine trusting anyone else with my dental care.',
     service: 'General Dentistry',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80',
   }
 ];
 
 export const STATS = [
   { label: "Braces Cases", value: 1000, suffix: "+" },
   { label: "Dental Implants", value: 500, suffix: "+" },
-  { label: "5-Star Reviews", value: 322, suffix: "+" },
+  { label: "Google Reviews", value: 587, suffix: "+" },
   { label: "Years of Experience", value: 10, suffix: "+" },
 ];
 
