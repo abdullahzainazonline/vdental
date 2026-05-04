@@ -128,39 +128,39 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Info */}
-                <div>
-                  <div className="mb-4 inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 p-3.5 text-primary">
+                <div className="flex flex-col h-full justify-center">
+                  <div className="mb-4 inline-flex self-start items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 p-3.5 text-primary">
                     {iconMap[current.icon]}
                   </div>
-                  <h2 className="mb-3 text-3xl font-bold text-neutral-900 md:text-4xl" style={{ fontFamily: "var(--font-heading)" }}>
+                  <h2 className="mb-3 text-3xl font-bold text-neutral-900 md:text-5xl" style={{ fontFamily: "var(--font-heading)" }}>
                     {current.title}
                   </h2>
-                  <p className="mb-6 text-lg leading-relaxed text-neutral-600">{current.description}</p>
+                  <p className="mb-8 text-lg font-medium leading-relaxed text-neutral-600 line-clamp-3">{current.description}</p>
 
-                  <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-neutral-400">What&apos;s Included</h4>
-                  <div className="mb-8 grid gap-2 sm:grid-cols-2">
+                  <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-primary border-b border-primary/10 pb-2">Sub Services Included</h4>
+                  <div className="mb-8 grid gap-3">
                     {current.features.map((f, i) => (
                       <motion.div
                         key={f}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2 + i * 0.05 }}
-                        className="flex items-center gap-2.5 text-sm text-neutral-700"
+                        className="flex items-center gap-3 rounded-full bg-white border border-neutral-100 shadow-sm px-5 py-3 hover:shadow-md transition-all duration-300 hover:border-primary/20"
                       >
-                        <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-success/10">
-                          <CheckCircle className="h-3.5 w-3.5 text-success" />
+                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-success to-emerald-400 shadow-sm text-white">
+                          <CheckCircle className="h-3.5 w-3.5" />
                         </div>
-                        {f}
+                        <span className="text-sm font-bold text-neutral-800">{f}</span>
                       </motion.div>
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap gap-3">
-                    <Link href="/contact#appointment-form" className="btn-shine inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary-light px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  <div className="flex flex-wrap gap-4">
+                    <Link href="/contact#appointment-form" className="btn-shine inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-9 py-4 text-sm font-bold text-white shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                       Book This Service
                       <ArrowRight className="h-4 w-4" />
                     </Link>
-                    <a href={`tel:${SITE_CONFIG.phoneRaw}`} className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-8 py-3.5 text-sm font-bold text-neutral-700 transition-all duration-300 hover:border-primary/30 hover:text-primary">
+                    <a href={`tel:${SITE_CONFIG.phoneRaw}`} className="inline-flex items-center gap-2 rounded-full border-2 border-neutral-200 bg-white px-9 py-4 text-sm font-bold text-neutral-700 transition-all duration-300 hover:border-primary/30 hover:text-primary">
                       <Phone className="h-4 w-4" />
                       Call Us
                     </a>
@@ -184,14 +184,21 @@ export default function ServicesPage() {
                   className="group w-full text-left overflow-hidden rounded-3xl bg-white p-7 shadow-lg shadow-neutral-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 tilt-card border border-primary/30 h-full flex flex-col"
                   whileHover={{ y: -4 }}
                 >
-                  <div className="mb-4 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 text-primary transition-all duration-500 group-hover:from-primary group-hover:to-secondary group-hover:text-white group-hover:scale-110">
+                  <div className="mb-4 inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 text-primary transition-all duration-500 group-hover:from-primary group-hover:to-secondary group-hover:text-white group-hover:scale-110 group-hover:shadow-lg">
                     {iconMap[s.icon]}
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-neutral-900 shrink-0" style={{ fontFamily: "var(--font-heading)" }}>{s.title}</h3>
-                  <p className="mb-4 text-sm flex-1 leading-relaxed text-neutral-500">{s.shortDesc}</p>
-                  <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary shrink-0">
-                    Learn More
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  <h3 className="mb-3 text-xl font-bold text-neutral-900 shrink-0 border-b border-neutral-100 pb-3 group-hover:border-primary/20 transition-colors" style={{ fontFamily: "var(--font-heading)" }}>{s.title}</h3>
+                  <div className="mb-5 flex-1 space-y-2">
+                    {s.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-2.5 text-sm text-neutral-600 transition-colors group-hover:text-neutral-800">
+                        <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
+                        <span className="font-medium">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-bold text-primary shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+                    Book Service
+                    <ArrowRight className="h-4 w-4" />
                   </span>
                 </motion.button>
               </StaggerItem>

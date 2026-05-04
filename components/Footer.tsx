@@ -160,8 +160,8 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:px-6 md:flex-row lg:px-8">
-          <p className="flex items-center gap-1.5 text-xs text-neutral-500">
-            © {new Date().getFullYear()} V Dental Clinic PJ. Made with <Heart className="h-3 w-3 text-red-400 fill-red-400" /> in Malaysia.
+          <p className="flex flex-wrap items-center gap-1.5 text-xs text-neutral-500">
+            © {new Date().getFullYear()} V Dental Clinic PJ. Made with <Heart className="h-3 w-3 text-red-400 fill-red-400" /> in Malaysia. Developed by Brandify Studios.
           </p>
           <div className="flex gap-6 text-xs text-neutral-500">
             <span className="cursor-pointer hover:text-neutral-300 transition-colors">Privacy Policy</span>

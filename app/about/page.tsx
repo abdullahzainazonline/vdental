@@ -66,7 +66,7 @@ export default function AboutPage() {
       <section className="relative py-20 md:py-32 overflow-hidden section-divider">
         <div className="absolute top-0 right-0 h-72 w-72 translate-x-1/3 -translate-y-1/3 rounded-full bg-primary/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
+          <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
             <ScrollReveal direction="left">
               <div className="relative">
                 <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30 h-full">
@@ -95,19 +95,10 @@ export default function AboutPage() {
                   A Legacy of <span className="gradient-text">Healthy Smiles</span>
                 </h2>
                 <p className="mb-4 text-sm leading-relaxed text-neutral-600">
-                  Welcome to V Dental Clinic PJ - ss2 dentist, where our passion is your perfect smile. Located in the vibrant heart of SS2, Petaling Jaya, our clinic is more than just a place for dental treatments—it's a sanctuary for your dental health and well-being. At V Dental Clinic PJ - ss2 dentist, we pride ourselves on delivering exceptional service, personalized attention, and outstanding results that exceed your expectations.
-                </p>
-                <p className="mb-4 text-sm leading-relaxed text-neutral-600">
-                  Led by the esteemed Dr. Veron Koh, a seasoned expert in braces and implantology, our team is dedicated to transforming your smile with precision and care. Dr. Veron's extensive background includes 2.5 years in the Oral and Maxillofacial Surgery (OMFS) department at Sungai Buloh Hospital, where she meticulously honed her surgical skills. Additionally, she was a pioneer dentist at Lau Dental Clinic in Sri Petaling, bringing 6 years of private sector experience to our practice.
-                </p>
-                <p className="mb-4 text-sm leading-relaxed text-neutral-600">
-                  With over a decade of experience and a proven track record, Dr. Veron has successfully completed more than 500 braces cases and placed over 100 dental implants, including extensive work in wisdom tooth surgical extraction. Her drive and dedication ensure you receive top-notch care, utilizing the latest technology and innovative techniques.
-                </p>
-                <p className="mb-4 text-sm leading-relaxed text-neutral-600">
-                  Our clinic offers a warm and welcoming atmosphere designed to make your visit as pleasant and stress-free as possible. Whether it's your first check-up or a comprehensive smile makeover, we treat you like family. Our wide range of services includes orthodontics, implants, crowns and bridges, dentures, minor oral surgery, veneers, general dentistry, teeth whitening, and advanced X-rays, ensuring all your dental needs are covered.
+                  Welcome to V Dental Clinic PJ, where our passion is your perfect smile. Located in the vibrant heart of SS2, Petaling Jaya, our clinic is more than just a place for dental treatments—it's a sanctuary for your dental health and well-being.
                 </p>
                 <p className="mb-7 text-sm leading-relaxed text-neutral-600">
-                  At V Dental Clinic PJ - ss2 dentist, your smile is our top priority. Experience the difference with exceptional dental care in Petaling Jaya, cutting-edge technology, and a team that genuinely cares about your health and happiness. Join our family of satisfied patients and let us help you achieve the beautiful, confident smile you deserve.
+                  Led by the esteemed Dr. Veron Koh, a seasoned expert with over a decade of experience, our team is dedicated to delivering exceptional service and personalized attention. We utilize the latest technology to provide top-notch care, from general dentistry to extensive cosmetic and surgical procedures, ensuring every visit is stress-free and leaves you with the confident smile you deserve.
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   {["Gentle & Patient-Focused", "Latest Technology", "Affordable Care", "Multilingual Team"].map((item, i) => (

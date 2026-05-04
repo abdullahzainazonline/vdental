@@ -61,9 +61,9 @@ export default function DentistsPage() {
           <div className="space-y-20 md:space-y-28">
             {DENTISTS.map((doc, i) => (
               <ScrollReveal key={doc.id} delay={0.1}>
-                <div className={`grid lg:items-start gap-10 lg:gap-16 lg:grid-cols-2 ${i % 2 === 1 ? "lg:[direction:rtl]" : ""}`}>
+                <div className="grid lg:items-center gap-10 lg:gap-16 lg:grid-cols-2">
                   {/* Image */}
-                  <div className={`relative mb-12 lg:mb-0 lg:sticky lg:top-32 ${i % 2 === 1 ? "lg:[direction:ltr]" : ""}`}>
+                  <div className={`relative mb-12 lg:mb-0 lg:sticky lg:top-32 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                     <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30">
                       <img src={doc.image} alt={doc.name} className="h-[500px] w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
                     </div>
@@ -84,7 +84,7 @@ export default function DentistsPage() {
                   </div>
 
                   {/* Info */}
-                  <div className={`${i % 2 === 1 ? "lg:[direction:ltr]" : ""}`}>
+                  <div className={`${i % 2 === 1 ? "lg:order-1" : ""}`}>
                     <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary">
                       <GraduationCap className="h-3.5 w-3.5" />
                       {doc.qualifications}

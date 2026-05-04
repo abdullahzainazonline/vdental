@@ -33,7 +33,7 @@ export const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Our Dentists", href: "/dentists" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "Smile Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
   { label: "FAQ", href: "/faq" },
 ];
@@ -71,10 +71,8 @@ export const SERVICES = [
     image: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&q=80',
     features: [
       'Conventional Braces',
-      'Self-ligating Braces (Damon / Empower)',
-      'Invisalign / Clear Aligners',
-      'Crooked / Crowded Teeth Treatment',
-      'Difficulty in pronunciation solutions'
+      'Self-ligating Braces',
+      'Invisalign / Clear Aligners'
     ],
     description: 'Achieve the perfectly aligned smile you\'ve always wanted with our comprehensive orthodontic solutions. We offer a range of options from conventional metal or ceramic brackets, advanced self-ligating systems, to nearly invisible clear aligners.',
     process: [
@@ -86,15 +84,14 @@ export const SERVICES = [
   },
   {
     id: 'oral-surgeries',
-    title: 'Oral Surgeries & Implants',
+    title: 'Oral Surgeries',
     shortDesc: 'Receive expert care for all your oral surgery and implant needs.',
     icon: 'Crosshair',
     image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80',
     features: [
-      'Dental Implants',
-      'Wisdom Tooth Extraction',
-      'Minor Oral Surgery',
-      'Tooth Extraction'
+      'Dental Implant',
+      'Tooth extractions',
+      'Minor Oral Surgeries'
     ],
     description: 'A permanent solution for missing teeth using titanium posts that fuse with the jawbone. We also provide safe removal of damaged or problematic teeth, including complex wisdom tooth extractions.',
     process: [
@@ -111,10 +108,8 @@ export const SERVICES = [
     icon: 'Sparkles',
     image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80',
     features: [
-      'Dental Veneers (Porcelain/Composite)',
-      'Crowns & Bridges',
-      'Teeth Whitening',
-      'Gummy Smile Treatment'
+      'Dental Veneers',
+      'Dental Crowns & Bridges'
     ],
     description: 'Transform your smile with our cosmetic dentistry services. We treat worn down, severely stained, chipped, or missing teeth using custom veneers, professional whitening, and advanced gummy smile correction.',
     process: [
@@ -131,12 +126,9 @@ export const SERVICES = [
     icon: 'Stethoscope',
     image: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80',
     features: [
-      'Scaling & Polishing',
-      'Dental Fillings',
-      'Root Canal Treatment',
-      'Dentures',
-      'Mouth Guards',
-      'Children Dentistry'
+      'Scaling and polishing',
+      'Fillings',
+      'Root Canal Treatment'
     ],
     description: 'Our general dentistry services form the foundation of your oral health. We provide thorough examinations, scaling, aesthetic composite fillings, and preventive treatments for both adults and children.',
     process: [
@@ -153,9 +145,7 @@ export const SERVICES = [
     icon: 'Shield',
     image: 'https://images.unsplash.com/photo-1498843053639-170ff2122f35?w=800&q=80',
     features: [
-      'Deep Scaling',
-      'Root Planing',
-      'Gum Disease Treatment'
+      'Root planing'
     ],
     description: 'Periodontal treatments focus on the health of your gums and the bone supporting your teeth. We provide specialized care including deep scaling and root planing to treat gum disease (periodontitis) and maintain optimal oral health.',
     process: [
@@ -171,8 +161,7 @@ export const SERVICES = [
     icon: 'Stethoscope',
     image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=800&q=80',
     features: [
-      '3D CBCT',
-      'Panoramic X-Rays'
+      'OPG/LC/PA/CBCT'
     ],
     description: 'Utilize advanced imaging technology to diagnose and plan your dental treatments in PJ with precision.',
     process: [
