@@ -47,7 +47,8 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-neutral-900 section-divider">
-        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80)" }} />
+        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40 hidden sm:block" style={{ backgroundImage: "url('/V Dental Website images/Contact Page/Contact_Hero_Bg_pc.jpg')" }} />
+        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40 block sm:hidden" style={{ backgroundImage: "url('/V Dental Website images/Contact Page/Contact_Hero_Bg_mobile.jpg')" }} />
         <div className="hero-overlay absolute inset-0" />
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <FloatingElement delay={0.5} yRange={15} xRange={8} duration={10} className="absolute top-[25%] right-[15%]">

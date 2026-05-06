@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
@@ -16,9 +16,6 @@ import MagneticButton from "./MagneticButton";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-/* ──────────────────────────────────────────────
-   Slide transition variants (horizontal)
-   ────────────────────────────────────────────── */
 const slideVariants = {
   enter: (direction: number) => ({
     x: direction > 0 ? "100%" : "-100%",
@@ -42,9 +39,6 @@ const textVariants = {
   exit: { opacity: 0, y: -16, transition: { duration: 0.4 } },
 };
 
-/* ──────────────────────────────────────────────
-   Progress dots component
-   ────────────────────────────────────────────── */
 function SlideDots({
   total,
   current,
@@ -75,20 +69,20 @@ function SlideDots({
   );
 }
 
-/* ──────────────────────────────────────────────
-   Interactive Slide Image with mouse parallax
-   ────────────────────────────────────────────── */
 function SlideImage({
-  src,
+  index,
   alt,
   mouseX,
   mouseY,
 }: {
-  src: string;
+  index: number;
   alt: string;
   mouseX: ReturnType<typeof useSpring>;
   mouseY: ReturnType<typeof useSpring>;
 }) {
+  const pcSrc = `/V Dental Website images/Home Page/Hero Slider Images/Home_HeroSlide_${index}_pc.jpg`;
+  const mobileSrc = `/V Dental Website images/Home Page/Hero Slider Images/Home_HeroSlide_${index}_mobile.jpg`;
+
   return (
     <div className="absolute inset-0 overflow-hidden">
       <motion.div
@@ -101,32 +95,40 @@ function SlideImage({
           animate={{ scale: [1.08, 1.12, 1.08] }}
           transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
         >
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-            quality={90}
-            unoptimized={src.includes("vdental.com.my")}
-            priority
-          />
+          <div className="hidden sm:block relative h-full w-full">
+            <Image
+              src={pcSrc}
+              alt={alt}
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+              quality={90}
+              priority
+            />
+          </div>
+          <div className="block sm:hidden relative h-full w-full">
+            <Image
+              src={mobileSrc}
+              alt={alt}
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+              quality={90}
+              priority
+            />
+          </div>
         </motion.div>
       </motion.div>
     </div>
   );
 }
 
-/* ──────────────────────────────────────────────
-   Main HeroSlider Component — Horizontal Carousel
-   ────────────────────────────────────────────── */
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
-  const totalSlides = HERO_SLIDES.length;
-  const slide = HERO_SLIDES[current];
+  const totalSlides = 9;
+  const slideText = HERO_SLIDES[current % HERO_SLIDES.length];
 
-  // Mouse Parallax (desktop only)
   const springX = useSpring(useMotionValue(0), { damping: 25, stiffness: 80 });
   const springY = useSpring(useMotionValue(0), { damping: 25, stiffness: 80 });
 
@@ -144,7 +146,6 @@ export default function HeroSlider() {
     setCurrent(next);
   }, [current, totalSlides]);
 
-  // Auto-slide every 4 seconds — always runs
   useEffect(() => {
     const timer = setInterval(goNext, 4000);
     return () => clearInterval(timer);
@@ -168,10 +169,10 @@ export default function HeroSlider() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* ═══ Background Images ═══ */}
+      {/* Background Images */}
       <AnimatePresence mode="popLayout" custom={direction}>
         <motion.div
-          key={slide.id}
+          key={current}
           custom={direction}
           variants={slideVariants}
           initial="enter"
@@ -180,8 +181,8 @@ export default function HeroSlider() {
           className="absolute inset-0"
         >
           <SlideImage
-            src={slide.image}
-            alt={slide.title}
+            index={current + 1}
+            alt={slideText.title}
             mouseX={springX}
             mouseY={springY}
           />
@@ -192,13 +193,13 @@ export default function HeroSlider() {
         </motion.div>
       </AnimatePresence>
 
-      {/* ═══ Content ═══ */}
+      {/* Content */}
       <div className="relative z-20 flex h-full items-center pointer-events-none pt-24 sm:pt-32 md:pt-40">
         <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12 pointer-events-auto">
           <div className="max-w-2xl">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
-                key={slide.id}
+                key={current}
                 variants={textVariants}
                 initial="enter"
                 animate="center"
@@ -231,7 +232,7 @@ export default function HeroSlider() {
                   className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white sm:mb-8 sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[5rem] lg:leading-[1.15] drop-shadow-2xl"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
-                  {slide.title}
+                  {slideText.title}
                 </motion.h1>
 
                 {/* Subtitle */}
@@ -241,7 +242,7 @@ export default function HeroSlider() {
                   transition={{ delay: 0.5, duration: 0.6 }}
                   className="mb-10 max-w-lg text-base font-light leading-relaxed tracking-wide text-gray-100 sm:mb-12 sm:text-lg md:text-xl md:max-w-2xl drop-shadow-lg"
                 >
-                  {slide.subtitle}
+                  {slideText.subtitle}
                 </motion.p>
 
                 {/* CTA Buttons */}
@@ -278,22 +279,7 @@ export default function HeroSlider() {
         </div>
       </div>
 
-
-
-      {/* ═══ Slide Dots ═══ */}
       <SlideDots total={totalSlides} current={current} onDotClick={goToSlide} />
-
-      {/* ═══ Auto-play Progress Bar (accent yellow, visible on all screens) ═══ */}
-      <div className="absolute bottom-0 left-0 right-0 z-30 h-[3px] bg-white/15">
-        <motion.div
-          key={`${current}-progress`}
-          className="h-full bg-accent"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 4, ease: "linear" }}
-          style={{ transformOrigin: "0%" }}
-        />
-      </div>
     </section>
   );
 }

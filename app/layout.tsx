@@ -80,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
         <meta name="theme-color" content="#0E7490" />
         <script
           type="application/ld+json"

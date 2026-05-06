@@ -54,7 +54,7 @@ export default function Footer() {
           <div>
             <div className="mb-5 flex items-center gap-3">
               <Image
-                src="/logo.svg"
+                src="/V Dental Website images/Global Sections/Global_Footer_Logo.jpg"
                 alt="V Dental Clinic Logo"
                 width={44}
                 height={44}
@@ -164,8 +164,8 @@ export default function Footer() {
             © {new Date().getFullYear()} V Dental Clinic PJ. Made with <Heart className="h-3 w-3 text-red-400 fill-red-400" /> in Malaysia. Developed by Brandify Studios.
           </p>
           <div className="flex gap-6 text-xs text-neutral-500">
-            <span className="cursor-pointer hover:text-neutral-300 transition-colors">Privacy Policy</span>
-            <span className="cursor-pointer hover:text-neutral-300 transition-colors">Terms of Service</span>
+            <Link href="/privacy-policy" className="hover:text-neutral-300 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-conditions" className="hover:text-neutral-300 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

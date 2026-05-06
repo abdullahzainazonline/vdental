@@ -12,7 +12,8 @@ export default function DentistsPage() {
     <>
       {/* Hero */}
       <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-neutral-900 section-divider">
-        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1629909615957-be38d6d07f08?w=1920&q=80)" }} />
+        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40 hidden sm:block" style={{ backgroundImage: "url('/V Dental Website images/Our Dentists Page/Dentists_Hero_Bg_pc.jpg')" }} />
+        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40 block sm:hidden" style={{ backgroundImage: "url('/V Dental Website images/Our Dentists Page/Dentists_Hero_Bg_mobile.jpg')" }} />
         <div className="hero-overlay absolute inset-0" />
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <FloatingElement delay={1} yRange={15} duration={12} className="absolute top-[30%] right-[20%]">
@@ -65,7 +66,10 @@ export default function DentistsPage() {
                   {/* Image */}
                   <div className={`relative mb-12 lg:mb-0 lg:sticky lg:top-32 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                     <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30">
-                      <img src={doc.image} alt={doc.name} className="h-[500px] w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
+                      <picture>
+                        <source media="(min-width: 640px)" srcSet={`/V Dental Website images/Our Dentists Page/Dentists_Profile _${doc.name.replace('Dr. ', '').split(' ')[0]}_PC.jpg`} />
+                        <img src={`/V Dental Website images/Our Dentists Page/Dentists_Profile _${doc.name.replace('Dr. ', '').split(' ')[0]}_Mobile.jpg`} alt={doc.name} className="h-[500px] w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
+                      </picture>
                     </div>
                     {/* Experience Badge */}
                     <motion.div

@@ -130,11 +130,11 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-3">
-            <div className={`relative h-12 w-12 overflow-hidden rounded-xl p-1 backdrop-blur-md transition-all duration-500 ${scrolled
-              ? "bg-primary/10 border border-primary/20 shadow-inner"
-              : "bg-white/10 border border-white/10 hover:bg-white/20"
+            <div className={`relative flex items-center justify-center h-11 w-11 overflow-hidden rounded-xl p-1.5 transition-all duration-500 bg-white border ${scrolled
+              ? "border-primary/10 shadow-md"
+              : "border-white/20 shadow-sm hover:scale-105"
               }`}>
-              <img src="/logo.svg" alt="V Dental Logo" className="h-full w-full object-contain" />
+              <img src="/V Dental Website images/Global Sections/Global_Navbar_Logo.jpg" alt="V Dental Logo" className="h-full w-full object-contain" />
             </div>
             <div>
               <span

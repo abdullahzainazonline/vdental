@@ -25,7 +25,8 @@ export default function ServicesPage() {
     <>
       {/* Hero */}
       <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-neutral-900 section-divider">
-        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1920&q=80)" }} />
+        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40 hidden sm:block" style={{ backgroundImage: "url('/V Dental Website images/Services Page/Services_Hero_Bg_pc.jpg')" }} />
+        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40 block sm:hidden" style={{ backgroundImage: "url('/V Dental Website images/Services Page/Services_Hero_Bg_mobile.jpg')" }} />
         <div className="hero-overlay absolute inset-0" />
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <FloatingElement delay={0} yRange={18} xRange={6} duration={10} className="absolute top-[25%] right-[15%]">
@@ -105,7 +106,10 @@ export default function ServicesPage() {
                 {/* Image & Process */}
                 <div>
                   <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 mb-8 border border-primary/30">
-                    <img src={current.image} alt={current.title} className="h-[340px] w-full object-cover" loading="lazy" />
+                    <picture>
+                      <source media="(min-width: 640px)" srcSet={`/V Dental Website images/Services Page/Services_Detail_${activeService + 1}_pc.jpg`} />
+                      <img src={`/V Dental Website images/Services Page/Services_Detail_${activeService + 1}_mobile.jpg`} alt={current.title} className="h-[340px] w-full object-cover" loading="lazy" />
+                    </picture>
                   </div>
                   <h3 className="mb-4 text-lg font-bold text-neutral-900" style={{ fontFamily: "var(--font-heading)" }}>Treatment Process</h3>
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">

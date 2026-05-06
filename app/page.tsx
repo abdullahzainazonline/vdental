@@ -97,7 +97,7 @@ export default function HomePage() {
               <div className="relative overflow-hidden rounded-3xl h-full min-h-[400px]">
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-110"
-                  style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2068")' }}
+                  style={{ backgroundImage: 'url("/V Dental Website images/Home Page/Why Choose Us Banner/Home_WhyChooseUs_Bg.jpg")' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-8">

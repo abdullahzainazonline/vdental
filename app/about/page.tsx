@@ -18,7 +18,8 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-neutral-900 section-divider">
-        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80)" }} />
+        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40 hidden sm:block" style={{ backgroundImage: "url('/V Dental Website images/About Us Page/About_Hero_Bg_pc.jpg')" }} />
+        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40 block sm:hidden" style={{ backgroundImage: "url('/V Dental Website images/About Us Page/About_Hero_Bg_mobile.jpg')" }} />
         <div className="hero-overlay absolute inset-0" />
         {/* Floating decorations */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -70,7 +71,7 @@ export default function AboutPage() {
             <ScrollReveal direction="left">
               <div className="relative">
                 <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30 h-full">
-                  <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" alt="V Dental Clinic interior" className="h-[500px] w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
+                  <img src="/V Dental Website images/About Us Page/About_Story_Interior.jpg" alt="V Dental Clinic interior" className="h-[500px] w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
                 </div>
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
@@ -196,19 +197,19 @@ export default function AboutPage() {
             <ScrollReveal direction="right" delay={0.2}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="overflow-hidden rounded-3xl shadow-lg border border-primary/30 bg-white flex items-center justify-center p-8">
-                    <img src="https://vdental.com.my/wp-content/uploads/2024/04/V-dental-logo-1000x1000-Transparent-1.png" alt="Modern dental equipment" className="h-32 w-auto object-contain transition-transform duration-700 hover:scale-110" loading="lazy" />
+                  <div className="overflow-hidden rounded-3xl shadow-lg border border-primary/30">
+                    <img src="/V Dental Website images/About Us Page/Top-Left_Image_1.jpg" alt="Modern dental equipment" className="h-48 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
                   </div>
                   <div className="overflow-hidden rounded-3xl shadow-lg border border-primary/30">
-                    <img src="https://vdental.com.my/wp-content/uploads/2024/03/front-edited-Large.jpeg" alt="Dental treatment room" className="h-64 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
+                    <img src="/V Dental Website images/About Us Page/Bottom-Left_Image_2.jpg" alt="Dental treatment room" className="h-64 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
                   </div>
                 </div>
                 <div className="space-y-4 pt-10">
                   <div className="overflow-hidden rounded-3xl shadow-lg border border-primary/30">
-                    <img src="https://vdental.com.my/wp-content/uploads/2024/03/room-inner-Large.jpeg" alt="Dental clinic interior" className="h-64 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
+                    <img src="/V Dental Website images/About Us Page/Top-Right_Image_3.jpg" alt="Dental clinic interior" className="h-64 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
                   </div>
                   <div className="overflow-hidden rounded-3xl shadow-lg border border-primary/30">
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80" alt="Patient consultation" className="h-48 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
+                    <img src="/V Dental Website images/About Us Page/Bottom-Right_Image_4.jpg" alt="Patient consultation" className="h-48 w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
                   </div>
                 </div>
               </div>

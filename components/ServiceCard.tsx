@@ -29,10 +29,14 @@ export default function ServiceCard({ title, shortDesc, icon, id, image, index }
       className="group relative h-[420px] w-full overflow-hidden rounded-3xl bg-neutral-900 shadow-xl"
     >
       {/* Background Image with Zoom Effect */}
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out md:group-hover:scale-105"
-        style={{ backgroundImage: `url(${image})` }}
-      />
+      <picture>
+        <source media="(min-width: 640px)" srcSet={`/V Dental Website images/Home Page/Services Preview Images/Home_ServiceCard_${index + 1}_pc.jpg`} />
+        <img
+          src={`/V Dental Website images/Home Page/Services Preview Images/Home_ServiceCard_${index + 1}_mobile.jpg`}
+          alt={title}
+          className="absolute inset-0 object-cover object-center w-full h-full transition-transform duration-700 ease-out md:group-hover:scale-105"
+        />
+      </picture>
 
       {/* Modern Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent opacity-80 transition-all duration-500 md:group-hover:opacity-90 md:group-hover:via-neutral-900/70" />
