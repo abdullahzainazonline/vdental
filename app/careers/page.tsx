@@ -77,7 +77,7 @@ export default function CareersPage() {
               className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Have a career with us
+              Have A Career With Us
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-neutral-200 sm:text-xl">
               Join V Dental Clinic and become part of a passionate team dedicated to delivering exceptional dental care and creating beautiful smiles.
@@ -89,7 +89,7 @@ export default function CareersPage() {
       {/* Why Choose Us Section */}
       <section className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <SectionHeading
-          title="Why choose us"
+          title="Why Choose Us"
           subtitle="Discover what makes V Dental Clinic a great place to work."
           centered
         />
