@@ -95,7 +95,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link href={link.href} className="group flex items-center gap-2 text-sm text-neutral-400 transition-colors hover:text-secondary-light">
                     <span className="h-1 w-1 rounded-full bg-neutral-700 transition-colors group-hover:bg-secondary-light" />
-                    {link.label === "Careers" ? "Career With U s" : link.label}
+                    {link.label === "Careers" ? "Careers" : link.label}
                   </Link>
                 </li>
               ))}
