@@ -174,7 +174,7 @@ export default function CareersPage() {
             transition={{ duration: 0.8, ease: EASE_SMOOTH }}
           >
             <h2 className="mb-6 text-3xl font-bold text-neutral-900 sm:text-4xl" style={{ fontFamily: "var(--font-heading)" }}>
-              Join our <span className="text-primary">growing family</span>
+              Join Our <span className="text-primary">Growing Family</span>
             </h2>
             <p className="mb-8 text-lg text-neutral-500">
               At V Dental Clinic, we believe that a happy team leads to happy patients. We foster a supportive, inclusive, and dynamic work environment where every member is valued and encouraged to shine.
