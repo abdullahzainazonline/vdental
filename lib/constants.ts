@@ -34,6 +34,7 @@ export const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Our Dentists", href: "/dentists" },
   { label: "Smile Gallery", href: "/gallery" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
   { label: "FAQ", href: "/faq" },
 ];

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { Send, Calendar, User, Phone, Mail, MessageSquare, Clipboard } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/constants";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -26,19 +27,19 @@ export default function BookingForm({ compact = false }: { compact?: boolean }) 
 
   const onSubmit = async (data: BookingFormData) => {
     try {
-      const response = await fetch("/api/appointments", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const text = `Hello V Dental, I would like to request an appointment.
 
-      const result = (await response.json()) as { error?: string };
+*Name:* ${data.name}
+*Phone:* ${data.phone}
+*Email:* ${data.email}
+*Service:* ${data.service}
+*Preferred Date:* ${data.date}
+*Message:* ${data.message || "N/A"}`;
 
-      if (!response.ok) {
-        throw new Error(result.error || "Unable to submit appointment request.");
-      }
+      const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsappRaw}?text=${encodeURIComponent(text)}`;
+      window.open(whatsappUrl, "_blank");
 
-      toast.success("Appointment request sent! We'll contact you within 24 hours.", {
+      toast.success("Redirecting to WhatsApp...", {
         duration: 5000,
         style: { background: "#10B981", color: "#fff", fontWeight: "600", borderRadius: "16px" },
         iconTheme: { primary: "#fff", secondary: "#10B981" },
