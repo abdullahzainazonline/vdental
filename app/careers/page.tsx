@@ -58,10 +58,17 @@ export default function CareersPage() {
       <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-28 pb-16">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1920&q=80"
-            alt="Dental Team"
+            src="/V Dental Website images/Careers Page/Careers_Hero_Bg_pc.jpg"
+            alt="Careers Background"
             fill
-            className="object-cover"
+            className="object-cover hidden md:block"
+            priority
+          />
+          <Image
+            src="/V Dental Website images/Careers Page/Careers_Hero_Bg_mobile.jpg"
+            alt="Careers Background Mobile"
+            fill
+            className="object-cover block md:hidden"
             priority
           />
           <div className="absolute inset-0 bg-neutral-900/60" />
