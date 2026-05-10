@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   name: "V Dental Clinic PJ",
-  // tagline: "SS2's Trusted Family Dentist",
+  tagline: "SS2's Trusted Family Dentist",
   description:
     "V Dental Clinic PJ in SS2, Petaling Jaya offers comprehensive dental care including general dentistry, orthodontics, cosmetic dentistry, implants, and oral surgery. Trusted by 10,000+ patients.",
   url: "https://vdental.com.my",
@@ -175,9 +175,9 @@ export const DENTISTS = [
   {
     id: 1,
     name: 'Dr. Veron Koh',
-    title: 'Principal Dentist & Oral Health Consultant',
-    qualifications: 'Dental Surgeon & Oral Health Consultant',
-    specialties: ['Aesthetic Dentistry', 'Implantology', 'Braces & Clear Aligners', 'Oral Surgery', 'Smile Makeover'],
+    title: 'Principal Dentist & Implantologist',
+    qualifications: 'Dental Surgeon & Implantologist',
+    specialties: ['Implantology', 'Aesthetic Dentistry', 'Braces & Clear Aligners', 'Oral Surgery', 'Smile Makeover'],
     experience: '10+ years',
     bio: 'Dr. Veron Koh is a highly skilled and experienced dentist specializing in aesthetic dentistry and implantology. With over 10 years dedicated to helping patients achieve their aesthetic goals, Dr. Veron is well-versed in a range of treatments, including braces, implants, crowns, and veneers. She holds a post-grad diploma in dental implantology from IMU and has successfully completed more than 1,000 braces cases and placed over 500 dental implants, including extensive work in wisdom tooth surgical extraction. Her background includes 2.5 years in the Oral and Maxillofacial Surgery (OMFS) department at Sungai Buloh Hospital, and she was a pioneer dentist at Lau Dental Clinic in Sri Petaling, bringing 6 years of private sector experience. She is a Member of the International Team for Implantology (ITI), Member of The Royal College of Surgeons of Edinburgh, and a Certified Invisalign Provider.',
     qualificationsList: [

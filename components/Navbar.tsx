@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Calendar, ChevronRight } from "lucide-react";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
-import LanguageTranslator from "./LanguageTranslator";
 import { getWhatsAppUrl } from "@/lib/utils";
 import { WhatsAppIcon } from "./WhatsAppButton";
 
@@ -55,7 +54,7 @@ function useClinicStatus() {
     const tick = () => setStatus(getStatus());
     const id = setInterval(tick, 60_000); // re-check every minute
     return () => clearInterval(id);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return status;
@@ -101,14 +100,12 @@ export default function Navbar() {
             <div className="flex items-center gap-2 text-white/80">
               <span className="relative flex h-2 w-2">
                 <span
-                  className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${
-                    clinicOpen ? "bg-success" : "bg-red-400"
-                  }`}
+                  className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${clinicOpen ? "bg-success" : "bg-red-400"
+                    }`}
                 />
                 <span
-                  className={`relative inline-flex h-2 w-2 rounded-full ${
-                    clinicOpen ? "bg-success" : "bg-red-400"
-                  }`}
+                  className={`relative inline-flex h-2 w-2 rounded-full ${clinicOpen ? "bg-success" : "bg-red-400"
+                    }`}
                 />
               </span>
               {clinicOpen
@@ -122,8 +119,6 @@ export default function Navbar() {
               </a>
               <span className="text-white/30">|</span>
               <span className="text-white/60">📍 SS2, Petaling Jaya</span>
-              <span className="text-white/30">|</span>
-              <LanguageTranslator scrolled={scrolled} />
             </div>
           </div>
         </div>
@@ -132,11 +127,11 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-3">
-            <div className={`relative flex items-center justify-center h-14 w-14 overflow-hidden rounded-xl transition-all duration-500 bg-white border ${scrolled
+            <div className={`relative flex items-center justify-center h-12 sm:h-14 w-auto px-3 overflow-hidden rounded-xl transition-all duration-500 bg-white border ${scrolled
               ? "border-primary/10 shadow-md"
               : "border-white/20 shadow-sm hover:scale-105"
               }`}>
-              <img src="/V Dental Website images/Global Sections/logo.png" alt="V Dental Logo" className="h-full w-full object-contain" />
+              <img src="/V Dental Website images/Global Sections/logo.png" alt="V Dental Logo" className="h-full w-auto object-contain py-1" />
             </div>
             <div>
               <span
@@ -236,8 +231,8 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-between border-b border-neutral-100 p-5">
                 <div className="flex items-center gap-2">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white overflow-hidden shadow-sm border border-neutral-100">
-                    <img src="/V Dental Website images/Global Sections/logo.png" alt="V Dental Logo" className="h-full w-full object-contain" />
+                  <div className="flex h-10 w-auto px-2 items-center justify-center rounded-xl bg-white overflow-hidden shadow-sm border border-neutral-100">
+                    <img src="/V Dental Website images/Global Sections/logo.png" alt="V Dental Logo" className="h-full w-auto object-contain py-1" />
                   </div>
                   <span className="text-lg font-bold text-primary-dark" style={{ fontFamily: "var(--font-heading)" }}>V Dental</span>
                 </div>

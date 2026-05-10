@@ -207,12 +207,18 @@ export default function CareersPage() {
             transition={{ duration: 0.8, ease: EASE_SMOOTH }}
             className="relative"
           >
-            <div className="aspect-[4/3] overflow-hidden rounded-3xl">
+            <div className="aspect-[4/3] overflow-hidden rounded-3xl relative">
               <Image
-                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80"
+                src="/V Dental Website images/FAQ Page/FAQ_Hero_Bg_pc.jpg"
                 alt="Our Team Culture"
                 fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
+                className="object-cover transition-transform duration-700 hover:scale-105 hidden md:block"
+              />
+              <Image
+                src="/V Dental Website images/FAQ Page/FAQ_Hero_Bg_mobile.jpg"
+                alt="Our Team Culture Mobile"
+                fill
+                className="object-cover transition-transform duration-700 hover:scale-105 block md:hidden"
               />
             </div>
             <div className="absolute -bottom-6 -left-6 rounded-2xl bg-white p-6 shadow-xl">
