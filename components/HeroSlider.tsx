@@ -206,7 +206,7 @@ export default function HeroSlider() {
                 animate="center"
                 exit="exit"
               >
-                {/* Tagline Badge */}
+                {/* Tagline Badge - Commented out since SITE_CONFIG.tagline is removed
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -221,9 +221,10 @@ export default function HeroSlider() {
                     className="text-3xl md:text-4xl text-accent font-medium tracking-wide"
                     style={{ fontFamily: "var(--font-script)" }}
                   >
-                    {SITE_CONFIG.tagline}
+                    {(SITE_CONFIG as any).tagline}
                   </span>
                 </motion.div>
+                */}
 
                 {/* Title */}
                 <motion.h1
