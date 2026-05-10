@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CheckCircle2, Heart, Users, Shield, TrendingUp, Award, Briefcase } from "lucide-react";
+import { CheckCircle2, Heart, Users, Shield, TrendingUp, Award, Briefcase, Sparkles } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import { FloatingElement } from "@/components/ScrollAnimations";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -55,42 +56,46 @@ export default function CareersPage() {
   return (
     <div className="relative min-h-screen bg-white pb-24">
       {/* Hero Section */}
-      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-28 pb-16">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/V Dental Website images/Careers Page/Careers_Hero_Bg_pc.jpg"
-            alt="Careers Background"
-            fill
-            className="object-cover hidden md:block"
-            priority
-          />
-          <Image
-            src="/V Dental Website images/Careers Page/Careers_Hero_Bg_mobile.jpg"
-            alt="Careers Background Mobile"
-            fill
-            className="object-cover block md:hidden"
-            priority
-          />
-          <div className="absolute inset-0 bg-neutral-900/60" />
+      <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-neutral-900 section-divider">
+        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40 hidden sm:block" style={{ backgroundImage: "url('/V Dental Website images/Careers Page/Careers_Hero_Bg_pc.jpg')" }} />
+        <div className="absolute inset-0 ken-burns bg-cover bg-center opacity-40 block sm:hidden" style={{ backgroundImage: "url('/V Dental Website images/Careers Page/Careers_Hero_Bg_mobile.jpg')" }} />
+        <div className="hero-overlay absolute inset-0" />
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <FloatingElement delay={0} yRange={18} duration={11} className="absolute top-[20%] right-[10%]">
+            <Sparkles className="h-4 w-4 text-accent/15" />
+          </FloatingElement>
         </div>
-
-        <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-36 sm:px-6 lg:px-8">
+          <motion.span
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-secondary-light/30 bg-white/10 px-5 py-2 text-sm font-medium text-secondary-light backdrop-blur-md"
           >
-            <h1
-              className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Have A Career With Us
-            </h1>
-            <p className="mx-auto max-w-2xl text-lg text-neutral-200 sm:text-xl">
-              Join V Dental Clinic and become part of a passionate team dedicated to delivering exceptional dental care and creating beautiful smiles.
-            </p>
-          </motion.div>
+            <span className="h-1.5 w-1.5 rounded-full bg-secondary-light" />
+            Careers
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-5 text-4xl font-bold text-white md:text-5xl lg:text-7xl"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Have A Career
+            <br />
+            <span className="text-secondary-light">With Us</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="max-w-xl text-lg text-white/70 leading-relaxed"
+          >
+            Join V Dental Clinic and become part of a passionate team dedicated to delivering exceptional dental care and creating beautiful smiles.
+          </motion.p>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
       </section>
 
       {/* Why Choose Us Section */}
