@@ -34,7 +34,7 @@ export default function Footer() {
               href="/contact#appointment-form"
               className="btn-shine inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-3.5 font-bold text-neutral-900 transition-all hover:scale-105 hover:bg-accent-light hover:shadow-xl"
             >
-              Book Appointment
+              Request Appointment
             </Link>
             <a
               href={`tel:${SITE_CONFIG.phoneRaw}`}
@@ -54,11 +54,11 @@ export default function Footer() {
           <div>
             <div className="mb-5 flex items-center gap-3">
               <Image
-                src="/V Dental Website images/Global Sections/Global_Footer_Logo.jpg"
+                src="/V Dental Website images/Global Sections/logo.png"
                 alt="V Dental Clinic Logo"
                 width={44}
                 height={44}
-                className="rounded-2xl"
+                className="rounded-2xl bg-white p-1"
               />
               <div>
                 <span className="block text-lg font-bold text-white" style={{ fontFamily: "var(--font-heading)" }}>V Dental Clinic</span>

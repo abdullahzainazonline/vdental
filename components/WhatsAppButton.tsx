@@ -5,7 +5,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 
 /** Official WhatsApp logo SVG */
-function WhatsAppIcon({ className }: { className?: string }) {
+export function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

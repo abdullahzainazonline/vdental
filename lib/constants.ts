@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   name: "V Dental Clinic PJ",
-  tagline: "SS2's Trusted Family Dentist",
+  // tagline: "SS2's Trusted Family Dentist",
   description:
     "V Dental Clinic PJ in SS2, Petaling Jaya offers comprehensive dental care including general dentistry, orthodontics, cosmetic dentistry, implants, and oral surgery. Trusted by 10,000+ patients.",
   url: "https://vdental.com.my",

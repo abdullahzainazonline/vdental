@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Calendar, ChevronRight } from "lucide-react";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 import LanguageTranslator from "./LanguageTranslator";
+import { getWhatsAppUrl } from "@/lib/utils";
+import { WhatsAppIcon } from "./WhatsAppButton";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -130,11 +132,11 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-3">
-            <div className={`relative flex items-center justify-center h-11 w-11 overflow-hidden rounded-xl p-1.5 transition-all duration-500 bg-white border ${scrolled
+            <div className={`relative flex items-center justify-center h-14 w-14 overflow-hidden rounded-xl transition-all duration-500 bg-white border ${scrolled
               ? "border-primary/10 shadow-md"
               : "border-white/20 shadow-sm hover:scale-105"
               }`}>
-              <img src="/V Dental Website images/Global Sections/Global_Navbar_Logo.jpg" alt="V Dental Logo" className="h-full w-full object-contain" />
+              <img src="/V Dental Website images/Global Sections/logo.png" alt="V Dental Logo" className="h-full w-full object-contain" />
             </div>
             <div>
               <span
@@ -185,16 +187,18 @@ export default function Navbar() {
 
           {/* CTA + mobile toggle */}
           <div className="flex items-center gap-3">
-            <Link
-              href="/contact#appointment-form"
+            <a
+              href={getWhatsAppUrl(SITE_CONFIG.whatsappRaw)}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`hidden items-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold transition-all duration-300 sm:inline-flex ${scrolled
                 ? "bg-accent text-neutral-900 shadow-md shadow-accent/20 hover:shadow-lg hover:shadow-accent/30 hover:scale-105"
                 : "bg-accent/90 text-neutral-900 backdrop-blur-sm hover:bg-accent hover:scale-105"
                 }`}
             >
-              <Calendar className="h-4 w-4" />
-              Book Now
-            </Link>
+              <WhatsAppIcon className="h-4 w-4" />
+              Book Appointment
+            </a>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -232,7 +236,9 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-between border-b border-neutral-100 p-5">
                 <div className="flex items-center gap-2">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-white font-bold" style={{ fontFamily: "var(--font-heading)" }}>V</div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white overflow-hidden shadow-sm border border-neutral-100">
+                    <img src="/V Dental Website images/Global Sections/logo.png" alt="V Dental Logo" className="h-full w-full object-contain" />
+                  </div>
                   <span className="text-lg font-bold text-primary-dark" style={{ fontFamily: "var(--font-heading)" }}>V Dental</span>
                 </div>
                 <button onClick={() => setIsOpen(false)} className="rounded-xl p-2 text-neutral-400 hover:bg-neutral-50 hover:text-neutral-600 transition-colors">
@@ -272,13 +278,15 @@ export default function Navbar() {
                   transition={{ delay: 0.35 }}
                   className="mt-8 space-y-3"
                 >
-                  <Link
-                    href="/contact#appointment-form"
+                  <a
+                    href={getWhatsAppUrl(SITE_CONFIG.whatsappRaw)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-base font-bold text-neutral-900 shadow-md shadow-accent/20 transition-all hover:bg-accent-light"
                   >
-                    <Calendar className="h-5 w-5" />
+                    <WhatsAppIcon className="h-5 w-5" />
                     Book Appointment
-                  </Link>
+                  </a>
                   <a
                     href={`tel:${SITE_CONFIG.phoneRaw}`}
                     className="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-primary/20 px-6 py-3.5 text-base font-semibold text-primary transition-all hover:bg-primary hover:text-white hover:border-primary"

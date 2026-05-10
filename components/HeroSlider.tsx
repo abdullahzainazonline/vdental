@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
@@ -13,6 +13,7 @@ import { HERO_SLIDES, SITE_CONFIG } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 import Link from "next/link";
 import MagneticButton from "./MagneticButton";
+import { WhatsAppIcon } from "./WhatsAppButton";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -100,7 +101,7 @@ function SlideImage({
               src={pcSrc}
               alt={alt}
               fill
-              className="object-cover object-center"
+              className="object-cover object-top"
               sizes="100vw"
               quality={90}
               priority
@@ -147,7 +148,7 @@ export default function HeroSlider() {
   }, [current, totalSlides]);
 
   useEffect(() => {
-    const timer = setInterval(goNext, 4000);
+    const timer = setInterval(goNext, 7000);
     return () => clearInterval(timer);
   }, [goNext]);
 
@@ -253,23 +254,14 @@ export default function HeroSlider() {
                   className="flex flex-col gap-4 sm:flex-row"
                 >
                   <MagneticButton>
-                    <Link
-                      href="/contact#appointment-form"
-                      className="btn-shine group inline-flex items-center justify-center gap-2.5 rounded-full bg-accent px-8 py-4 text-white font-bold text-neutral-900 shadow-xl shadow-accent/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent/40"
-                    >
-                      <Phone className="h-5 w-5 transition-transform group-hover:rotate-12" />
-                      Book Appointment
-                    </Link>
-                  </MagneticButton>
-                  <MagneticButton>
                     <a
                       href={getWhatsAppUrl(SITE_CONFIG.whatsappRaw)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-white/20 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-white/40 hover:bg-white/10"
+                      className="btn-shine group inline-flex items-center justify-center gap-2.5 rounded-full bg-accent px-8 py-4 text-white font-bold text-neutral-900 shadow-xl shadow-accent/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent/40"
                     >
-                      <MessageCircle className="h-5 w-5 transition-transform group-hover:scale-110" />
-                      WhatsApp Us
+                      <WhatsAppIcon className="h-5 w-5 transition-transform group-hover:rotate-12" />
+                      Book Appointment
                     </a>
                   </MagneticButton>
                 </motion.div>
