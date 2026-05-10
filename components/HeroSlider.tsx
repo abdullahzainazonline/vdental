@@ -127,7 +127,7 @@ function SlideImage({
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
-  const totalSlides = 9;
+  const totalSlides = 8;
   const slideText = HERO_SLIDES[current % HERO_SLIDES.length];
 
   const springX = useSpring(useMotionValue(0), { damping: 25, stiffness: 80 });
