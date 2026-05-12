@@ -30,7 +30,7 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: light !important;
+  color-scheme: only light !important;
   background-color: #F0FDFA !important;
   color: #0F172A !important;
 }
@@ -38,14 +38,16 @@ html {
 body {
   @apply bg-neutral-50 text-neutral-900 antialiased;
   min-height: 100vh;
-  color-scheme: light !important;
+  color-scheme: only light !important;
   background-color: #F0FDFA !important;
+  /* Anti-Force-Dark-Mode hack for Chromium/Samsung */
+  background-image: linear-gradient(to bottom, #F0FDFA, #F0FDFA) !important;
   color: #0F172A !important;
 }
 
 @media (prefers-color-scheme: dark) {
   html, body {
-    color-scheme: light !important;
+    color-scheme: only light !important;
   }
 }
 
