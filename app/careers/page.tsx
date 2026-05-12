@@ -33,10 +33,10 @@ const BENEFITS = [
 
 const JOB_OPENINGS = [
   {
-    title: "Dental Assistant",
+    title: "Dental Nurse",
     type: "Full-Time",
     location: "SS2, Petaling Jaya",
-    description: "We are looking for a motivated and friendly Dental Assistant to join our growing team. Experience is a plus but not required as training will be provided.",
+    description: "We are looking for a motivated and friendly Dental Nurse to join our growing team. Experience is a plus but not required as training will be provided.",
   },
   {
     title: "Receptionist / Front Desk",
