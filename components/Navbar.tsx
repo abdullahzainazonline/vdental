@@ -222,7 +222,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm lg:hidden"
             onClick={() => setIsOpen(false)}
           >
             <motion.nav
