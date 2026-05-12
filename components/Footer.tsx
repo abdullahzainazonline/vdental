@@ -53,13 +53,16 @@ export default function Footer() {
           {/* About */}
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <Image
-                src="/V Dental Website images/Global Sections/logo.png"
-                alt="V Dental Clinic Logo"
-                width={44}
-                height={44}
-                className="rounded-2xl bg-white p-1"
-              />
+              <div className="relative flex h-12 w-12 items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                <div className="absolute inset-0 rounded-tl-2xl rounded-br-2xl rounded-tr-sm rounded-bl-sm bg-primary opacity-40 blur-md" />
+                <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-tl-2xl rounded-br-2xl rounded-tr-sm rounded-bl-sm bg-gradient-to-br from-[#06B6D4] via-[#0E7490] to-[#155E75] border border-white/20">
+                  <div className="absolute -top-[100%] -left-[100%] h-[300%] w-[300%] -rotate-45 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+                  <span className="relative z-10 text-3xl font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] tracking-tighter" style={{ fontFamily: "var(--font-serif)" }}>
+                    V
+                  </span>
+                  <span className="absolute bottom-2.5 right-2 h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(245,158,11,1)]" />
+                </div>
+              </div>
               <div>
                 <span className="block text-lg font-bold text-white" style={{ fontFamily: "var(--font-heading)" }}>V Dental Clinic</span>
                 <span className="block text-xs text-neutral-500 uppercase tracking-wider">PJ — SS2</span>

@@ -127,11 +127,15 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-3">
-            <div className={`relative flex items-center justify-center h-12 sm:h-14 w-auto px-3 overflow-hidden rounded-xl transition-all duration-500 bg-white border ${scrolled
-              ? "border-primary/10 shadow-md"
-              : "border-white/20 shadow-sm hover:scale-105"
-              }`}>
-              <img src="/V Dental Website images/Global Sections/logo.png" alt="V Dental Logo" className="h-full w-auto object-contain py-1" />
+            <div className="relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center transition-transform duration-500 group-hover:scale-105">
+              <div className="absolute inset-0 rounded-tl-2xl rounded-br-2xl rounded-tr-sm rounded-bl-sm bg-primary opacity-50 blur-md group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-tl-2xl rounded-br-2xl rounded-tr-sm rounded-bl-sm bg-gradient-to-br from-[#06B6D4] via-[#0E7490] to-[#155E75] shadow-inner border border-white/30">
+                <div className="absolute -top-[100%] -left-[100%] h-[300%] w-[300%] -rotate-45 bg-gradient-to-b from-transparent via-white/20 to-transparent translate-x-[-20%] group-hover:translate-x-[20%] transition-transform duration-1000" />
+                <span className="relative z-10 text-3xl sm:text-4xl font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] tracking-tighter" style={{ fontFamily: "var(--font-serif)" }}>
+                  V
+                </span>
+                <span className="absolute bottom-2.5 right-2 sm:bottom-3 sm:right-2.5 h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(245,158,11,1)]" />
+              </div>
             </div>
             <div>
               <span
@@ -231,8 +235,15 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-between border-b border-neutral-100 p-5">
                 <div className="flex items-center gap-2">
-                  <div className="flex h-10 w-auto px-2 items-center justify-center rounded-xl bg-white overflow-hidden shadow-sm border border-neutral-100">
-                    <img src="/V Dental Website images/Global Sections/logo.png" alt="V Dental Logo" className="h-full w-auto object-contain py-1" />
+                  <div className="relative flex h-10 w-10 items-center justify-center">
+                    <div className="absolute inset-0 rounded-tl-xl rounded-br-xl rounded-tr-sm rounded-bl-sm bg-primary opacity-50 blur-sm" />
+                    <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-tl-xl rounded-br-xl rounded-tr-sm rounded-bl-sm bg-gradient-to-br from-[#06B6D4] via-[#0E7490] to-[#155E75] border border-white/30">
+                      <div className="absolute -top-[100%] -left-[100%] h-[300%] w-[300%] -rotate-45 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+                      <span className="relative z-10 text-2xl font-black text-white drop-shadow-sm tracking-tighter" style={{ fontFamily: "var(--font-serif)" }}>
+                        V
+                      </span>
+                      <span className="absolute bottom-2 right-1.5 h-1 w-1 rounded-full bg-accent shadow-[0_0_8px_rgba(245,158,11,1)]" />
+                    </div>
                   </div>
                   <span className="text-lg font-bold text-primary-dark" style={{ fontFamily: "var(--font-heading)" }}>V Dental</span>
                 </div>
