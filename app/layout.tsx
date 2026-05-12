@@ -80,7 +80,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <meta name="color-scheme" content="light" />
+        <meta name="color-scheme" content="light only" />
+        <meta name="supported-color-schemes" content="light" />
         <meta name="theme-color" content="#0E7490" />
         <script
           type="application/ld+json"
