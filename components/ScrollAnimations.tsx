@@ -204,24 +204,8 @@ export function FloatingElement({
   yRange?: number;
   xRange?: number;
 }) {
-  return (
-    <motion.div
-      animate={{
-        y: [0, -yRange, 0, yRange * 0.5, 0],
-        x: [0, xRange, 0, -xRange * 0.5, 0],
-        rotate: [0, 2, 0, -1, 0],
-      }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  // Decorative floating elements are disabled site-wide per design request.
+  return null;
 }
 
 /* ─── AnimatedCounter ─── */

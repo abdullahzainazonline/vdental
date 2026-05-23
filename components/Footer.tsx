@@ -53,7 +53,7 @@ export default function Footer() {
           {/* About */}
           <div>
             <div className="mb-5 flex items-center gap-2">
-                <Link href="/" className="relative flex h-14 w-28 items-center justify-center overflow-hidden rounded-full bg-[#fcc8bd] px-3 transition-transform duration-500 hover:scale-[1.02]">
+                <Link href="/" className="relative flex h-14 w-28 items-center justify-center overflow-hidden rounded-md bg-[#fcc8bd] px-3 transition-transform duration-500 hover:scale-[1.02]">
                   <Image 
                     src="/vdental_logo.jpg" 
                     alt="V Dental Clinic Logo" 
