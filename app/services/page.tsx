@@ -160,7 +160,7 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="flex flex-wrap gap-4">
-                    <Link href="/contact#appointment-form" className="btn-shine inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-9 py-4 text-sm font-bold text-white shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    <Link href="/contact#appointment-form" className="btn-shine inline-flex items-center gap-2 rounded-full bg-primary-dark px-9 py-4 text-sm font-bold text-white shadow-xl shadow-primary/25 transition-all duration-300 hover:scale-105 hover:bg-primary hover:shadow-2xl">
                       Book This Service
                       <ArrowRight className="h-4 w-4" />
                     </Link>

@@ -127,7 +127,7 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="group flex items-center">
-            <div className="relative flex h-14 sm:h-18 w-auto items-center justify-center transition-transform duration-500 group-hover:scale-[1.02]">
+            <div className="relative flex h-14 sm:h-18 w-auto items-center justify-center overflow-hidden rounded-full px-2 transition-transform duration-500 group-hover:scale-[1.02]">
               <Image 
                 src="/vdental_logo.jpg" 
                 alt="V Dental Clinic Logo" 

@@ -12,7 +12,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-neutral-900 text-neutral-300">
+    <footer className="relative bg-neutral-900 text-white">
       {/* CTA banner */}
       <div className="relative overflow-hidden animated-gradient-bg">
         {/* Floating shapes */}
@@ -25,7 +25,7 @@ export default function Footer() {
             <h3 className="text-2xl font-bold text-white md:text-3xl" style={{ fontFamily: "var(--font-heading)" }}>
               Ready for a Healthier Smile?
             </h3>
-            <p className="mt-2 text-white/70">
+            <p className="mt-2 text-white/80">
               Book your appointment today and experience the V Dental difference.
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function Footer() {
           {/* About */}
           <div>
             <div className="mb-5 flex items-center gap-2">
-                <Link href="/" className="relative flex h-14 w-auto items-center justify-center rounded-lg bg-[#fcc8bd] p-2 transition-transform duration-500 hover:scale-[1.02]">
+                <Link href="/" className="relative flex h-14 w-28 items-center justify-center overflow-hidden rounded-full bg-[#fcc8bd] px-3 transition-transform duration-500 hover:scale-[1.02]">
                   <Image 
                     src="/vdental_logo.jpg" 
                     alt="V Dental Clinic Logo" 
@@ -62,7 +62,7 @@ export default function Footer() {
                   />
                 </Link>
             </div>
-            <p className="text-sm leading-relaxed text-neutral-400">
+            <p className="text-sm leading-relaxed text-white/75">
               Providing quality dental care to the SS2, Petaling Jaya community for over 15 years. Your comfort and smile are our priority.
             </p>
             <div className="mt-5 flex gap-2">
@@ -75,7 +75,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-neutral-400 transition-all duration-300 hover:bg-primary hover:text-white hover:scale-110 hover:shadow-lg"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-white/70 transition-all duration-300 hover:bg-primary hover:text-white hover:scale-110 hover:shadow-lg"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -90,8 +90,8 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="group flex items-center gap-2 text-sm text-neutral-400 transition-colors hover:text-secondary-light">
-                    <span className="h-1 w-1 rounded-full bg-neutral-700 transition-colors group-hover:bg-secondary-light" />
+                  <Link href={link.href} className="group flex items-center gap-2 text-sm text-white/75 transition-colors hover:text-white">
+                    <span className="h-1 w-1 rounded-full bg-white/30 transition-colors group-hover:bg-white" />
                     {link.label === "Careers" ? "Careers" : link.label}
                   </Link>
                 </li>
@@ -105,8 +105,8 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {SERVICES.map((s) => (
                 <li key={s.id}>
-                  <Link href={`/services#${s.id}`} className="group flex items-center gap-2 text-sm text-neutral-400 transition-colors hover:text-secondary-light">
-                    <span className="h-1 w-1 rounded-full bg-neutral-700 transition-colors group-hover:bg-secondary-light" />
+                  <Link href={`/services#${s.id}`} className="group flex items-center gap-2 text-sm text-white/75 transition-colors hover:text-white">
+                    <span className="h-1 w-1 rounded-full bg-white/30 transition-colors group-hover:bg-white" />
                     {s.title}
                   </Link>
                 </li>
@@ -124,25 +124,25 @@ export default function Footer() {
                   href={SITE_CONFIG.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-secondary-light transition-colors"
+                  className="text-white/80 transition-colors hover:text-white"
                 >
                   {SITE_CONFIG.address}
                 </a>
               </li>
               <li>
-                <a href={`tel:${SITE_CONFIG.phoneRaw}`} className="flex items-center gap-3 text-sm transition-colors hover:text-secondary-light">
-                  <Phone className="h-4 w-4 shrink-0 text-secondary" />
+                <a href={`tel:${SITE_CONFIG.phoneRaw}`} className="flex items-center gap-3 text-sm text-white/80 transition-colors hover:text-white">
+                  <Phone className="h-4 w-4 shrink-0 text-white/70" />
                   {SITE_CONFIG.phone}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-3 text-sm transition-colors hover:text-secondary-light">
-                  <Mail className="h-4 w-4 shrink-0 text-secondary" />
+                <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-3 text-sm text-white/80 transition-colors hover:text-white">
+                  <Mail className="h-4 w-4 shrink-0 text-white/70" />
                   {SITE_CONFIG.email}
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm">
-                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-white/70" />
                 <div className="space-y-0.5">
                   <p>Mon-Fri: {SITE_CONFIG.hours.weekdays}</p>
                   <p>Sat: {SITE_CONFIG.hours.saturday}</p>
@@ -157,12 +157,12 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:px-6 md:flex-row lg:px-8">
-          <p className="flex flex-wrap items-center gap-1.5 text-xs text-neutral-500">
+          <p className="flex flex-wrap items-center gap-1.5 text-xs text-white/65">
             © {new Date().getFullYear()} V Dental Clinic PJ. Made with <Heart className="h-3 w-3 text-red-400 fill-red-400" /> in Malaysia. Developed by Brandify Studios.
           </p>
-          <div className="flex gap-6 text-xs text-neutral-500">
-            <Link href="/privacy-policy" className="hover:text-neutral-300 transition-colors">Privacy Policy</Link>
-            <Link href="/terms-conditions" className="hover:text-neutral-300 transition-colors">Terms of Service</Link>
+          <div className="flex gap-6 text-xs text-white/65">
+            <Link href="/privacy-policy" className="transition-colors hover:text-white">Privacy Policy</Link>
+            <Link href="/terms-conditions" className="transition-colors hover:text-white">Terms of Service</Link>
           </div>
         </div>
       </div>
@@ -172,7 +172,7 @@ export default function Footer() {
         onClick={scrollToTop}
         whileHover={{ scale: 1.15, y: -2 }}
         whileTap={{ scale: 0.9 }}
-        className="absolute -top-6 right-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-xl transition-shadow hover:shadow-primary/30"
+        className="absolute -top-6 right-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-dark text-white shadow-xl transition-shadow hover:bg-primary hover:shadow-primary/30"
         aria-label="Scroll to top"
       >
         <ArrowUp className="h-5 w-5" />
