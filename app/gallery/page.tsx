@@ -89,7 +89,7 @@ export default function GalleryPage() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-300 ${activeCategory === cat
-                    ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/20"
+                    ? "bg-primary text-white shadow-lg shadow-primary/20"
                     : "border border-neutral-200 bg-white text-neutral-600 hover:border-primary/30 hover:text-primary"
                   }`}
                 whileHover={{ scale: 1.03 }}

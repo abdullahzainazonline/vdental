@@ -82,7 +82,7 @@ export default function RootLayout({
       <head>
         <meta name="color-scheme" content="only light" />
         <meta name="supported-color-schemes" content="only light" />
-        <meta name="theme-color" content="#0E7490" />
+        <meta name="theme-color" content="#5D4037" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

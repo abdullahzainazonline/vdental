@@ -189,8 +189,8 @@ export default function HeroSlider() {
           />
 
           {/* Cinematic overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/70 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
         </motion.div>
       </AnimatePresence>
 
@@ -276,3 +276,5 @@ export default function HeroSlider() {
     </section>
   );
 }
+
+

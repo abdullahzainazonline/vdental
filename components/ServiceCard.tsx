@@ -26,7 +26,7 @@ interface ServiceCardProps {
 export default function ServiceCard({ title, shortDesc, icon, id, image, index }: ServiceCardProps) {
   return (
     <div
-      className="group relative h-[420px] w-full overflow-hidden rounded-3xl bg-neutral-900 shadow-xl"
+      className="group relative h-[420px] w-full overflow-hidden rounded-3xl bg-neutral-900 shadow-md md:hover:shadow-lg"
     >
       {/* Background Image with Zoom Effect */}
       <picture>
@@ -39,7 +39,7 @@ export default function ServiceCard({ title, shortDesc, icon, id, image, index }
       </picture>
 
       {/* Modern Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent opacity-80 transition-all duration-500 md:group-hover:opacity-90 md:group-hover:via-neutral-900/70" />
+      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent opacity-60 transition-all duration-500 md:group-hover:opacity-75 md:group-hover:via-neutral-900/50" />
 
       {/* Animated Border Accent */}
       <div className="absolute inset-0 rounded-3xl border border-white/10 transition-colors duration-500 md:group-hover:border-primary/50" />
@@ -89,3 +89,5 @@ export default function ServiceCard({ title, shortDesc, icon, id, image, index }
     </div>
   );
 }
+
+

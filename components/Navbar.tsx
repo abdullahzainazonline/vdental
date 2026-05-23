@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Calendar, ChevronRight } from "lucide-react";
@@ -64,12 +65,13 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === "/";
   const { isOpen: clinicOpen, hoursLabel } = useClinicStatus();
 
   useEffect(() => {
     const handleScroll = () => {
       // Hero is now a single viewport height, switch after 80% of it
-      const threshold = pathname === "/" ? window.innerHeight * 0.8 : 20;
+      const threshold = isHome ? window.innerHeight * 0.8 : 20;
       setScrolled(window.scrollY > threshold);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -87,24 +89,22 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: EASE_SMOOTH }}
         className={`fixed left-0 right-0 top-0 z-[100] transition-all duration-500 border-b ${scrolled
-          ? "bg-white/90 shadow-lg shadow-primary/5 backdrop-blur-xl border-primary/10"
-          : "bg-transparent border-transparent"
+          ? "bg-[#FFF0ED]/95 shadow-lg shadow-primary/5 backdrop-blur-xl border-primary/10" : "bg-transparent border-transparent"
           }`}
       >
         {/* Top bar */}
         <div
-          className={`relative z-[110] hidden border-b border-white/10 text-sm transition-all duration-500 md:block ${scrolled ? "h-0 overflow-hidden opacity-0" : "bg-transparent py-2 text-white backdrop-blur-md"
-            }`}
+          className={`relative z-[110] hidden border-b border-white/10 text-sm transition-all duration-500 md:block ${scrolled ? "h-0 overflow-hidden opacity-0" : "bg-transparent py-2 backdrop-blur-sm text-white/95"}`}
         >
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-2 text-white/80">
+            <div className="flex items-center gap-2">
               <span className="relative flex h-2 w-2">
                 <span
-                  className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${clinicOpen ? "bg-success" : "bg-red-400"
+                  className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${clinicOpen ? "bg-success" : "bg-red-500"
                     }`}
                 />
                 <span
-                  className={`relative inline-flex h-2 w-2 rounded-full ${clinicOpen ? "bg-success" : "bg-red-400"
+                  className={`relative inline-flex h-2 w-2 rounded-full ${clinicOpen ? "bg-success" : "bg-red-500"
                     }`}
                 />
               </span>
@@ -113,12 +113,12 @@ export default function Navbar() {
                 : `Closed · Opens ${hoursLabel.split("–")[0].trim()}`}
             </div>
             <div className="flex items-center gap-6">
-              <a href={`tel:${SITE_CONFIG.phoneRaw}`} className="flex items-center gap-1.5 text-white/80 transition-colors hover:text-white">
+              <a href={`tel:${SITE_CONFIG.phoneRaw}`} className="flex items-center gap-1.5 transition-colors hover:text-white">
                 <Phone className="h-3.5 w-3.5" />
                 {SITE_CONFIG.phone}
               </a>
-              <span className="text-white/30">|</span>
-              <span className="text-white/60">📍 SS2, Petaling Jaya</span>
+              <span className="text-white/40">|</span>
+              <span className="text-white font-medium">📍 SS2, Petaling Jaya</span>
             </div>
           </div>
         </div>
@@ -126,31 +126,16 @@ export default function Navbar() {
         {/* Main nav */}
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           {/* Logo */}
-          <Link href="/" className="group flex items-center gap-3">
-            <div className="relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center transition-transform duration-500 group-hover:scale-105">
-              <div className="absolute inset-0 rounded-tl-2xl rounded-br-2xl rounded-tr-sm rounded-bl-sm bg-primary opacity-50 blur-md group-hover:opacity-80 transition-opacity duration-500" />
-              <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-tl-2xl rounded-br-2xl rounded-tr-sm rounded-bl-sm bg-gradient-to-br from-[#06B6D4] via-[#0E7490] to-[#155E75] shadow-inner border border-white/30">
-                <div className="absolute -top-[100%] -left-[100%] h-[300%] w-[300%] -rotate-45 bg-gradient-to-b from-transparent via-white/20 to-transparent translate-x-[-20%] group-hover:translate-x-[20%] transition-transform duration-1000" />
-                <span className="relative z-10 text-3xl sm:text-4xl font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] tracking-tighter" style={{ fontFamily: "var(--font-serif)" }}>
-                  V
-                </span>
-                <span className="absolute bottom-2.5 right-2 sm:bottom-3 sm:right-2.5 h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(245,158,11,1)]" />
-              </div>
-            </div>
-            <div>
-              <span
-                className={`block text-lg font-bold leading-tight transition-colors duration-300 ${scrolled ? "text-primary-dark" : "text-white"
-                  }`}
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                V Dental
-              </span>
-              <span
-                className={`block text-[11px] font-medium tracking-wider uppercase transition-colors duration-300 ${scrolled ? "text-neutral-400" : "text-white/60"
-                  }`}
-              >
-                Clinic & Surgery
-              </span>
+          <Link href="/" className="group flex items-center">
+            <div className="relative flex h-14 sm:h-18 w-auto items-center justify-center transition-transform duration-500 group-hover:scale-[1.02]">
+              <Image 
+                src="/vdental_logo.jpg" 
+                alt="V Dental Clinic Logo" 
+                width={200}
+                height={40}
+                className={`h-full w-auto object-contain transition-all duration-300 ${scrolled ? 'mix-blend-multiply opacity-100' : 'opacity-100'}`}
+                priority
+              />
             </div>
           </Link>
 
@@ -158,18 +143,14 @@ export default function Navbar() {
           <nav className="hidden items-center gap-0.5 lg:flex">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
+              const linkColor = scrolled 
+                ? (isActive ? "text-primary" : "text-neutral-600 hover:text-primary hover:bg-primary/5")
+                : (isActive ? "text-white font-extrabold drop-shadow-md" : "text-white/90 hover:text-white hover:bg-white/10 drop-shadow-sm");
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative rounded-xl px-4 py-2 text-sm font-medium transition-all duration-300 ${isActive
-                    ? scrolled
-                      ? "text-primary"
-                      : "text-white"
-                    : scrolled
-                      ? "text-neutral-600 hover:text-primary hover:bg-primary/5"
-                      : "text-white/75 hover:text-white hover:bg-white/10"
-                    }`}
+                  className={`relative rounded-xl px-4 py-2 text-[15px] font-bold transition-all duration-300 ${linkColor}`}
                 >
                   {link.label}
                   {isActive && (
@@ -190,10 +171,7 @@ export default function Navbar() {
               href={getWhatsAppUrl(SITE_CONFIG.whatsappRaw)}
               target="_blank"
               rel="noopener noreferrer"
-              className={`hidden items-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold transition-all duration-300 sm:inline-flex ${scrolled
-                ? "bg-accent text-neutral-900 shadow-md shadow-accent/20 hover:shadow-lg hover:shadow-accent/30 hover:scale-105"
-                : "bg-accent/90 text-neutral-900 backdrop-blur-sm hover:bg-accent hover:scale-105"
-                }`}
+              className={`hidden items-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold transition-all duration-300 sm:inline-flex ${scrolled ? "bg-accent text-neutral-900 shadow-md shadow-accent/20 hover:shadow-lg hover:shadow-accent/30 hover:scale-105" : "bg-accent/90 text-neutral-900 backdrop-blur-sm hover:bg-accent hover:scale-105"}`}
             >
               <WhatsAppIcon className="h-4 w-4" />
               Book Appointment
@@ -201,8 +179,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`rounded-xl p-2.5 transition-all duration-300 lg:hidden ${scrolled ? "text-neutral-900 hover:bg-neutral-100" : "text-white hover:bg-white/15"
-                }`}
+              className={`rounded-xl p-2.5 transition-all duration-300 lg:hidden ${scrolled ? "text-neutral-900 hover:bg-neutral-100" : "text-white hover:bg-white/20"}`}
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -235,18 +212,16 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-between border-b border-neutral-100 p-5">
                 <div className="flex items-center gap-2">
-                  <div className="relative flex h-10 w-10 items-center justify-center">
-                    <div className="absolute inset-0 rounded-tl-xl rounded-br-xl rounded-tr-sm rounded-bl-sm bg-primary opacity-50 blur-sm" />
-                    <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-tl-xl rounded-br-xl rounded-tr-sm rounded-bl-sm bg-gradient-to-br from-[#06B6D4] via-[#0E7490] to-[#155E75] border border-white/30">
-                      <div className="absolute -top-[100%] -left-[100%] h-[300%] w-[300%] -rotate-45 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
-                      <span className="relative z-10 text-2xl font-black text-white drop-shadow-sm tracking-tighter" style={{ fontFamily: "var(--font-serif)" }}>
-                        V
-                      </span>
-                      <span className="absolute bottom-2 right-1.5 h-1 w-1 rounded-full bg-accent shadow-[0_0_8px_rgba(245,158,11,1)]" />
+                  <div className="relative flex h-10 w-auto items-center justify-center">
+                      <Image 
+                        src="/vdental_logo.jpg" 
+                        alt="V Dental Clinic Logo" 
+                        width={130} height={60} 
+                        className="object-contain mix-blend-multiply opacity-100"
+                        priority
+                      />
                     </div>
                   </div>
-                  <span className="text-lg font-bold text-primary-dark" style={{ fontFamily: "var(--font-heading)" }}>V Dental</span>
-                </div>
                 <button onClick={() => setIsOpen(false)} className="rounded-xl p-2 text-neutral-400 hover:bg-neutral-50 hover:text-neutral-600 transition-colors">
                   <X className="h-5 w-5" />
                 </button>
@@ -295,7 +270,7 @@ export default function Navbar() {
                   </a>
                   <a
                     href={`tel:${SITE_CONFIG.phoneRaw}`}
-                    className="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-primary/20 px-6 py-3.5 text-base font-semibold text-primary transition-all hover:bg-primary hover:text-white hover:border-primary"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-primary/20 px-6 py-3.5 text-base font-semibold text-primary transition-all hover:bg-primary hover:text-primary-dark hover:border-primary"
                   >
                     <Phone className="h-5 w-5" />
                     Call Us
@@ -335,3 +310,19 @@ function ScrollProgress({ scrolled }: { scrolled: boolean }) {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

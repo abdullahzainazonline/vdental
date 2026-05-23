@@ -79,7 +79,7 @@ export default function ServicesPage() {
                 key={s.id}
                 onClick={() => setActiveService(i)}
                 className={`group flex items-center gap-2.5 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 ${activeService === i
-                    ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/20"
+                    ? "bg-primary text-white shadow-lg shadow-primary/20"
                     : "border border-neutral-200 bg-white text-neutral-600 hover:border-primary/30 hover:bg-primary/5 hover:text-primary"
                   }`}
                 whileHover={{ scale: 1.03 }}
