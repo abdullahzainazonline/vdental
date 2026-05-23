@@ -259,7 +259,7 @@ export default function HeroSlider() {
                       href={getWhatsAppUrl(SITE_CONFIG.whatsappRaw)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-shine group inline-flex items-center justify-center gap-2.5 rounded-full bg-accent px-8 py-4 text-white font-bold text-neutral-900 shadow-xl shadow-accent/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent/40"
+                      className="btn-shine group inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-8 py-4 font-bold text-white shadow-xl shadow-primary/30 transition-all duration-300 hover:scale-105 hover:bg-primary-light hover:shadow-2xl hover:shadow-primary/40"
                     >
                       <WhatsAppIcon className="h-5 w-5 transition-transform group-hover:rotate-12" />
                       Book Appointment
