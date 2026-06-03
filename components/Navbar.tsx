@@ -5,21 +5,22 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Calendar, ChevronRight } from "lucide-react";
-import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
+import { Menu, X, Phone, Calendar, ChevronRight, ChevronDown, ArrowRight, Crosshair, Activity, Syringe, Sparkles, ClipboardPlus, Shield, Search, Baby, Zap, Stethoscope, Smile } from "lucide-react";
+import { NAV_LINKS, SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 import { WhatsAppIcon } from "./WhatsAppButton";
+
+const IconMap: any = { Crosshair, Activity, Syringe, Sparkles, ClipboardPlus, Shield, Search, Baby, Zap, Stethoscope, Smile };
 
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 /** Returns { isOpen, label } based on current Malaysia time vs clinic hours */
 function useClinicStatus() {
   const getStatus = () => {
-    // Use Malaysia timezone (UTC+8)
     const now = new Date(
       new Date().toLocaleString("en-US", { timeZone: "Asia/Kuala_Lumpur" })
     );
-    const day = now.getDay(); // 0=Sun, 1=Mon, …, 6=Sat
+    const day = now.getDay();
     const h = now.getHours();
     const m = now.getMinutes();
     const totalMins = h * 60 + m;
@@ -29,17 +30,10 @@ function useClinicStatus() {
     let hoursLabel: string;
 
     if (day === 0) {
-      // Sunday 10:00 – 16:00
       openMin = 10 * 60;
       closeMin = 16 * 60;
       hoursLabel = SITE_CONFIG.hours.sunday;
-    } else if (day === 6) {
-      // Saturday 09:00 – 18:00
-      openMin = 9 * 60;
-      closeMin = 18 * 60;
-      hoursLabel = SITE_CONFIG.hours.saturday;
     } else {
-      // Mon-Fri 09:00 – 21:00
       openMin = 9 * 60;
       closeMin = 21 * 60;
       hoursLabel = SITE_CONFIG.hours.weekdays;
@@ -53,9 +47,8 @@ function useClinicStatus() {
 
   useEffect(() => {
     const tick = () => setStatus(getStatus());
-    const id = setInterval(tick, 60_000); // re-check every minute
+    const id = setInterval(tick, 60_000);
     return () => clearInterval(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return status;
@@ -68,18 +61,21 @@ export default function Navbar() {
   const isHome = pathname === "/";
   const { isOpen: clinicOpen, hoursLabel } = useClinicStatus();
 
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
-      // Hero is now a single viewport height, switch after 80% of it
       const threshold = isHome ? window.innerHeight * 0.8 : 20;
       setScrolled(window.scrollY > threshold);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+  }, [pathname, isHome]);
 
   useEffect(() => {
     setIsOpen(false);
+    setActiveDropdown(null);
   }, [pathname]);
 
   return (
@@ -141,11 +137,89 @@ export default function Navbar() {
 
           {/* Desktop nav links */}
           <nav className="hidden items-center gap-0.5 lg:flex">
-            {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.href;
+            {NAV_LINKS.filter(link => link.label !== "About Us").map((link) => {
+              const isServices = link.label === "Services";
+              const isActive = pathname === link.href || (isServices && pathname.startsWith('/services'));
               const linkColor = scrolled 
                 ? (isActive ? "text-primary" : "text-neutral-600 hover:text-primary hover:bg-primary/5")
                 : (isActive ? "text-white font-extrabold drop-shadow-md" : "text-white/90 hover:text-white hover:bg-white/10 drop-shadow-sm");
+
+              if (isServices) {
+                return (
+                  <div 
+                    key={link.href}
+                    className="relative group"
+                    onMouseEnter={() => setActiveDropdown('services')}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    <Link
+                      href={link.href}
+                      className={`relative flex items-center gap-1 rounded-xl px-4 py-2 text-[15px] font-bold transition-all duration-300 ${linkColor}`}
+                    >
+                      {link.label}
+                      <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
+                      {isActive && (
+                        <motion.div
+                          layoutId="nav-active"
+                          className="absolute -bottom-0.5 left-3 right-3 h-0.5 rounded-full bg-gradient-to-r from-primary to-secondary"
+                          transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                        />
+                      )}
+                    </Link>
+
+                    {/* Mega Menu Dropdown */}
+                    <AnimatePresence>
+                      {activeDropdown === 'services' && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          className="absolute left-1/2 top-full mt-2 w-[850px] -translate-x-1/2 rounded-3xl bg-white p-6 shadow-2xl border border-neutral-100 flex gap-6 z-[120]"
+                        >
+                          {/* Left Side: General Image & All Services CTA */}
+                          <div className="w-1/3 rounded-2xl bg-neutral-50 p-6 flex flex-col justify-between relative overflow-hidden group/all">
+                            <div className="absolute inset-0 z-0">
+                              <Image src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=500&q=80" alt="All Services" fill className="object-cover opacity-20 transition-transform duration-700 group-hover/all:scale-110" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-primary/40 mix-blend-multiply" />
+                            </div>
+                            <div className="relative z-10 text-white mt-auto">
+                              <h4 className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-heading)" }}>Comprehensive Dental Care</h4>
+                              <p className="text-white/90 text-sm mb-6 leading-relaxed">Explore our full range of professional and cosmetic treatments.</p>
+                              <Link href="/services" onClick={() => setActiveDropdown(null)} className="inline-flex items-center gap-2 bg-white text-primary px-5 py-2.5 rounded-full text-sm font-bold shadow-lg hover:scale-105 hover:bg-neutral-50 transition-all w-full justify-center">
+                                View All Services <ArrowRight className="h-4 w-4" />
+                              </Link>
+                            </div>
+                          </div>
+
+                          {/* Right Side: Services Grid */}
+                          <div className="w-2/3 grid grid-cols-2 gap-x-4 gap-y-1">
+                            {SERVICES.map((s) => (
+                              <Link 
+                                key={s.id} 
+                                href={`/services/${s.id}`}
+                                onClick={() => setActiveDropdown(null)}
+                                className="group/item flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/5 transition-colors"
+                              >
+                                <div className="h-9 w-9 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors shrink-0 shadow-sm">
+                                  {(() => {
+                                    const Icon = IconMap[s.icon] || ChevronRight;
+                                    return <Icon className="h-4 w-4" />;
+                                  })()}
+                                </div>
+                                <div>
+                                  <h5 className="text-sm font-bold text-neutral-800 group-hover/item:text-primary transition-colors line-clamp-1">{s.title}</h5>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={link.href}
@@ -207,7 +281,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 250 }}
-              className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl"
+              className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between border-b border-primary/10 p-5 bg-[#FFF0ED]">
@@ -229,8 +303,58 @@ export default function Navbar() {
 
               <div className="p-5">
                 <div className="space-y-1">
-                  {NAV_LINKS.map((link, i) => {
-                    const isActive = pathname === link.href;
+                  {NAV_LINKS.filter(link => link.label !== "About Us").map((link, i) => {
+                    const isServices = link.label === "Services";
+                    const isActive = pathname === link.href || (isServices && pathname.startsWith('/services'));
+                    
+                    if (isServices) {
+                      return (
+                        <motion.div
+                          key={link.href}
+                          initial={{ opacity: 0, x: 30 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.06, ease: EASE_SMOOTH }}
+                          className="space-y-1"
+                        >
+                          <button
+                            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                            className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-base font-bold transition-all duration-200 ${
+                              isActive ? "bg-primary/5 text-primary" : "text-neutral-600 hover:bg-neutral-50 hover:text-primary"
+                            }`}
+                          >
+                            {link.label}
+                            <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180 text-primary" : "text-neutral-300"}`} />
+                          </button>
+                          <AnimatePresence>
+                            {mobileServicesOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden px-2"
+                              >
+                                <div className="border-l-2 border-primary/20 ml-4 pl-4 py-2 space-y-3">
+                                  <Link href="/services" onClick={() => setIsOpen(false)} className="flex items-center gap-2 text-sm font-bold text-primary">
+                                    <ArrowRight className="h-3 w-3" /> All Services Overview
+                                  </Link>
+                                  {SERVICES.map(s => (
+                                    <Link 
+                                      key={s.id} 
+                                      href={`/services/${s.id}`} 
+                                      onClick={() => setIsOpen(false)} 
+                                      className={`block text-sm transition-colors ${pathname === `/services/${s.id}` ? 'text-primary font-bold' : 'text-neutral-500 hover:text-primary font-medium'}`}
+                                    >
+                                      {s.title}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </motion.div>
+                      );
+                    }
+
                     return (
                       <motion.div
                         key={link.href}
@@ -240,7 +364,8 @@ export default function Navbar() {
                       >
                         <Link
                           href={link.href}
-                          className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-all duration-200 ${isActive
+                          onClick={() => setIsOpen(false)}
+                          className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-bold transition-all duration-200 ${isActive
                             ? "bg-primary/5 text-primary"
                             : "text-neutral-600 hover:bg-neutral-50 hover:text-primary"
                             }`}
@@ -270,7 +395,7 @@ export default function Navbar() {
                   </a>
                   <a
                     href={`tel:${SITE_CONFIG.phoneRaw}`}
-                    className="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-primary/20 px-6 py-3.5 text-base font-semibold text-primary transition-all hover:bg-primary hover:text-primary-dark hover:border-primary"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-primary/20 px-6 py-3.5 text-base font-bold text-primary transition-all hover:bg-primary hover:text-primary-dark hover:border-primary"
                   >
                     <Phone className="h-5 w-5" />
                     Call Us
@@ -310,19 +435,3 @@ function ScrollProgress({ scrolled }: { scrolled: boolean }) {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

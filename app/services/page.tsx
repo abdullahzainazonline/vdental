@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BlurReveal, FloatingElement, StaggerContainer, StaggerItem } from "@/components/ScrollAnimations";
 import SectionHeading from "@/components/SectionHeading";
@@ -20,6 +20,29 @@ const iconMap: Record<string, React.ReactNode> = {
 export default function ServicesPage() {
   const [activeService, setActiveService] = useState(0);
   const current = SERVICES[activeService];
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const index = SERVICES.findIndex(s => s.id === hash);
+        if (index !== -1) {
+          setActiveService(index);
+          setTimeout(() => {
+            const section = document.getElementById('services-detail');
+            if (section) {
+              const y = section.getBoundingClientRect().top + window.scrollY - 100;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+          }, 100);
+        }
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   return (
     <>
@@ -67,7 +90,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Tabs */}
-      <section className="relative py-20 md:py-32 overflow-hidden section-divider">
+      <section id="services-detail" className="relative py-20 md:py-32 overflow-hidden section-divider">
         <div className="absolute top-0 left-0 h-72 w-72 -translate-x-1/3 -translate-y-1/3 rounded-full bg-primary/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading badge="What We Offer" title="Our Dental Services" subtitle="Tap on a service to explore treatment details, process, and features." />
@@ -86,7 +109,7 @@ export default function ServicesPage() {
                 whileTap={{ scale: 0.97 }}
               >
                 <span className={`transition-colors duration-300 ${activeService === i ? "text-white" : "text-neutral-400 group-hover:text-primary"}`}>
-                  {iconMap[s.icon]}
+                  {iconMap[s.icon] || <CheckCircle className="h-5 w-5" />}
                 </span>
                 <span className="hidden sm:inline">{s.title}</span>
               </motion.button>
@@ -134,7 +157,7 @@ export default function ServicesPage() {
                 {/* Info */}
                 <div className="flex flex-col h-full justify-center">
                   <div className="mb-4 inline-flex self-start items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 p-3.5 text-primary">
-                    {iconMap[current.icon]}
+                    {iconMap[current.icon] || <CheckCircle className="h-6 w-6" />}
                   </div>
                   <h2 className="mb-3 text-3xl font-bold text-neutral-900 md:text-5xl" style={{ fontFamily: "var(--font-heading)" }}>
                     {current.title}
@@ -142,21 +165,26 @@ export default function ServicesPage() {
                   <p className="mb-8 text-lg font-medium leading-relaxed text-neutral-600 line-clamp-3">{current.description}</p>
 
                   <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-primary border-b border-primary/10 pb-2">Sub Services Included</h4>
-                  <div className="mb-8 grid gap-3">
-                    {current.features.map((f, i) => (
+                  <div className="mb-8 grid gap-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                    {current.features.map((f, i) => {
+                      const feature = typeof f === 'string' ? { title: f, desc: '' } : f as { title: string, desc: string };
+                      return (
                       <motion.div
-                        key={f}
+                        key={feature.title}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2 + i * 0.05 }}
-                        className="flex items-center gap-3 rounded-full bg-white border border-neutral-100 shadow-sm px-5 py-3 hover:shadow-md transition-all duration-300 hover:border-primary/20"
+                        className="flex items-start gap-3 rounded-2xl bg-white border border-neutral-100 shadow-sm p-4 hover:shadow-md transition-all duration-300 hover:border-primary/20"
                       >
-                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-success to-emerald-400 shadow-sm text-white">
+                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-success to-emerald-400 shadow-sm text-white mt-0.5">
                           <CheckCircle className="h-3.5 w-3.5" />
                         </div>
-                        <span className="text-sm font-bold text-neutral-800">{f}</span>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-bold text-neutral-800">{feature.title}</span>
+                          {feature.desc && <span className="text-xs text-neutral-500 mt-1 leading-relaxed whitespace-pre-wrap">{feature.desc}</span>}
+                        </div>
                       </motion.div>
-                    ))}
+                    )})}
                   </div>
 
                   <div className="flex flex-wrap gap-4">
@@ -189,16 +217,21 @@ export default function ServicesPage() {
                   whileHover={{ y: -4 }}
                 >
                   <div className="mb-4 inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 text-primary transition-all duration-500 group-hover:from-primary group-hover:to-secondary group-hover:text-white group-hover:scale-110 group-hover:shadow-lg">
-                    {iconMap[s.icon]}
+                    {iconMap[s.icon] || <CheckCircle className="h-6 w-6" />}
                   </div>
                   <h3 className="mb-3 text-xl font-bold text-neutral-900 shrink-0 border-b border-neutral-100 pb-3 group-hover:border-primary/20 transition-colors" style={{ fontFamily: "var(--font-heading)" }}>{s.title}</h3>
-                  <div className="mb-5 flex-1 space-y-2">
-                    {s.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2.5 text-sm text-neutral-600 transition-colors group-hover:text-neutral-800">
-                        <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
-                        <span className="font-medium">{feature}</span>
+                  <div className="mb-5 flex-1 space-y-2 max-h-[150px] overflow-y-auto pr-2 custom-scrollbar">
+                    {s.features.map((f, idx) => {
+                      const feature = typeof f === 'string' ? { title: f, desc: '' } : f as { title: string, desc: string };
+                      return (
+                      <div key={idx} className="flex flex-col group/item mb-2.5 bg-neutral-50/50 p-2.5 rounded-xl border border-neutral-100 transition-all hover:bg-primary/5 hover:border-primary/20">
+                        <div className="flex items-center gap-2 text-sm text-neutral-600 transition-colors group-hover/item:text-neutral-900 group-hover:text-primary">
+                          <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary/40 group-hover/item:bg-primary transition-colors" />
+                          <span className="font-bold">{feature.title}</span>
+                        </div>
+                        {feature.desc && <span className="text-[11px] text-neutral-500 mt-1 pl-3.5 line-clamp-2">{feature.desc}</span>}
                       </div>
-                    ))}
+                    )})}
                   </div>
                   <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-bold text-primary shrink-0 transition-transform duration-300 group-hover:translate-x-1">
                     Book Service

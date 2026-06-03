@@ -8,6 +8,7 @@ import { GALLERY_ITEMS, GALLERY_CATEGORIES, SITE_CONFIG } from "@/lib/constants"
 import { X, ZoomIn, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -197,6 +198,23 @@ export default function GalleryPage() {
           );
         })()}
       </AnimatePresence>
+
+      {/* Testimonials */}
+      <section className="relative bg-neutral-50 py-20 md:py-32 overflow-hidden section-divider">
+        <div className="absolute top-10 right-10 pointer-events-none">
+          <FloatingElement yRange={20} duration={8}>
+            <div className="h-20 w-20 rounded-full bg-primary/5 blur-xl" />
+          </FloatingElement>
+        </div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Testimonials"
+            title="Customer Testimonials"
+            subtitle="Real stories from real patients who trust V Dental Clinic for their family dental care."
+          />
+          <TestimonialCarousel />
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="py-20 section-divider">

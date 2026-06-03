@@ -21,18 +21,19 @@ interface ServiceCardProps {
   id: string;
   image: string;
   index: number;
+  features?: string[];
 }
 
-export default function ServiceCard({ title, shortDesc, icon, id, image, index }: ServiceCardProps) {
+export default function ServiceCard({ title, shortDesc, icon, id, image, index, features }: ServiceCardProps) {
   return (
     <div
       className="group relative h-[420px] w-full overflow-hidden rounded-3xl bg-neutral-900 shadow-md md:hover:shadow-lg"
     >
       {/* Background Image with Zoom Effect */}
       <picture>
-        <source media="(min-width: 640px)" srcSet={`/V Dental Website images/Home Page/Services Preview Images/Home_ServiceCard_${index + 1}_pc.jpg`} />
+        <source media="(min-width: 640px)" srcSet={index < 6 ? `/V Dental Website images/Home Page/Services Preview Images/Home_ServiceCard_${index + 1}_pc.jpg` : image} />
         <img
-          src={`/V Dental Website images/Home Page/Services Preview Images/Home_ServiceCard_${index + 1}_mobile.jpg`}
+          src={index < 6 ? `/V Dental Website images/Home Page/Services Preview Images/Home_ServiceCard_${index + 1}_mobile.jpg` : image}
           alt={title}
           className="absolute inset-0 object-cover object-center w-full h-full transition-transform duration-700 ease-out md:group-hover:scale-105"
         />
@@ -60,7 +61,7 @@ export default function ServiceCard({ title, shortDesc, icon, id, image, index }
         </h3>
 
         {/* Mobile: static description always visible */}
-        <p className="md:hidden mt-1 text-sm leading-relaxed text-neutral-300/90 line-clamp-3">
+        <p className="md:hidden mt-1 text-sm leading-relaxed text-neutral-300/90">
           {shortDesc}
         </p>
         <Link

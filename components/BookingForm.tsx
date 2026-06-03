@@ -10,11 +10,8 @@ const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 interface BookingFormData {
   name: string;
-  email: string;
   phone: string;
   service: string;
-  date: string;
-  message: string;
 }
 
 export default function BookingForm({ compact = false }: { compact?: boolean }) {
@@ -31,10 +28,7 @@ export default function BookingForm({ compact = false }: { compact?: boolean }) 
 
 *Name:* ${data.name}
 *Phone:* ${data.phone}
-*Email:* ${data.email}
-*Service:* ${data.service}
-*Preferred Date:* ${data.date}
-*Message:* ${data.message || "N/A"}`;
+*Service:* ${data.service}`;
 
       const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsappRaw}?text=${encodeURIComponent(text)}`;
       window.open(whatsappUrl, "_blank");
@@ -102,75 +96,30 @@ export default function BookingForm({ compact = false }: { compact?: boolean }) 
           />
           {errors.phone && <p className={errorClass}>{errors.phone.message}</p>}
         </div>
-
-        {/* Email */}
-        <div className="relative group">
-          <Mail className="absolute left-4 top-4 h-4 w-4 text-neutral-400 transition-colors group-focus-within:text-primary" />
-          <input
-            type="email"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
-                message: "Invalid email address",
-              },
-            })}
-            placeholder="Email (e.g. name@example.com)"
-            className={inputClass}
-          />
-          {errors.email && <p className={errorClass}>{errors.email.message}</p>}
-        </div>
-
-        {/* Service */}
-        <div className="relative group">
-          <Clipboard className="absolute left-4 top-4 h-4 w-4 text-neutral-400 transition-colors group-focus-within:text-primary" />
-          <select {...register("service", { required: "Please select a service" })} className={inputClass + " appearance-none cursor-pointer"} defaultValue="">
-            <option value="" disabled>Select Service</option>
-            <optgroup label="General Dentistry">
-              <option value="Scaling & Polishing">Scaling & Polishing</option>
-              <option value="Fillings">Fillings</option>
-              <option value="Extractions">Extractions</option>
-            </optgroup>
-            <option value="Wisdom Tooth Removal">Wisdom Tooth Removal</option>
-            <optgroup label="Orthodontic Services">
-              <option value="Braces & Aligners">Braces & Aligners</option>
-            </optgroup>
-            <optgroup label="Cosmetic Dentistry">
-              <option value="Dental Veneers">Dental Veneers</option>
-              <option value="Dental Crowns">Dental Crowns</option>
-              <option value="Dental Bridge">Dental Bridge</option>
-            </optgroup>
-            <option value="Dental Implant">Dental Implant</option>
-            <option value="Root Canal Treatment">Root Canal Treatment</option>
-            <option value="Gum Treatment">Gum Treatment</option>
-            <option value="Tooth Gem">Tooth Gem</option>
-            <option value="Dentures">Dentures</option>
-          </select>
-          {errors.service && <p className={errorClass}>{errors.service.message}</p>}
-        </div>
-
-        {/* Date */}
-        <div className="relative group">
-          <Calendar className="absolute left-4 top-4 h-4 w-4 text-neutral-400 transition-colors group-focus-within:text-primary" />
-          <input
-            type="date"
-            {...register("date", { required: "Please select a date" })}
-            className={inputClass + " cursor-pointer"}
-            min={new Date().toISOString().split("T")[0]}
-          />
-          {errors.date && <p className={errorClass}>{errors.date.message}</p>}
-        </div>
       </div>
 
-      {/* Message */}
+      {/* Service - Made more prominent */}
       <div className="relative group">
-        <MessageSquare className="absolute left-4 top-4 h-4 w-4 text-neutral-400 transition-colors group-focus-within:text-primary" />
-        <textarea
-          {...register("message")}
-          placeholder="Any additional notes or concerns (optional)"
-          rows={compact ? 2 : 3}
-          className={inputClass + " resize-none"}
-        />
+        <Clipboard className="absolute left-4 top-5 h-5 w-5 text-primary transition-colors group-focus-within:text-primary-light" />
+        <select
+          {...register("service", { required: "Please select a service" })}
+          className={inputClass + " appearance-none cursor-pointer border-primary/50 bg-primary/5 py-4 pl-12 text-base font-semibold text-primary shadow-sm hover:bg-primary/10"}
+          defaultValue=""
+        >
+          <option value="" disabled>Select Service Needed...</option>
+          <option value="Implant Solutions">Implant Solutions</option>
+          <option value="Orthodontics | Braces">Orthodontics | Braces</option>
+          <option value="Oral Surgeries">Oral Surgeries</option>
+          <option value="Smile Makeover | Veneer | Aesthetic">Smile Makeover | Veneer | Aesthetic</option>
+          <option value="General Dentistry">General Dentistry</option>
+          <option value="Periodontal Treatments">Periodontal Treatments</option>
+          <option value="Dental X-Rays">Dental X-Rays</option>
+          <option value="Kids Dentistry">Kids Dentistry</option>
+          <option value="Emergency">Emergency</option>
+          <option value="Wisdom Teeth Removal">Wisdom Teeth Removal</option>
+          <option value="Denture">Denture</option>
+        </select>
+        {errors.service && <p className={errorClass}>{errors.service.message}</p>}
       </div>
 
       {/* Submit */}

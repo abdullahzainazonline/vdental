@@ -144,9 +144,9 @@ export default function Footer() {
               <li className="flex items-start gap-3 text-sm">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-white/70" />
                 <div className="space-y-0.5">
-                  <p>Mon-Fri: {SITE_CONFIG.hours.weekdays}</p>
-                  <p>Sat: {SITE_CONFIG.hours.saturday}</p>
+                  <p>Mon-Sat: {SITE_CONFIG.hours.weekdays}</p>
                   <p>Sun: {SITE_CONFIG.hours.sunday}</p>
+                  <p>Public Holiday: {SITE_CONFIG.hours.publicHoliday}</p>
                 </div>
               </li>
             </ul>

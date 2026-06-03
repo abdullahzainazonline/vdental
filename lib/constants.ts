@@ -16,9 +16,9 @@ export const SITE_CONFIG = {
   mapUrl:
     "https://www.google.com/maps/place/V+Dental+Clinic/@3.1158148,101.621925,697m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31cc49b58c85224f:0xc95b7919908e9ed0!8m2!3d3.1158148!4d101.621925!16s%2Fg%2F11y1vwl_nt",
   hours: {
-    weekdays: "9:00 AM – 9:00 PM",
-    saturday: "9:00 AM – 6:00 PM",
-    sunday: "10:00 AM – 4:00 PM",
+    weekdays: "9:00 AM – 9:00 PM (MYT)",
+    saturday: "9:00 AM – 9:00 PM (MYT)",
+    sunday: "10:00 AM – 4:00 PM (MYT)",
     publicHoliday: "Open on selected days",
   },
   social: {
@@ -30,10 +30,10 @@ export const SITE_CONFIG = {
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Our Dentists", href: "/dentists" },
-  { label: "Smile Gallery", href: "/gallery" },
+  { label: "Success Story", href: "/gallery" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
   { label: "FAQ", href: "/faq" },
@@ -65,17 +65,53 @@ export const HERO_SLIDES = [
 
 export const SERVICES = [
   {
-    id: 'orthodontics',
-    title: 'Orthodontics',
-    shortDesc: 'For people who are concerned with biting or teeth misalignment.',
-    icon: 'SmilePlus',
-    image: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&q=80',
+    id: 'implant-solutions',
+    title: 'Implant Solutions',
+    shortDesc: 'Advanced implant solutions delivering natural, long-lasting smiles with world-class standards.',
+    icon: 'Crosshair',
+    image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80',
+    metaTitle: 'Dental Implants SS2, Petaling Jaya | V Dental Clinic',
+    metaDescription: 'Restore missing teeth with advanced dental implants, single implants or All-on-4 at V Dental SS2 Petaling Jaya. 500+ successful cases. Flexible payment plans. Free consult.',
+    galleryCategory: 'Implants',
     features: [
-      'Conventional Braces',
-      'Self-ligating Braces',
-      'Invisalign / Clear Aligners'
+      { title: 'Single Tooth Implant', desc: 'A permanent and natural-looking replacement for a single missing tooth, designed to blend seamlessly with your existing smile.' },
+      { title: 'Immediate Implant (Same-Day Implant)', desc: 'Experience the convenience of having your failing tooth extracted and replaced with an implant in a single visit.' },
+      { title: 'Full Arch Implants (All-on-4 / All-on-6 / All-on-X)', desc: 'A comprehensive solution for replacing an entire set of upper or lower teeth, offering unmatched stability and aesthetics.' },
+      { title: 'Implant-Supported Bridges', desc: 'An ideal and robust option for replacing multiple adjacent missing teeth without altering healthy neighboring teeth.' },
+      { title: 'Implant Overdentures (Fixed/Removable Solutions)', desc: 'Securely snap your dentures into place with implants, eliminating slipping and providing superior comfort.' },
+      { title: 'Bone Grafting & Regeneration', desc: 'Advanced techniques to rebuild and strengthen bone volume, creating a solid foundation for future implants.' },
+      { title: 'Sinus Lift Surgery', desc: 'A specialized procedure to increase bone density in the upper jaw, ensuring secure placement for posterior implants.' },
+      { title: 'Socket Preservation & Ridge Augmentation', desc: 'Protecting the bone structure immediately after an extraction to maintain the natural contours of your jaw.' },
+      { title: 'Guided Implant Surgery', desc: 'Utilizing state-of-the-art 3D imaging to plan and execute implant placement with absolute precision.' },
+      { title: 'Digital Smile Design Integration', desc: 'Collaborative digital planning to ensure your final implant restorations perfectly complement your facial aesthetics.' },
+      { title: 'Precision Implant Positioning', desc: 'Strategic placement guided by advanced technology for optimal longevity, function, and appearance.' },
+      { title: 'Failed Implant Management', desc: 'Expert assessment and corrective treatments to address and resolve complications from previous implant procedures.' },
+      { title: 'Peri-Implantitis Treatment', desc: 'Targeted therapy to treat infections around implants, preserving the surrounding bone and the implant itself.' },
+      { title: 'Implant Removal & Replacement', desc: 'Careful removal of compromised implants followed by strategic replacement to restore oral health and function.' },
+      { title: 'Revision Surgery Cases', desc: 'Comprehensive corrective surgeries designed to rescue and meticulously restore complex or previously unsuccessful cases.' }
     ],
-    description: 'Achieve the perfectly aligned smile you\'ve always wanted with our comprehensive orthodontic solutions. We offer a range of options from conventional metal or ceramic brackets, advanced self-ligating systems, to nearly invisible clear aligners.',
+    description: 'Advanced implant solutions combining digital precision and surgical expertise. We deliver natural, long-lasting smiles with world-class standards.',
+    process: [
+      { step: 'Consultation', desc: 'Thorough evaluation and CT Scan' },
+      { step: 'Planning', desc: 'Aesthetic-driven digital planning' },
+      { step: 'Surgical Phase', desc: 'Precision implant placement' },
+      { step: 'Restoration', desc: 'Final customised prosthetic delivery' }
+    ],
+  },
+  {
+    id: 'orthodontics',
+    title: 'Orthodontics | Braces',
+    shortDesc: 'For people who are concerned with biting or teeth misalignment.',
+    icon: 'Activity',
+    image: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&q=80',
+    metaTitle: 'Braces & Orthodontics SS2, Petaling Jaya | V Dental Clinic',
+    metaDescription: 'Straighten teeth with conventional braces, self-ligating braces, or Invisalign clear aligners at V Dental SS2 Petaling Jaya. 1,000+ braces cases. Flexible payment plans. Free consult.',
+    galleryCategory: 'Braces',
+    features: [
+      { title: 'Essix Clear Retainers', desc: 'Removable, transparent retainers that quietly and effectively hold your teeth in their perfect new position.' },
+      { title: 'Night Guard / Splint', desc: 'Custom-fitted oral appliances designed to protect your teeth from grinding and relieve jaw tension while you sleep.' }
+    ],
+    description: 'Achieve the perfectly aligned smile you\'ve always wanted. We offer a range of comprehensive orthodontic options from conventional brackets to invisible clear aligners.',
     process: [
       { step: 'Consultation', desc: 'Consultation & X-ray' },
       { step: 'Planning', desc: 'Detailed Treatment Planning' },
@@ -86,33 +122,38 @@ export const SERVICES = [
   {
     id: 'oral-surgeries',
     title: 'Oral Surgeries',
-    shortDesc: 'Receive expert care for all your oral surgery and implant needs.',
-    icon: 'Crosshair',
+    shortDesc: 'Receive expert care for all your oral surgery needs.',
+    icon: 'Syringe',
     image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80',
+    metaTitle: 'Oral Surgery & Extractions SS2, Petaling Jaya | V Dental Clinic',
+    metaDescription: 'Safe and professional oral surgeries including soft tissue removal and frenectomy by experienced dental surgeons in SS2.',
+    galleryCategory: 'General',
     features: [
-      'Dental Implant',
-      'Tooth extractions',
-      'Minor Oral Surgeries'
+      { title: 'Soft Tissue Removal', desc: 'Safe and precise excision of excess or problematic oral tissues to promote better health and comfort.' },
+      { title: 'Frenectomy', desc: 'A quick, minimally invasive procedure to release restrictive connective tissues (frenum), improving mobility and function.' },
+      { title: 'Apicoectomy', desc: 'A microsurgical endodontic procedure aimed at saving a previously treated tooth by delicately removing the tip of its infected root.' }
     ],
-    description: 'A permanent solution for missing teeth using titanium posts that fuse with the jawbone. We also provide safe removal of damaged or problematic teeth, including complex wisdom tooth extractions.',
+    description: 'Expert care for your oral surgery needs. We provide safe extraction of damaged teeth and soft tissue modifications for optimal oral health.',
     process: [
-      { step: 'Consultation', desc: 'Consultation & CT Scan' },
-      { step: 'Placement', desc: 'Implant or Surgery Placement' },
-      { step: 'Healing', desc: 'Osseointegration period' },
-      { step: 'Restoration', desc: 'Abutment & Crown Placement' }
+      { step: 'Consultation', desc: 'Consultation & Imaging' },
+      { step: 'Procedure', desc: 'Safe Surgical Procedure' },
+      { step: 'Recovery', desc: 'Guided Healing' }
     ],
   },
   {
     id: 'smile-makeover',
-    title: 'Smile Makeover | Aesthetic',
+    title: 'Smile Makeover | Veneer | Aesthetic',
     shortDesc: 'Improve your teeth appearance including discoloration, misshape, and misalignment.',
     icon: 'Sparkles',
-    image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1629853920701-fbd8a8647ac2?w=800&q=80',
+    metaTitle: 'Smile Makeover & Veneers SS2, Petaling Jaya | V Dental',
+    metaDescription: 'Transform your smile with custom porcelain veneers and professional teeth whitening at V Dental SS2 Petaling Jaya. Expert aesthetic dentistry. Flexible payment plans. Free consult.',
+    galleryCategory: 'Smile Makeover',
     features: [
-      'Dental Veneers',
-      'Dental Crowns & Bridges'
+      { title: 'Teeth Whitening', desc: 'Professional brightening treatments that safely lift stubborn stains, revealing an instantly radiant and youthful smile.' },
+      { title: 'ICON Infiltration', desc: 'A remarkable, drill-free treatment to permanently erase white spots and early decay while preserving healthy enamel.' }
     ],
-    description: 'Transform your smile with our cosmetic dentistry services. We treat worn down, severely stained, chipped, or missing teeth using custom veneers, professional whitening, and advanced gummy smile correction.',
+    description: 'Transform your smile with our cosmetic dentistry services. We expertly treat worn, stained, and chipped teeth using custom veneers and advanced aesthetic corrections.',
     process: [
       { step: 'Analysis', desc: 'Digital smile design consultation' },
       { step: 'Preparation', desc: 'Gentle teeth preparation' },
@@ -123,15 +164,21 @@ export const SERVICES = [
   {
     id: 'general-dentistry',
     title: 'General Dentistry',
-    shortDesc: 'We offer a wide range of essential dental services to address all your oral health needs.',
-    icon: 'Stethoscope',
+    shortDesc: 'Essential dental services to address all your oral health needs.',
+    icon: 'ClipboardPlus',
     image: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80',
+    metaTitle: 'General Dentistry SS2, Petaling Jaya | V Dental Clinic',
+    metaDescription: 'Comprehensive general dentistry services including fillings, scaling, root canal retreatment, and oral health assessments in SS2.',
+    galleryCategory: 'General',
     features: [
-      'Scaling and polishing',
-      'Fillings',
-      'Root Canal Treatment'
+      { title: 'Inlays / Onlays', desc: 'Durable, custom-made restorations that perfectly repair moderately damaged teeth while conserving your natural tooth structure.' },
+      { title: 'Black Triangle Treatment', desc: 'An aesthetic approach to closing dark, open spaces between teeth near the gum line for a seamless, fuller smile.' },
+      { title: 'Receding Gum Treatment', desc: 'Effective interventions to restore lost gum tissue, protect exposed roots, and dramatically reduce tooth sensitivity.' },
+      { title: 'Crack Tooth Treatment', desc: 'Prompt diagnosis and restorative care designed to halt the progression of fractures and save the compromised tooth.' },
+      { title: 'Root Canal Retreatment', desc: 'Advanced endodontic care to clear new infections in previously treated teeth, renewing their health and longevity.' },
+      { title: 'Oral Ulcer Treatment', desc: 'Soothing therapies and medications dedicated to rapidly healing painful mouth sores and restoring your daily comfort.' }
     ],
-    description: 'Our general dentistry services form the foundation of your oral health. We provide thorough examinations, scaling, aesthetic composite fillings, and preventive treatments for both adults and children.',
+    description: 'Our general dentistry services form the foundation of your oral health. We provide thorough examinations, aesthetic fillings, and preventive treatments for all ages.',
     process: [
       { step: 'Exam', desc: 'Comprehensive oral examination' },
       { step: 'Diagnosis', desc: 'Identifying any dental issues' },
@@ -142,31 +189,136 @@ export const SERVICES = [
   {
     id: 'periodontal-treatments',
     title: 'Periodontal Treatments',
-    shortDesc: 'Comprehensive care for your gums to prevent and treat gum disease, ensuring a strong foundation for your teeth.',
+    shortDesc: 'Comprehensive care for your gums to prevent and treat gum disease.',
     icon: 'Shield',
     image: 'https://images.unsplash.com/photo-1498843053639-170ff2122f35?w=800&q=80',
+    metaTitle: 'Periodontal & Gum Treatments SS2, Petaling Jaya | V Dental',
+    metaDescription: 'Expert care for your gums. Prevent and treat gum disease with deep scaling, gingivectomy, and specialized periodontal treatments.',
+    galleryCategory: 'General',
     features: [
-      'Root planing'
+      { title: 'Gingivectomy', desc: 'Precise surgical removal of diseased gum tissue to eliminate deep pockets, treat infection, and reshape your gum line.' },
+      { title: 'Crown Lengthening Surgery', desc: 'Reshaping gum and bone tissue to expose more of the natural tooth, ideal for restorative needs or correcting a "gummy" smile.' },
+      { title: 'Gum Grafting', desc: 'A microsurgical technique utilizing healthy tissue to cover receding gums, actively preventing further root exposure and bone loss.' }
     ],
-    description: 'Periodontal treatments focus on the health of your gums and the bone supporting your teeth. We provide specialized care including deep scaling and root planing to treat gum disease (periodontitis) and maintain optimal oral health.',
+    description: 'Periodontal treatments focus on the health of your gums and supporting bone. We provide specialized care including deep scaling and gum surgeries to maintain optimal oral health.',
     process: [
       { step: 'Assessment', desc: 'Thorough gum health evaluation' },
-      { step: 'Treatment', desc: 'Deep cleaning and root planing' },
+      { step: 'Treatment', desc: 'Deep cleaning and gum surgeries' },
       { step: 'Maintenance', desc: 'Regular periodontal follow-ups' }
     ],
   },
   {
     id: 'dental-x-rays',
     title: 'Dental X-Rays',
-    shortDesc: 'Utilize advanced imaging technology to diagnose and plan your dental treatments in PJ with precision.',
-    icon: 'Stethoscope',
+    shortDesc: 'Utilize advanced imaging technology to diagnose and plan your dental treatments.',
+    icon: 'Search',
     image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=800&q=80',
+    metaTitle: 'Dental X-Rays & 3D CBCT Scans SS2, Petaling Jaya | V Dental',
+    metaDescription: 'Advanced 3D CBCT, OPG, and digital dental X-rays for precise diagnosis and accurate treatment planning at V Dental Clinic PJ.',
+    galleryCategory: 'General',
     features: [
-      'OPG/LC/PA/CBCT'
+      { title: 'Periapical X-Ray', desc: 'A Periapical (PA) X-ray provides a detailed image of an individual tooth, including the root and surrounding bone structure. It helps diagnose infections, decay, bone loss, and root-related problems with high accuracy. This quick and low-radiation imaging method is commonly used for root canal treatment and dental evaluations.' },
+      { title: 'OPG X-Ray (2D Xray)', desc: 'An OPG (Orthopantomogram) X-ray provides a panoramic view of the entire mouth, including all teeth, jawbones, and surrounding structures. It is commonly used for wisdom tooth evaluation, orthodontic treatment, dental implants, and comprehensive oral examinations.' },
+      { title: 'Lateral Cephalometric X-Ray', desc: 'A Lateral Cephalometric X-ray is a side-profile dental imaging technique commonly used in orthodontics. It helps dentists and orthodontists evaluate jaw alignment, facial structure, and bite relationships for braces and corrective treatment planning.' },
+      { title: 'CBCT Scan (3D xray)', desc: 'A CBCT (Cone Beam Computed Tomography) scan provides advanced 3D dental imaging for precise diagnosis and treatment planning. It allows dentists to evaluate bone structure, nerves, teeth, and surrounding anatomy with exceptional accuracy, making it ideal for implants, surgery, and complex dental procedures.' }
     ],
-    description: 'Utilize advanced imaging technology to diagnose and plan your dental treatments in PJ with precision.',
+    description: 'Advanced dental imaging ensures accurate diagnosis. We utilize Periapical, OPG, and CBCT 3D imaging for precise surgery planning.',
     process: [
-      { step: 'Consultation', desc: 'Comprehensive oral exam' }
+      { step: 'Consultation', desc: 'Determining necessary imaging' },
+      { step: 'Imaging', desc: 'Safe and precise X-ray capture' },
+      { step: 'Analysis', desc: 'Detailed professional review' }
+    ],
+  },
+  {
+    id: 'kids-dentistry',
+    title: 'Kids Dentistry',
+    shortDesc: 'Gentle, effective, and protective dental care specifically tailored for children.',
+    icon: 'Baby',
+    image: 'https://images.unsplash.com/photo-1506869640319-fea1a2d10cfa?w=800&q=80',
+    metaTitle: 'Kids & Pediatric Dentistry SS2, Petaling Jaya | V Dental',
+    metaDescription: 'Gentle, effective, and child-friendly dental care. We offer fissure sealants, fluoride treatments, and Myobrace early intervention.',
+    galleryCategory: 'General',
+    features: [
+      { title: 'Fissure Sealant', desc: 'Fissure sealants are thin protective coatings applied to the grooves of the back teeth to help prevent cavities. They act as a barrier against food particles and bacteria, making it easier to keep teeth clean and healthy.' },
+      { title: 'Fluoride Treatment', desc: 'Fluoride treatment helps strengthen tooth enamel and protect teeth from decay. It is a quick and painless preventive procedure that can reduce the risk of cavities and support overall oral health.' },
+      { title: 'Myobrace', desc: 'Myobrace is an early orthodontic treatment designed to correct poor oral habits, improve jaw development, and guide teeth into better alignment. It is commonly used in growing children as an early intervention to support healthy dental and facial development.' },
+      { title: 'Stainless Steel Crown / Strip Crown', desc: 'Stainless steel crowns and strip crowns are used to restore damaged or severely decayed teeth. Stainless steel crowns provide strong and durable protection for back teeth, while strip crowns offer a more natural-looking option for front teeth.' },
+      { title: 'Space Maintainers', desc: 'Space maintainers are dental appliances used to hold space for permanent teeth when a baby tooth is lost too early. They help guide proper tooth eruption and prevent nearby teeth from shifting out of position.' }
+    ],
+    description: 'We offer specialized dental care for children, focusing on protection, prevention, and habit correction to ensure a lifetime of healthy smiles.',
+    process: [
+      { step: 'Evaluation', desc: 'Child-friendly dental check-up' },
+      { step: 'Prevention', desc: 'Applying sealants and fluoride' },
+      { step: 'Guidance', desc: 'Orthodontic and behavioral guidance' }
+    ],
+  },
+  {
+    id: 'emergency',
+    title: 'Emergency',
+    shortDesc: 'Immediate attention for critical dental issues when you need it most.',
+    icon: 'Zap',
+    image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80',
+    metaTitle: 'Emergency Dental Care SS2, Petaling Jaya | V Dental Clinic',
+    metaDescription: 'Immediate emergency dental care for toothaches, broken teeth, abscesses, and knocked-out teeth in SS2 Petaling Jaya. Call us now.',
+    galleryCategory: 'General',
+    features: [
+      { title: 'Tooth Abscess', desc: 'Immediate, deeply relieving care to safely drain painful infections, clear harmful bacteria, and successfully save the affected tooth.' },
+      { title: 'Toothache', desc: 'Rapid assessment and fast-acting intervention to pinpoint the source of severe pain and successfully restore your absolute comfort.' },
+      { title: 'Broken Filling', desc: 'Prompt and seamless repair to immediately seal exposed tooth structures, preventing decay, sensitivity, and further damage.' },
+      { title: 'Dislodge Crown/Bridge', desc: 'Urgent re-cementing or replacement of loosened dental fixtures to quickly restore the aesthetic appearance and function of your smile.' },
+      { title: 'Broken Tooth', desc: 'Fast, highly aesthetic restorations that smoothly repair chipped or cracked teeth to prevent worsening complications.' },
+      { title: 'Avulsed Tooth', desc: 'Time-critical, emergency stabilization and reimplantation procedures to maximize the likelihood of saving a spectacularly knocked-out tooth.' },
+      { title: 'Lock Jaw', desc: 'Gentle, expert interventions to swiftly relieve muscle spasms or joint displacement, helping you successfully regain a full, normal range of motion.' },
+      { title: 'Broken Denture', desc: 'Expedited diagnostic repairs tailored to seamlessly restore the snug fit, structural integrity, and flawless appearance of your appliance.' },
+      { title: 'Unstopped Bleeding', desc: 'Immediate, highly professional clinical management dedicated to swiftly controlling post-operative bleeding and actively stabilizing your oral tissues.' }
+    ],
+    description: 'Dental emergencies require fast and professional care. We are fully equipped to provide immediate relief and long-term resolutions to your urgent needs.',
+    process: [
+      { step: 'Contact', desc: 'Reach out to our emergency line' },
+      { step: 'Immediate Care', desc: 'Pain relief and stabilization' },
+      { step: 'Resolution', desc: 'Permanent fix mapping' }
+    ],
+  },
+  {
+    id: 'wisdom-teeth-removal',
+    title: 'Wisdom Teeth Removal',
+    shortDesc: 'Safe and expert extraction of painful or impacted wisdom teeth.',
+    icon: 'Stethoscope',
+    image: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=800&q=80',
+    metaTitle: 'Wisdom Teeth Removal SS2, Petaling Jaya | V Dental Clinic',
+    metaDescription: 'Safe, expert extraction of painful or impacted wisdom teeth. Minimal discomfort and rapid recovery with our experienced surgeons.',
+    galleryCategory: 'General',
+    features: [
+      { title: 'Wisdom Tooth Evaluation', desc: 'A thorough radiographic assessment to accurately determine the exact angle, position, and potential impact of erupting third molars.' },
+      { title: 'Simple Extraction', desc: 'A swift, entirely straightforward procedure skillfully designed to comfortably remove erupted wisdom teeth without severe complications.' },
+      { title: 'Surgical Impaction Removal', desc: 'A meticulously executed surgical approach to safely extract wisdom teeth safely constrained beneath the dense jawbone or gumline.' }
+    ],
+    description: 'Wisdom teeth often grow without enough space, leading to pain and impaction. Our specialized extraction process ensures minimal discomfort and rapid recovery.',
+    process: [
+      { step: 'Assessment', desc: 'Detailed X-ray analysis' },
+      { step: 'Surgery', desc: 'Safe anesthetic extraction' },
+      { step: 'Recovery', desc: 'Post-operation care guide' }
+    ],
+  },
+  {
+    id: 'dentures',
+    title: 'Denture',
+    shortDesc: 'Custom restorative dentures designed for comfort and natural aesthetic.',
+    icon: 'Smile',
+    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80',
+    metaTitle: 'Custom Dentures SS2, Petaling Jaya | V Dental Clinic',
+    metaDescription: 'Restore your confident smile with custom-made, comfortable, and natural-looking acrylic, flexible, or suction dentures.',
+    galleryCategory: 'Cosmetic',
+    features: [
+      { title: 'Normal Acrylic Denture', desc: 'A reliable, highly traditional and exceptionally cost-effective restorative base crafted to perfectly replace entirely missing teeth with dependable support.' },
+      { title: 'Flexible Denture', desc: 'A lightweight, completely metal-free alternative that subtly contours and adapts dynamically to the unique motion of your gums.' },
+      { title: 'Suction Dentures', desc: 'An innovative, tightly fitting lower denture technology that precisely harnesses completely natural suction to absolutely prevent frustrating displacement.' }
+    ],
+    description: 'Regain your confident bite and smile with our high-quality custom dentures. We provide a range of options prioritizing comfort, secure fit, and natural appearance.',
+    process: [
+      { step: 'Impressions', desc: 'Precise molding of gums' },
+      { step: 'Fitting', desc: 'Trial placements for accuracy' },
+      { step: 'Finalizing', desc: 'Adjustments and continuous care' }
     ],
   }
 ];
@@ -174,21 +326,26 @@ export const SERVICES = [
 export const DENTISTS = [
   {
     id: 1,
-    name: 'Dr. Veron Koh',
+    name: 'Dr. Veronica Koh',
     title: 'Principal Dentist & Implantologist',
     qualifications: 'Dental Surgeon & Implantologist',
-    specialties: ['Implantology', 'Aesthetic Dentistry', 'Braces & Clear Aligners', 'Oral Surgery', 'Smile Makeover'],
-    experience: '10+ years',
-    bio: 'Dr. Veron Koh is a highly skilled and experienced dentist specializing in aesthetic dentistry and implantology. With over 10 years dedicated to helping patients achieve their aesthetic goals, Dr. Veron is well-versed in a range of treatments, including braces, implants, crowns, and veneers. She holds a post-grad diploma in dental implantology from IMU and has successfully completed more than 1,000 braces cases and placed over 500 dental implants, including extensive work in wisdom tooth surgical extraction. Her background includes 2.5 years in the Oral and Maxillofacial Surgery (OMFS) department at Sungai Buloh Hospital, and she was a pioneer dentist at Lau Dental Clinic in Sri Petaling, bringing 6 years of private sector experience. She is a Member of the International Team for Implantology (ITI), Member of The Royal College of Surgeons of Edinburgh, and a Certified Invisalign Provider.',
+    specialties: ['Implantology', 'Aesthetic Dentistry', 'Braces & Clear Aligners', 'Oral Surgery', 'Smile Makeover', 'Regenerative Dentistry'],
+    experience: '11+ years',
+    bio: 'Dr. Veronica Koh is a valedictorian graduate and implant-focused clinician with over 11 years of clinical experience in implant dentistry, regenerative dentistry, and aesthetic-driven rehabilitation. She obtained her Postgraduate Diploma in Implant Dentistry (PGDID) from International Medical University and is widely recognised for her comprehensive approach to modern implant and aesthetic dental care.\nHer surgical foundation was built during her 2.5 years of service in the Oral and Maxillofacial Surgery (OMFS) department at Hospital Sungai Buloh, where she gained extensive clinical exposure to advanced oral surgery, soft tissue management, and complex surgical procedures. This experience continues to shape her precise, minimally invasive, and biologically driven treatment philosophy today.\nDr. Koh has a special interest in dental implants, bone regeneration, orthodontics (braces), and aesthetic dentistry. Throughout her clinical career, she has successfully completed more than 1,000 orthodontic cases and over 500 implant cases, focusing on long-term function, facial harmony, and naturally aesthetic outcomes tailored to each patient.\nHer clinical expertise includes implant rehabilitation, immediate implant placement, sinus augmentation, bone grafting, socket preservation, soft tissue management, and contemporary regenerative techniques designed to achieve predictable and stable results. She is particularly passionate about combining surgical precision with aesthetic treatment planning to deliver confident smiles and improved quality of life for her patients.\nBeyond clinical practice, Dr. Koh is actively involved in professional education and advanced implant training. She serves as an Invited Clinical Lecturer and official speaker for the PGDID Implant Dentistry Programme at International Medical University, where she conducts lectures and hands-on workshops in implant dentistry and bone regeneration.\nShe is also a speaker for International Team for Implantology (ITI) Study Club and a featured speaker at the Malaysia International Dental Show for bone regeneration in implant dentistry. In addition, Dr. Koh serves as a Key Opinion Leader (KOL) for biomaterials in implant dentistry and for EthOss Regeneration, advocating modern regenerative protocols and evidence-based minimally invasive approaches in implant therapy.\nKnown for her meticulous attention to detail, patient-centred care, and commitment to clinical excellence, Dr. Koh is dedicated to helping patients achieve healthy, functional, and confident smiles through personalised and contemporary dental solutions.',
     qualificationsList: [
-      'Member of International Team for Implantology (ITI)',
-      'Member of The Royal College of Surgeons of Edinburgh',
-      'Member of Malaysian Dental Association',
-      'Member of Malaysian Oral Implant Association',
-      'Member of Malaysian Academy of Aesthetic Dentistry',
-      'Certified Invisalign Provider',
-      'Certified in Therapeutic & Cosmetic Botox and Dermal Fillers',
-      'Post-grad Diploma in Dental Implantology (IMU)',
+      '- Invited Clinical Lecturer for Implant Dentistry and Bone Regeneration in Implant Dentistry, International Medical University',
+      '- Speaker for International Team for Implantology (ITI) Study Club',
+      '- Featured Speaker for EthOss Regeneration at Malaysia International Dental Show ( MIDS)',
+      '- Key Opinion Leader (KOL) for EthOss Regeneration',
+      '- Key Opinion Leader (KOL) for Biomaterials in Implant Dentistry',
+      '- Postgraduate Diploma in Dental Implantology (PGDID), International Medical University',
+      '- Member of The Royal College of Surgeons of Edinburgh',
+      '- Member of International Team for Implantology (ITI)',
+      '- Member of Malaysian Oral Implant Association',
+      '- Member of Malaysian Academy of Aesthetic Dentistry',
+      '- Certified Invisalign Provider',
+      '- Certified in Therapeutic & Cosmetic Botox and Dermal Fillers',
+      '- Member of Malaysian Dental Association'
     ],
     image: '/V Dental Website images/About Us Page/About_Team_[veron].jpg',
   },
@@ -288,7 +445,7 @@ export const FAQS = [
     items: [
       {
         q: "What are your operating hours?",
-        a: "• Monday – Friday: 9:00 AM – 9:00 PM\n• Saturday & Sunday: 9:00 AM – 6:00 PM\n• Public Holidays: Open on selected days\n\nContact us:\n• Phone / WhatsApp: +6010-888 2167\n• Email: vdental.ss2@gmail.com",
+        a: "• Monday – Saturday: 9:00 AM – 9:00 PM\n• Sunday: 10:00 AM – 4:00 PM\n• Public Holidays: Open on selected days\n\nContact us:\n• Phone / WhatsApp: +6010-888 2167\n• Email: vdental.ss2@gmail.com",
       },
       {
         q: "Do I need to make an appointment?",
@@ -393,7 +550,7 @@ export const GALLERY_ITEMS = [
     title: "Self-Ligating braces",
     description: "Proclination of upper teeth was corrected with self-ligating braces. The transformation has given the patient a dashing smile and stunning side profile.",
     before: "/V Dental Website images/Gallery Page/Smile Gallery Images/Gallery_Model_2_Before.jpg",
-    after: "/V Dental Website images/Gallery Page/Smile Gallery Images/Gallery_Model_2_After.jpg",
+    after: "/V Dental Website images/Gallery Page/Smile Gallery Images/Gallery_Model_2_After.jpeg",
   },
   {
     id: 3,
@@ -455,13 +612,13 @@ export const GALLERY_ITEMS = [
 
 export const VALUES = [
   {
-    title: "Experienced Doctor",
-    description: "We have successfully completed over 1,000+ braces cases and 500+ dental implants, with a proven track record of patient satisfaction. Dr. Veron uses the latest technology and techniques to ensure the best possible outcomes.",
+    title: "Experienced Dentists",
+    description: "Our dentists have honed their skills to perfection, combining artistry with advanced dental techniques to deliver stunning, confident smile transformations tailored to you.",
     icon: "Heart",
   },
   {
     title: "Expertised in Smile Makeovers",
-    description: "Our dentists have honed their skills to perfection, combining artistry with advanced dental techniques to deliver stunning, confident smile transformations tailored to you.",
+    description: "We have successfully completed over 1,000+ braces cases and 500+ dental implants, with a proven track record of patient satisfaction. Dr. Veron uses the latest technology and techniques to ensure the best possible outcomes.",
     icon: "Cpu",
   },
   {

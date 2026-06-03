@@ -19,18 +19,21 @@ const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const slideVariants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? "100%" : "-100%",
+    scale: 1.1,
     opacity: 0,
+    rotate: direction > 0 ? 1 : -1,
   }),
   center: {
-    x: 0,
+    scale: 1,
     opacity: 1,
-    transition: { duration: 0.75, ease: EASE_SMOOTH },
+    rotate: 0,
+    transition: { duration: 1.2, ease: EASE_SMOOTH },
   },
   exit: (direction: number) => ({
-    x: direction > 0 ? "-100%" : "100%",
+    scale: 1.05,
     opacity: 0,
-    transition: { duration: 0.75, ease: EASE_SMOOTH },
+    rotate: direction > 0 ? -1 : 1,
+    transition: { duration: 1.2, ease: EASE_SMOOTH },
   }),
 };
 
@@ -81,8 +84,12 @@ function SlideImage({
   mouseX: ReturnType<typeof useSpring>;
   mouseY: ReturnType<typeof useSpring>;
 }) {
-  const pcSrc = `/V Dental Website images/Home Page/Hero Slider Images/Home_HeroSlide_${index}_pc.jpg`;
-  const mobileSrc = `/V Dental Website images/Home Page/Hero Slider Images/Home_HeroSlide_${index}_mobile.jpg`;
+  let displayIndex = index;
+  if (index === 1) displayIndex = 2;
+  else if (index === 2) displayIndex = 1;
+
+  const pcSrc = `/V Dental Website images/Home Page/Hero Slider Images/Home_HeroSlide_${displayIndex}_pc.jpg`;
+  const mobileSrc = `/V Dental Website images/Home Page/Hero Slider Images/Home_HeroSlide_${displayIndex}_mobile.jpg`;
 
   return (
     <div className="absolute inset-0 overflow-hidden">
@@ -127,7 +134,7 @@ function SlideImage({
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
-  const totalSlides = 8;
+  const totalSlides = 4;
   const slideText = HERO_SLIDES[current % HERO_SLIDES.length];
 
   const springX = useSpring(useMotionValue(0), { damping: 25, stiffness: 80 });

@@ -59,6 +59,7 @@ export default function HomePage() {
                   icon={service.icon}
                   id={service.id}
                   image={service.image}
+                  features={service.features.map(f => typeof f === 'string' ? f : (f as {title: string, desc: string}).title)}
                   index={i}
                 />
               </div>
