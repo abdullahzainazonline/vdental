@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { Send, Calendar, User, Phone, Mail, MessageSquare, Clipboard } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { hashData, trackBooking } from "@/lib/gtag";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -31,6 +32,19 @@ export default function BookingForm({ compact = false }: { compact?: boolean }) 
 *Service:* ${data.service}`;
 
       const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsappRaw}?text=${encodeURIComponent(text)}`;
+      
+      try {
+        const hashedPhone = await hashData(data.phone.replace(/[\s\+\-\(\)]/g, ''));
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('set', 'user_data', {
+            sha256_phone_number: hashedPhone
+          });
+        }
+      } catch (e) {
+        console.error('Error hashing user data', e);
+      }
+
+      trackBooking();
       window.open(whatsappUrl, "_blank");
 
       toast.success("Redirecting to WhatsApp...", {

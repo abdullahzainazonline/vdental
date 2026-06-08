@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { SITE_CONFIG } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
+import { trackWhatsApp } from "@/lib/gtag";
 
 /** Official WhatsApp logo SVG */
 export function WhatsAppIcon({ className }: { className?: string }) {
@@ -26,6 +27,7 @@ export default function WhatsAppButton() {
         SITE_CONFIG.whatsappRaw,
         "Hi! I'd like to enquire about dental services at V Dental Clinic PJ."
       )}
+      onClick={trackWhatsApp}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}

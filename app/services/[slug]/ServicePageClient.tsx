@@ -15,6 +15,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { useState } from "react";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { getWhatsAppUrl } from "@/lib/utils";
+import { trackCall } from "@/lib/gtag";
 
 export default function ServicePageClient({ service, testimonials, gallery, faqs, stats }: any) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -85,7 +86,7 @@ export default function ServicePageClient({ service, testimonials, gallery, faqs
                 Book Free Consultation
                 <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
               </Link>
-              <a href={`tel:${SITE_CONFIG.phoneRaw}`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/40 bg-white/10 px-6 py-3.5 md:px-8 md:py-4 text-sm md:text-base font-bold text-white backdrop-blur-md transition-all hover:bg-white/20 hover:scale-105 hover:border-white w-full sm:w-auto">
+              <a href={`tel:${SITE_CONFIG.phoneRaw}`} onClick={trackCall} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/40 bg-white/10 px-6 py-3.5 md:px-8 md:py-4 text-sm md:text-base font-bold text-white backdrop-blur-md transition-all hover:bg-white/20 hover:scale-105 hover:border-white w-full sm:w-auto">
                 <Phone className="h-4 w-4 md:h-5 md:w-5" />
                 Call Now
               </a>
@@ -256,10 +257,10 @@ export default function ServicePageClient({ service, testimonials, gallery, faqs
               ))}
             </div>
             <div className="mt-12 text-center">
-              <Link href="/gallery" className="btn-shine inline-flex items-center gap-2 rounded-full border-2 border-primary bg-transparent px-8 py-3 text-sm font-bold text-primary transition-all hover:bg-primary hover:text-white">
-                View Full Gallery
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+              <a href={`tel:${SITE_CONFIG.phoneRaw}`} onClick={trackCall} className="inline-flex items-center gap-2 rounded-full border-2 border-neutral-200 bg-white px-9 py-4 text-sm font-bold text-neutral-700 transition-all duration-300 hover:border-primary/30 hover:text-primary">
+                <Phone className="h-4 w-4" />
+                Call Us
+              </a>
             </div>
           </div>
         </section>

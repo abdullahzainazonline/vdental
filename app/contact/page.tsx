@@ -5,6 +5,7 @@ import { ScrollReveal, BlurReveal, FloatingElement, StaggerContainer, StaggerIte
 import SectionHeading from "@/components/SectionHeading";
 import BookingForm from "@/components/BookingForm";
 import { SITE_CONFIG } from "@/lib/constants";
+import { trackCall, trackWhatsApp, trackGetDirections } from "@/lib/gtag";
 import { MapPin, Phone, Mail, Clock, MessageCircle, Facebook, Instagram, Star, Sparkles } from "lucide-react";
 
 const contactCards = [
@@ -96,6 +97,11 @@ export default function ContactPage() {
               <StaggerItem key={card.title}>
                 <a
                   href={card.href}
+                  onClick={(e) => {
+                    if (card.title === "Call Us") trackCall();
+                    if (card.title === "WhatsApp") trackWhatsApp();
+                    if (card.title === "Visit Us") trackGetDirections();
+                  }}
                   target={card.href.startsWith("http") ? "_blank" : undefined}
                   rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="group block overflow-hidden rounded-3xl bg-white p-7 shadow-lg shadow-neutral-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 tilt-card border border-primary/30"

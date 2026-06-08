@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BlurReveal, FloatingElement, StaggerContainer, StaggerItem } from "@/components/ScrollAnimations";
-import SectionHeading from "@/components/SectionHeading";
 import { SERVICES, SITE_CONFIG } from "@/lib/constants";
 import { Stethoscope, SmilePlus, Sparkles, Crosshair, HeartPulse, CheckCircle, ArrowRight, Phone, Shield } from "lucide-react";
 import Link from "next/link";
+import { trackWhatsApp, trackCall } from "@/lib/gtag";
 
 const iconMap: Record<string, React.ReactNode> = {
   Stethoscope: <Stethoscope className="h-7 w-7" />,
@@ -192,7 +192,7 @@ export default function ServicesPage() {
                       Book This Service
                       <ArrowRight className="h-4 w-4" />
                     </Link>
-                    <a href={`tel:${SITE_CONFIG.phoneRaw}`} className="inline-flex items-center gap-2 rounded-full border-2 border-neutral-200 bg-white px-9 py-4 text-sm font-bold text-neutral-700 transition-all duration-300 hover:border-primary/30 hover:text-primary">
+                    <a href={`tel:${SITE_CONFIG.phoneRaw}`} onClick={trackCall} className="inline-flex items-center gap-2 rounded-full border-2 border-neutral-200 bg-white px-9 py-4 text-sm font-bold text-neutral-700 transition-all duration-300 hover:border-primary/30 hover:text-primary">
                       <Phone className="h-4 w-4" />
                       Call Us
                     </a>
@@ -268,7 +268,7 @@ export default function ServicesPage() {
                   <Link href="/contact#appointment-form" className="btn-shine rounded-full bg-white px-9 py-4 font-bold text-primary shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                     Book a Consultation
                   </Link>
-                  <a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}`} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-white/30 px-9 py-4 font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:scale-105">
+                  <a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}`} onClick={trackWhatsApp} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-white/30 px-9 py-4 font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:scale-105">
                     WhatsApp Us
                   </a>
                 </div>

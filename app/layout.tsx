@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BackgroundAnimation from "@/components/BackgroundAnimation";
 import { Toaster } from "react-hot-toast";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -138,6 +139,16 @@ export default function RootLayout({
             }),
           }}
         />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17596332154', {
+              allow_enhanced_conversions: true
+            });
+          `}
+        </Script>
       </head>
       <body
         className={`${inter.variable} ${poppins.variable} ${playfair.variable} ${greatVibes.variable} antialiased overflow-x-hidden`}
@@ -148,6 +159,7 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-17596332154" strategy="afterInteractive" />
       </body>
     </html>
   );

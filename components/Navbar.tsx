@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Calendar, ChevronRight, ChevronDown, ArrowRight, Crosshair, Activity, Syringe, Sparkles, ClipboardPlus, Shield, Search, Baby, Zap, Stethoscope, Smile } from "lucide-react";
 import { NAV_LINKS, SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
+import { trackCall, trackWhatsApp } from "@/lib/gtag";
 import { WhatsAppIcon } from "./WhatsAppButton";
 
 const IconMap: any = { Crosshair, Activity, Syringe, Sparkles, ClipboardPlus, Shield, Search, Baby, Zap, Stethoscope, Smile };
@@ -109,7 +110,7 @@ export default function Navbar() {
                 : `Closed · Opens ${hoursLabel.split("–")[0].trim()}`}
             </div>
             <div className="flex items-center gap-6">
-              <a href={`tel:${SITE_CONFIG.phoneRaw}`} className="flex items-center gap-1.5 transition-colors hover:text-white">
+              <a href={`tel:${SITE_CONFIG.phoneRaw}`} onClick={trackCall} className="flex items-center gap-1.5 transition-colors hover:text-white">
                 <Phone className="h-3.5 w-3.5" />
                 {SITE_CONFIG.phone}
               </a>
@@ -243,6 +244,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href={getWhatsAppUrl(SITE_CONFIG.whatsappRaw)}
+              onClick={trackWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
               className={`hidden items-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold transition-all duration-300 sm:inline-flex ${scrolled ? "bg-accent text-neutral-900 shadow-md shadow-accent/20 hover:shadow-lg hover:shadow-accent/30 hover:scale-105" : "bg-accent/90 text-neutral-900 backdrop-blur-sm hover:bg-accent hover:scale-105"}`}
@@ -386,6 +388,7 @@ export default function Navbar() {
                 >
                   <a
                     href={getWhatsAppUrl(SITE_CONFIG.whatsappRaw)}
+                    onClick={trackWhatsApp}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-base font-bold text-neutral-900 shadow-md shadow-accent/20 transition-all hover:bg-accent-light"
@@ -395,6 +398,7 @@ export default function Navbar() {
                   </a>
                   <a
                     href={`tel:${SITE_CONFIG.phoneRaw}`}
+                    onClick={trackCall}
                     className="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-primary/20 px-6 py-3.5 text-base font-bold text-primary transition-all hover:bg-primary hover:text-primary-dark hover:border-primary"
                   >
                     <Phone className="h-5 w-5" />

@@ -6,6 +6,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { DENTISTS, SITE_CONFIG, VALUES } from "@/lib/constants";
 import { Heart, Cpu, Award, CheckCircle, MapPin, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { trackGetDirections } from "@/lib/gtag";
 
 const iconMap: Record<string, React.ReactNode> = {
   Heart: <Heart className="h-7 w-7" />,
@@ -276,7 +277,7 @@ export default function AboutPage() {
                   <p>🕐 Mon–Fri: 10AM–9PM &nbsp;|&nbsp; Sat–Sun: 9AM–6PM</p>
                 </div>
                 <div className="mt-7">
-                  <Link href="/contact" className="btn-shine inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-light px-9 py-4 font-bold text-neutral-900 shadow-lg shadow-accent/20 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  <Link href="/contact" onClick={trackGetDirections} className="btn-shine inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-light px-9 py-4 font-bold text-neutral-900 shadow-lg shadow-accent/20 transition-all duration-300 hover:scale-105 hover:shadow-xl">
                     Get Directions
                   </Link>
                 </div>

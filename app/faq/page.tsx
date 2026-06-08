@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal, BlurReveal, FloatingElement } from "@/components/ScrollAnimations";
 import { FAQS, SITE_CONFIG } from "@/lib/constants";
 import { Search, Plus, Minus, Phone, MessageCircle, Sparkles } from "lucide-react";
+import { trackCall, trackWhatsApp } from "@/lib/gtag";
 
 export default function FAQPage() {
   const [activeCategory, setActiveCategory] = useState("General");
@@ -209,11 +210,11 @@ export default function FAQPage() {
                   Our friendly team is ready to help. Contact us through any channel and we&apos;ll get back to you quickly.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a href={`tel:${SITE_CONFIG.phoneRaw}`} className="btn-shine inline-flex items-center gap-2 rounded-full bg-white px-9 py-4 font-bold text-primary shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                  <a href={`tel:${SITE_CONFIG.phoneRaw}`} onClick={trackCall} className="btn-shine inline-flex items-center gap-2 rounded-full bg-white px-9 py-4 font-bold text-primary shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                     <Phone className="h-4 w-4" />
                     Call Us
                   </a>
-                  <a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-9 py-4 font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:scale-105">
+                  <a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}`} onClick={trackWhatsApp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-9 py-4 font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:scale-105">
                     <MessageCircle className="h-4 w-4" />
                     WhatsApp
                   </a>

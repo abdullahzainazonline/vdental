@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, ArrowUp, Heart } from "lucide-react";
 import { NAV_LINKS, SITE_CONFIG, SERVICES } from "@/lib/constants";
+import { trackCall, trackGetDirections } from "@/lib/gtag";
 import { motion } from "framer-motion";
 
 export default function Footer() {
@@ -38,6 +39,7 @@ export default function Footer() {
             </Link>
             <a
               href={`tel:${SITE_CONFIG.phoneRaw}`}
+              onClick={trackCall}
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/25 px-8 py-3.5 font-semibold text-white transition-all hover:bg-white/10 hover:border-white/40"
             >
               <Phone className="h-4 w-4" />
@@ -122,6 +124,7 @@ export default function Footer() {
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
                 <a
                   href={SITE_CONFIG.mapUrl}
+                  onClick={trackGetDirections}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/80 transition-colors hover:text-white"
@@ -130,7 +133,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`tel:${SITE_CONFIG.phoneRaw}`} className="flex items-center gap-3 text-sm text-white/80 transition-colors hover:text-white">
+                <a href={`tel:${SITE_CONFIG.phoneRaw}`} onClick={trackCall} className="flex items-center gap-3 text-sm text-white/80 transition-colors hover:text-white">
                   <Phone className="h-4 w-4 shrink-0 text-white/70" />
                   {SITE_CONFIG.phone}
                 </a>
