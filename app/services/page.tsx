@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BlurReveal, FloatingElement, StaggerContainer, StaggerItem } from "@/components/ScrollAnimations";
+import SectionHeading from "@/components/SectionHeading";
 import { SERVICES, SITE_CONFIG } from "@/lib/constants";
 import { Stethoscope, SmilePlus, Sparkles, Crosshair, HeartPulse, CheckCircle, ArrowRight, Phone, Shield } from "lucide-react";
 import Link from "next/link";
