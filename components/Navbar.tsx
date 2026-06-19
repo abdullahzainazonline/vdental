@@ -289,7 +289,7 @@ export default function Navbar() {
                 <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
                   <div className="relative flex h-12 w-auto items-center justify-center rounded-md">
                     <Image
-                      src="/vdental_logo.jpg"
+                      src="/black_logo.png"
                       alt="V Dental Clinic Logo"
                       width={150} height={50}
                       className="h-full w-auto object-contain mix-blend-multiply"
