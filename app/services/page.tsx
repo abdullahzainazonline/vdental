@@ -5,17 +5,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BlurReveal, FloatingElement, StaggerContainer, StaggerItem } from "@/components/ScrollAnimations";
 import SectionHeading from "@/components/SectionHeading";
 import { SERVICES, SITE_CONFIG } from "@/lib/constants";
-import { Stethoscope, SmilePlus, Sparkles, Crosshair, HeartPulse, CheckCircle, ArrowRight, Phone, Shield } from "lucide-react";
+import { Drill, AlignCenter, Syringe, Sparkles, Stethoscope, Shield, ScanLine, Baby, AlertTriangle, Scissors, Smile, CheckCircle, ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
 import { trackWhatsApp, trackCall } from "@/lib/gtag";
 
 const iconMap: Record<string, React.ReactNode> = {
-  Stethoscope: <Stethoscope className="h-7 w-7" />,
-  SmilePlus: <SmilePlus className="h-7 w-7" />,
+  Drill: <Drill className="h-7 w-7" />,
+  AlignCenter: <AlignCenter className="h-7 w-7" />,
+  Syringe: <Syringe className="h-7 w-7" />,
   Sparkles: <Sparkles className="h-7 w-7" />,
-  Crosshair: <Crosshair className="h-7 w-7" />,
-  HeartPulse: <HeartPulse className="h-7 w-7" />,
+  Stethoscope: <Stethoscope className="h-7 w-7" />,
   Shield: <Shield className="h-7 w-7" />,
+  ScanLine: <ScanLine className="h-7 w-7" />,
+  Baby: <Baby className="h-7 w-7" />,
+  AlertTriangle: <AlertTriangle className="h-7 w-7" />,
+  Scissors: <Scissors className="h-7 w-7" />,
+  Smile: <Smile className="h-7 w-7" />,
 };
 
 export default function ServicesPage() {
@@ -130,10 +135,12 @@ export default function ServicesPage() {
                 {/* Image & Process */}
                 <div>
                   <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 mb-8 border border-primary/30">
-                    <picture>
-                      <source media="(min-width: 640px)" srcSet={`/V Dental Website images/Services Page/Services_Detail_${activeService + 1}_pc.jpg`} />
-                      <img src={`/V Dental Website images/Services Page/Services_Detail_${activeService + 1}_mobile.jpg`} alt={current.title} className="h-[340px] w-full object-cover" loading="lazy" />
-                    </picture>
+                    <img
+                      src={current.image}
+                      alt={current.title}
+                      className="h-[340px] w-full object-cover object-center"
+                      loading="lazy"
+                    />
                   </div>
                   <h3 className="mb-4 text-lg font-bold text-neutral-900" style={{ fontFamily: "var(--font-heading)" }}>Treatment Process</h3>
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -214,30 +221,55 @@ export default function ServicesPage() {
               <StaggerItem key={s.id} className="h-full">
                 <motion.button
                   onClick={() => { setActiveService(i); window.scrollTo({ top: 600, behavior: "smooth" }); }}
-                  className="group w-full text-left overflow-hidden rounded-3xl bg-white p-7 shadow-lg shadow-neutral-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 tilt-card border border-primary/30 h-full flex flex-col"
-                  whileHover={{ y: -4 }}
+                  className="group w-full text-left overflow-hidden rounded-3xl shadow-lg shadow-neutral-900/10 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/15 tilt-card border border-primary/20 h-full flex flex-col relative bg-neutral-900 min-h-[320px]"
+                  whileHover={{ y: -6 }}
                 >
-                  <div className="mb-4 inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 text-primary transition-all duration-500 group-hover:from-primary group-hover:to-secondary group-hover:text-white group-hover:scale-110 group-hover:shadow-lg">
-                    {iconMap[s.icon] || <CheckCircle className="h-6 w-6" />}
-                  </div>
-                  <h3 className="mb-3 text-xl font-bold text-neutral-900 shrink-0 border-b border-neutral-100 pb-3 group-hover:border-primary/20 transition-colors" style={{ fontFamily: "var(--font-heading)" }}>{s.title}</h3>
-                  <div className="mb-5 flex-1 space-y-2 max-h-[150px] overflow-y-auto pr-2 custom-scrollbar">
-                    {s.features.map((f, idx) => {
-                      const feature = typeof f === 'string' ? { title: f, desc: '' } : f as { title: string, desc: string };
-                      return (
-                      <div key={idx} className="flex flex-col group/item mb-2.5 bg-neutral-50/50 p-2.5 rounded-xl border border-neutral-100 transition-all hover:bg-primary/5 hover:border-primary/20">
-                        <div className="flex items-center gap-2 text-sm text-neutral-600 transition-colors group-hover/item:text-neutral-900 group-hover:text-primary">
-                          <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary/40 group-hover/item:bg-primary transition-colors" />
-                          <span className="font-bold">{feature.title}</span>
-                        </div>
-                        {feature.desc && <span className="text-[11px] text-neutral-500 mt-1 pl-3.5 line-clamp-2">{feature.desc}</span>}
+                  {/* Card background image */}
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/95 via-neutral-900/60 to-neutral-900/10 transition-all duration-500 group-hover:from-primary/90 group-hover:via-neutral-900/70" />
+                  {/* Hover border accent */}
+                  <div className="absolute inset-0 rounded-3xl border border-white/10 transition-colors duration-500 group-hover:border-primary/60" />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col h-full p-7">
+                    {/* Icon badge */}
+                    <div className="mb-auto">
+                      <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white backdrop-blur-md border border-white/20 shadow-lg transition-all duration-500 group-hover:bg-white group-hover:text-primary group-hover:scale-110">
+                        {iconMap[s.icon] || <CheckCircle className="h-6 w-6" />}
                       </div>
-                    )})}
+                    </div>
+
+                    {/* Bottom content */}
+                    <div className="mt-16">
+                      <h3 className="mb-2 text-xl font-bold text-white" style={{ fontFamily: "var(--font-heading)" }}>{s.title}</h3>
+                      <p className="mb-4 text-sm leading-relaxed text-white/70 line-clamp-2">{s.shortDesc}</p>
+                      {/* Feature pills */}
+                      <div className="mb-5 flex flex-wrap gap-1.5 max-h-[72px] overflow-hidden">
+                        {s.features.slice(0, 3).map((f, idx) => {
+                          const feature = typeof f === 'string' ? { title: f } : f as { title: string };
+                          return (
+                            <span key={idx} className="inline-flex items-center gap-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-2.5 py-1 text-[11px] font-medium text-white/90 transition-colors group-hover:bg-white/20">
+                              <span className="h-1 w-1 rounded-full bg-primary/80" />
+                              {feature.title}
+                            </span>
+                          );
+                        })}
+                        {s.features.length > 3 && (
+                          <span className="inline-flex items-center rounded-full bg-primary/20 border border-primary/30 px-2.5 py-1 text-[11px] font-medium text-white/80">+{s.features.length - 3} more</span>
+                        )}
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 text-sm font-bold text-white border-b border-white/30 pb-0.5 transition-all duration-300 group-hover:text-white group-hover:border-white group-hover:gap-2.5">
+                        Book Service
+                        <ArrowRight className="h-4 w-4" />
+                      </span>
+                    </div>
                   </div>
-                  <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-bold text-primary shrink-0 transition-transform duration-300 group-hover:translate-x-1">
-                    Book Service
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
                 </motion.button>
               </StaggerItem>
             ))}

@@ -5,14 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Calendar, ChevronRight, ChevronDown, ArrowRight, Crosshair, Activity, Syringe, Sparkles, ClipboardPlus, Shield, Search, Baby, Zap, Stethoscope, Smile } from "lucide-react";
+import { Menu, X, Phone, Calendar, ChevronRight, ChevronDown, ArrowRight, Drill, AlignCenter, Syringe, Sparkles, Stethoscope, Shield, ScanLine, Baby, AlertTriangle, Scissors, Smile } from "lucide-react";
 import { NAV_LINKS, SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/utils";
 import { trackCall, trackWhatsApp } from "@/lib/gtag";
 import { WhatsAppIcon } from "./WhatsAppButton";
 
-const IconMap: any = { Crosshair, Activity, Syringe, Sparkles, ClipboardPlus, Shield, Search, Baby, Zap, Stethoscope, Smile };
-
+const IconMap: any = { Drill, AlignCenter, Syringe, Sparkles, Stethoscope, Shield, ScanLine, Baby, AlertTriangle, Scissors, Smile };
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 /** Returns { isOpen, label } based on current Malaysia time vs clinic hours */
@@ -125,9 +124,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="group flex items-center">
             <div className="relative flex h-14 sm:h-18 w-auto items-center justify-center rounded-md px-2 transition-transform duration-500 group-hover:scale-[1.02]">
-              <Image 
-                src="/vdental_logo.jpg" 
-                alt="V Dental Clinic Logo" 
+              <Image
+                src="/black_logo.png"
+                alt="V Dental Clinic Logo"
                 width={200}
                 height={40}
                 className={`h-full w-auto object-contain transition-all duration-300 ${scrolled ? 'mix-blend-multiply opacity-100' : 'opacity-100'}`}
@@ -141,13 +140,13 @@ export default function Navbar() {
             {NAV_LINKS.filter(link => link.label !== "About Us").map((link) => {
               const isServices = link.label === "Services";
               const isActive = pathname === link.href || (isServices && pathname.startsWith('/services'));
-              const linkColor = scrolled 
+              const linkColor = scrolled
                 ? (isActive ? "text-primary" : "text-neutral-600 hover:text-primary hover:bg-primary/5")
                 : (isActive ? "text-white font-extrabold drop-shadow-md" : "text-white/90 hover:text-white hover:bg-white/10 drop-shadow-sm");
 
               if (isServices) {
                 return (
-                  <div 
+                  <div
                     key={link.href}
                     className="relative group"
                     onMouseEnter={() => setActiveDropdown('services')}
@@ -196,8 +195,8 @@ export default function Navbar() {
                           {/* Right Side: Services Grid */}
                           <div className="w-2/3 grid grid-cols-2 gap-x-4 gap-y-1">
                             {SERVICES.map((s) => (
-                              <Link 
-                                key={s.id} 
+                              <Link
+                                key={s.id}
                                 href={`/services/${s.id}`}
                                 onClick={() => setActiveDropdown(null)}
                                 className="group/item flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/5 transition-colors"
@@ -289,15 +288,15 @@ export default function Navbar() {
               <div className="flex items-center justify-between border-b border-primary/10 p-5 bg-[#FFF0ED]">
                 <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
                   <div className="relative flex h-12 w-auto items-center justify-center rounded-md">
-                      <Image 
-                        src="/vdental_logo.jpg" 
-                        alt="V Dental Clinic Logo" 
-                        width={150} height={50} 
-                        className="h-full w-auto object-contain mix-blend-multiply"
-                        priority
-                      />
-                    </div>
-                  </Link>
+                    <Image
+                      src="/vdental_logo.jpg"
+                      alt="V Dental Clinic Logo"
+                      width={150} height={50}
+                      className="h-full w-auto object-contain mix-blend-multiply"
+                      priority
+                    />
+                  </div>
+                </Link>
                 <button onClick={() => setIsOpen(false)} className="rounded-xl p-2 text-neutral-400 hover:bg-white/50 hover:text-neutral-800 transition-colors">
                   <X className="h-5 w-5" />
                 </button>
@@ -308,7 +307,7 @@ export default function Navbar() {
                   {NAV_LINKS.filter(link => link.label !== "About Us").map((link, i) => {
                     const isServices = link.label === "Services";
                     const isActive = pathname === link.href || (isServices && pathname.startsWith('/services'));
-                    
+
                     if (isServices) {
                       return (
                         <motion.div
@@ -320,9 +319,8 @@ export default function Navbar() {
                         >
                           <button
                             onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                            className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-base font-bold transition-all duration-200 ${
-                              isActive ? "bg-primary/5 text-primary" : "text-neutral-600 hover:bg-neutral-50 hover:text-primary"
-                            }`}
+                            className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-base font-bold transition-all duration-200 ${isActive ? "bg-primary/5 text-primary" : "text-neutral-600 hover:bg-neutral-50 hover:text-primary"
+                              }`}
                           >
                             {link.label}
                             <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180 text-primary" : "text-neutral-300"}`} />
@@ -340,10 +338,10 @@ export default function Navbar() {
                                     <ArrowRight className="h-3 w-3" /> All Services Overview
                                   </Link>
                                   {SERVICES.map(s => (
-                                    <Link 
-                                      key={s.id} 
-                                      href={`/services/${s.id}`} 
-                                      onClick={() => setIsOpen(false)} 
+                                    <Link
+                                      key={s.id}
+                                      href={`/services/${s.id}`}
+                                      onClick={() => setIsOpen(false)}
                                       className={`block text-sm transition-colors ${pathname === `/services/${s.id}` ? 'text-primary font-bold' : 'text-neutral-500 hover:text-primary font-medium'}`}
                                     >
                                       {s.title}

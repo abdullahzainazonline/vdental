@@ -1,17 +1,22 @@
 "use client";
 
 
-import { Stethoscope, SmilePlus, Sparkles, Crosshair, HeartPulse, ArrowRight, Shield } from "lucide-react";
+import { Drill, AlignCenter, Syringe, Sparkles, Stethoscope, Shield, ScanLine, Baby, AlertTriangle, Scissors, Smile, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { type ReactNode } from "react";
 
 const iconMap: Record<string, ReactNode> = {
-  Stethoscope: <Stethoscope className="h-6 w-6" />,
-  SmilePlus: <SmilePlus className="h-6 w-6" />,
+  Drill: <Drill className="h-6 w-6" />,
+  AlignCenter: <AlignCenter className="h-6 w-6" />,
+  Syringe: <Syringe className="h-6 w-6" />,
   Sparkles: <Sparkles className="h-6 w-6" />,
-  Crosshair: <Crosshair className="h-6 w-6" />,
-  HeartPulse: <HeartPulse className="h-6 w-6" />,
+  Stethoscope: <Stethoscope className="h-6 w-6" />,
   Shield: <Shield className="h-6 w-6" />,
+  ScanLine: <ScanLine className="h-6 w-6" />,
+  Baby: <Baby className="h-6 w-6" />,
+  AlertTriangle: <AlertTriangle className="h-6 w-6" />,
+  Scissors: <Scissors className="h-6 w-6" />,
+  Smile: <Smile className="h-6 w-6" />,
 };
 
 interface ServiceCardProps {
@@ -30,14 +35,11 @@ export default function ServiceCard({ title, shortDesc, icon, id, image, index, 
       className="group relative h-[420px] w-full overflow-hidden rounded-3xl bg-neutral-900 shadow-md md:hover:shadow-lg"
     >
       {/* Background Image with Zoom Effect */}
-      <picture>
-        <source media="(min-width: 640px)" srcSet={index < 6 ? `/V Dental Website images/Home Page/Services Preview Images/Home_ServiceCard_${index + 1}_pc.jpg` : image} />
-        <img
-          src={index < 6 ? `/V Dental Website images/Home Page/Services Preview Images/Home_ServiceCard_${index + 1}_mobile.jpg` : image}
-          alt={title}
-          className="absolute inset-0 object-cover object-center w-full h-full transition-transform duration-700 ease-out md:group-hover:scale-105"
-        />
-      </picture>
+      <img
+        src={image}
+        alt={title}
+        className="absolute inset-0 object-cover object-center w-full h-full transition-transform duration-700 ease-out md:group-hover:scale-105"
+      />
 
       {/* Modern Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent opacity-60 transition-all duration-500 md:group-hover:opacity-75 md:group-hover:via-neutral-900/50" />

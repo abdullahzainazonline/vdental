@@ -64,11 +64,16 @@ export default function DentistsPage() {
               <ScrollReveal key={doc.id} delay={0.1}>
                 <div className="grid lg:items-stretch gap-10 lg:gap-16 lg:grid-cols-2">
                   {/* Image */}
-                  <div className={`relative mb-12 lg:mb-0 h-full ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30 h-full">
-                      <picture className="h-full block">
-                        <source media="(min-width: 640px)" srcSet={`/V Dental Website images/Our Dentists Page/Dentists_Profile _${doc.name.replace('Dr. ', '').split(' ')[0]}_PC.jpg`} />
-                        <img src={`/V Dental Website images/Our Dentists Page/Dentists_Profile _${doc.name.replace('Dr. ', '').split(' ')[0]}_Mobile.jpg`} alt={doc.name} className="min-h-[500px] lg:h-full w-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
+                  <div className={`relative flex flex-col ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                    <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30 flex-1 min-h-[600px] lg:min-h-[750px]">
+                      <picture className="block w-full h-full">
+                        <source media="(min-width: 640px)" srcSet={(doc as any).profileImagePC} />
+                        <img
+                          src={(doc as any).profileImageMobile}
+                          alt={doc.name}
+                          className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
+                          loading="lazy"
+                        />
                       </picture>
                     </div>
                     {/* Experience Badge */}
