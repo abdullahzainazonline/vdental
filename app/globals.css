@@ -387,6 +387,65 @@ h6 {
     font-size: clamp(1.5rem, 5vw, 2.25rem) !important;
   }
 }
+/* ─── Video Section ─── */
+
+/* Outer wrapper: zero margin/padding, black bg */
+.vs-root {
+  position: relative;
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+  line-height: 0;       /* prevents whitespace gap below iframe */
+  font-size: 0;
+}
+
+/* Mobile-first: 9:16 portrait */
+.vs-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+}
+
+/* Desktop: 16:9 landscape */
+@media (min-width: 640px) {
+  .vs-wrapper {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* iframe fills 100% of aspect-ratio box */
+.vs-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Black placeholder shown before scroll trigger */
+.vs-placeholder {
+  background: #000;
+}
+
+/* Subtle gradient fades at top & bottom — blends with surrounding sections */
+.vs-fade {
+  position: absolute;
+  inset-x: 0;
+  height: 60px;
+  pointer-events: none;
+  z-index: 10;
+}
+.vs-fade-top {
+  top: 0;
+  background: linear-gradient(to bottom, #FFF0ED 0%, transparent 100%);
+}
+.vs-fade-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, #FCFAF8 0%, transparent 100%);
+}
+
+
 /* --- Google Translate Overrides --- */
 .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
   display: none !important;

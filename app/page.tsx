@@ -1,6 +1,7 @@
 "use client";
 
 import HeroSlider from "@/components/HeroSlider";
+import VideoSection from "@/components/VideoSection";
 import ServiceCard from "@/components/ServiceCard";
 import CounterStats from "@/components/CounterStats";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
@@ -31,6 +32,8 @@ export default function HomePage() {
   return (
     <>
       <HeroSlider />
+
+      <VideoSection />
 
       {/* Services Preview */}
       <section className="relative bg-neutral-50 py-20 md:py-32 overflow-hidden section-divider">
