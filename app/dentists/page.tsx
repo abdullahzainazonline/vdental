@@ -62,7 +62,7 @@ export default function DentistsPage() {
           <div className="space-y-20 md:space-y-28">
             {DENTISTS.map((doc, i) => (
               <ScrollReveal key={doc.id} delay={0.1}>
-                <div className="grid lg:items-stretch gap-10 lg:gap-16 lg:grid-cols-2">
+                <div className="grid lg:items-start gap-10 lg:gap-16 lg:grid-cols-2">
                   {/* Image */}
                   <div className={`relative flex flex-col ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                     <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30 flex-1 min-h-[600px] lg:min-h-[750px]">
