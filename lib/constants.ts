@@ -191,7 +191,7 @@ export const SERVICES = [
     title: 'Periodontal Treatments',
     shortDesc: 'Comprehensive care for your gums to prevent and treat gum disease.',
     icon: 'Shield',
-    image: '/VDENTAL ASSETS/VDENTAL @PHOTO 1-20260617T091550Z-3-001/VDENTAL @PHOTO 1/perio treatment.png',
+    image: '/VDENTAL ASSETS/VDENTAL @PHOTO 1-20260617T091550Z-3-001/VDENTAL @PHOTO 1/perio_treatment.png',
     metaTitle: 'Periodontal & Gum Treatments SS2, Petaling Jaya | V Dental',
     metaDescription: 'Expert care for your gums. Prevent and treat gum disease with deep scaling, gingivectomy, and specialized periodontal treatments.',
     galleryCategory: 'General',
