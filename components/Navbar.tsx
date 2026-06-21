@@ -14,13 +14,13 @@ import { WhatsAppIcon } from "./WhatsAppButton";
 const IconMap: any = { Drill, AlignCenter, Syringe, Sparkles, Stethoscope, Shield, ScanLine, Baby, AlertTriangle, Scissors, Smile };
 const EASE_SMOOTH: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-/** Returns { isOpen, label } based on current Malaysia time vs clinic hours */
+/** Returns { isOpen, label } based on current Malaysia time (MYT/UTC+8) vs clinic hours */
 function useClinicStatus() {
   const getStatus = () => {
     const now = new Date(
       new Date().toLocaleString("en-US", { timeZone: "Asia/Kuala_Lumpur" })
     );
-    const day = now.getDay();
+    const day = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
     const h = now.getHours();
     const m = now.getMinutes();
     const totalMins = h * 60 + m;
@@ -30,10 +30,17 @@ function useClinicStatus() {
     let hoursLabel: string;
 
     if (day === 0) {
-      openMin = 10 * 60;
-      closeMin = 16 * 60;
+      // Sunday: 9:00 AM – 6:00 PM MYT
+      openMin = 9 * 60;
+      closeMin = 18 * 60;
       hoursLabel = SITE_CONFIG.hours.sunday;
+    } else if (day === 6) {
+      // Saturday: 9:00 AM – 9:00 PM MYT
+      openMin = 9 * 60;
+      closeMin = 21 * 60;
+      hoursLabel = SITE_CONFIG.hours.saturday;
     } else {
+      // Monday – Friday: 9:00 AM – 9:00 PM MYT
       openMin = 9 * 60;
       closeMin = 21 * 60;
       hoursLabel = SITE_CONFIG.hours.weekdays;

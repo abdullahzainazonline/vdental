@@ -65,13 +65,13 @@ export default function DentistsPage() {
                 <div className="grid lg:items-start gap-10 lg:gap-16 lg:grid-cols-2">
                   {/* Image */}
                   <div className={`relative flex flex-col ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <div className="overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30 flex-1 min-h-[600px] lg:min-h-[750px]">
-                      <picture className="block w-full h-full">
+                    <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-primary/10 border border-primary/30 min-h-[600px] lg:min-h-[750px]">
+                      <picture className="absolute inset-0 w-full h-full">
                         <source media="(min-width: 640px)" srcSet={(doc as any).profileImagePC} />
                         <img
                           src={(doc as any).profileImageMobile}
                           alt={doc.name}
-                          className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
+                          className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
                           loading="lazy"
                         />
                       </picture>
@@ -148,8 +148,8 @@ export default function DentistsPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               { title: "MDA Registered", desc: "All dentists registered with the Malaysian Dental Association", icon: "🏛️" },
-              { title: "Continuous Education", desc: "Regular training and upskilling in latest dental techniques", icon: "📚" },
-              { title: "Patient Reviews", desc: "Consistently rated 5 stars by thousands of happy patients", icon: "⭐" },
+              { title: "Experienced Dentists", desc: "Regular training and upskilling in latest dental techniques", icon: "📚" },
+              { title: "Patient Reviews", desc: "Consistently rated 5 stars by thousands of happy patients", icon: "⭐⭐⭐⭐⭐" },
               { title: "Multilingual", desc: "We communicate in English, Malay, Mandarin & Cantonese", icon: "🌏" },
             ].map((item, i) => (
               <motion.div

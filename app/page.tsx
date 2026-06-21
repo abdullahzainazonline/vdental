@@ -197,7 +197,6 @@ export default function HomePage() {
                 <div className="flex flex-col gap-4">
                   {[
                     "Same-day emergency appointments available",
-                    "All insurance panels accepted",
                     "Flexible payment plans for major treatments",
                   ].map((item, i) => (
                     <motion.div

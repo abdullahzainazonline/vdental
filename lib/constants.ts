@@ -1,4 +1,4 @@
-﻿export const SITE_CONFIG = {
+export const SITE_CONFIG = {
   name: "V Dental Clinic PJ",
   tagline: "SS2's Trusted Family Dentist",
   description:
@@ -18,7 +18,7 @@
   hours: {
     weekdays: "9:00 AM – 9:00 PM (MYT)",
     saturday: "9:00 AM – 9:00 PM (MYT)",
-    sunday: "10:00 AM – 4:00 PM (MYT)",
+    sunday: "9:00 AM – 6:00 PM (MYT)",
     publicHoliday: "Open on selected days",
   },
   social: {
@@ -305,7 +305,7 @@ export const SERVICES = [
     title: 'Denture',
     shortDesc: 'Custom restorative dentures designed for comfort and natural aesthetic.',
     icon: 'Smile',
-    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&q=80',
     metaTitle: 'Custom Dentures SS2, Petaling Jaya | V Dental Clinic',
     metaDescription: 'Restore your confident smile with custom-made, comfortable, and natural-looking acrylic, flexible, or suction dentures.',
     galleryCategory: 'Cosmetic',
@@ -451,7 +451,7 @@ export const FAQS = [
     items: [
       {
         q: "What are your operating hours?",
-        a: "• Monday – Saturday: 9:00 AM – 9:00 PM\n• Sunday: 10:00 AM – 4:00 PM\n• Public Holidays: Open on selected days\n\nContact us:\n• Phone / WhatsApp: +6010-888 2167\n• Email: vdental.ss2@gmail.com",
+        a: "• Monday – Saturday: 9:00 AM – 9:00 PM (MYT)\n• Sunday: 9:00 AM – 6:00 PM (MYT)\n• Public Holidays: Open on selected days\n\nContact us:\n• Phone / WhatsApp: +6010-888 2167\n• Email: vdental.ss2@gmail.com",
       },
       {
         q: "Do I need to make an appointment?",

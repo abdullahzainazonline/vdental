@@ -13,7 +13,7 @@ const contactCards = [
     icon: <Phone className="h-6 w-6" />,
     title: "Call Us",
     main: SITE_CONFIG.phone,
-    sub: "Mon–Fri 9AM–9PM",
+    sub: "Mon–Sat 9AM–9PM",
     href: `tel:${SITE_CONFIG.phoneRaw}`,
     color: "from-primary to-primary-light",
   },
