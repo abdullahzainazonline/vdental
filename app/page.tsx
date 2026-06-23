@@ -100,16 +100,16 @@ export default function HomePage() {
             <ScrollReveal direction="right" duration={0.8}>
               <div className="relative overflow-hidden rounded-3xl h-full min-h-[400px]">
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-110"
+                  className="absolute inset-0 bg-cover bg-top sm:bg-center transition-transform duration-700 hover:scale-110"
                   style={{ backgroundImage: 'url("/V Dental Website images/Home Page/Why Choose Us Banner/Home_WhyChooseUs_Bg.jpg")' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-md">
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 w-full p-5 sm:p-6 md:p-8">
+                  <div className="mb-3 md:mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 md:px-4 md:py-1.5 text-xs md:text-sm font-medium text-white backdrop-blur-md">
                     Advanced Technology
                   </div>
-                  <h3 className="mb-2 text-3xl font-bold text-white">Modern & Comfortable</h3>
-                  <p className="text-white/80">Experience pain-free dentistry in a relaxing, spa-like environment equipped with the latest dental tech.</p>
+                  <h3 className="mb-2 text-2xl md:text-3xl font-bold text-white">Modern & Comfortable</h3>
+                  <p className="text-white/80 text-sm md:text-base">Experience pain-free dentistry in a relaxing, spa-like environment equipped with the latest dental tech.</p>
                 </div>
               </div>
             </ScrollReveal>
