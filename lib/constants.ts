@@ -1,4 +1,4 @@
-export const SITE_CONFIG = {
+﻿export const SITE_CONFIG = {
   name: "V Dental Clinic PJ",
   tagline: "SS2's Trusted Family Dentist",
   description:
@@ -305,7 +305,7 @@ export const SERVICES = [
     title: 'Denture',
     shortDesc: 'Custom restorative dentures designed for comfort and natural aesthetic.',
     icon: 'Smile',
-    image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&q=80',
+    image: '/VDENTAL ASSETS/VDENTAL @PHOTO 1-20260617T091550Z-3-001/VDENTAL @PHOTO 1/den.png',
     metaTitle: 'Custom Dentures SS2, Petaling Jaya | V Dental Clinic',
     metaDescription: 'Restore your confident smile with custom-made, comfortable, and natural-looking acrylic, flexible, or suction dentures.',
     galleryCategory: 'Cosmetic',
