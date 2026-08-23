@@ -6,7 +6,7 @@ import { useInView } from "framer-motion";
 // Desktop 16:9 video
 const DESKTOP_ID = "4l3ftp";
 // Mobile 9:16 vertical video
-const MOBILE_ID  = "d877d1";
+const MOBILE_ID  = "mrnyxs";
 
 export default function VideoSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
